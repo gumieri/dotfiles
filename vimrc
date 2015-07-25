@@ -6,3 +6,7 @@ set backspace=indent,eol,start
 
 " silence
 set visualbell
+
+" Code editor configurations
+syntax enable
+colorscheme monokai
