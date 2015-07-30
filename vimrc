@@ -12,6 +12,7 @@ syntax enable
 colorscheme monokai
 set number
 set history=1000
+set laststatus=2
 
 " Indentation
 set autoindent
@@ -21,3 +22,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
+
+" Load Plugins
+set runtimepath^=~/.vim/bundle/ctrlp.vim " ctrlP
