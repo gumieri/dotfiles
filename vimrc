@@ -25,7 +25,3 @@ set expandtab
 
 " Load Plugins
 set runtimepath^=~/.vim/bundle/ctrlp.vim " ctrlP
-
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
