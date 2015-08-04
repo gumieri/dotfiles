@@ -25,3 +25,7 @@ set expandtab
 
 " Load Plugins
 set runtimepath^=~/.vim/bundle/ctrlp.vim " ctrlP
+set runtimepath^=~/.vim/bundle/vim-airline " Airline (Light Powerline)
+
+" vim-airline configurations
+let g:airline_powerline_fonts = 1
