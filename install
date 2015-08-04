@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+DOTFILES_ROOT=$(dirname $0)
+
+if [ ! -h ~/.vim ]; then
+  ln -s $DOTFILES_ROOT/vim ~/.vim
+fi
+
+ln -s $DOTFILES_ROOT/vimrc ~/.vimrc
+
+ln -s $DOTFILES_ROOT/minttyrc ~/.minttyrc
+
