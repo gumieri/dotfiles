@@ -26,6 +26,7 @@ set expandtab
 " Load Plugins
 set runtimepath^=~/.vim/bundle/ctrlp.vim " ctrlP
 set runtimepath^=~/.vim/bundle/vim-airline " Airline (Light Powerline)
+set runtimepath^=~/.vim/bundle/vim-elixir " Official Elixir support for Vim
 
 " vim-airline configurations
 let g:airline_powerline_fonts = 1
