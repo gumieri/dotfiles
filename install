@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES_ROOT=$(dirname $0)
+DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 if [ ! -h ~/.vim ]; then
   ln -s $DOTFILES_ROOT/vim ~/.vim
