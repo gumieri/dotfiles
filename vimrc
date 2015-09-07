@@ -23,10 +23,9 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
-" Load Plugins
-set runtimepath^=~/.vim/bundle/ctrlp.vim " ctrlP
-set runtimepath^=~/.vim/bundle/vim-airline " Airline (Light Powerline)
-set runtimepath^=~/.vim/bundle/vim-elixir " Official Elixir support for Vim
+" Plugin Manager Pathogen
+set runtimepath^=~/.vim/bundle/vim-pathogen
+execute pathogen#infect()
 
 " vim-airline configurations
 let g:airline_powerline_fonts = 1
