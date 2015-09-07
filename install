@@ -6,7 +6,11 @@ if [ ! -h ~/.vim ]; then
   ln -s $DOTFILES_ROOT/vim ~/.vim
 fi
 
+if [ ! -h ~/.oh-my-zsh ]; then
+  ln -s $DOTFILES_ROOT/oh-my-zsh ~/.oh-my-zsh
+fi
+
 ln -s $DOTFILES_ROOT/vimrc ~/.vimrc
 
-ln -s $DOTFILES_ROOT/minttyrc ~/.minttyrc
+# ln -s $DOTFILES_ROOT/minttyrc ~/.minttyrc
 
