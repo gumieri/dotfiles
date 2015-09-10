@@ -12,5 +12,7 @@ fi
 
 ln -s $DOTFILES_ROOT/vimrc ~/.vimrc
 
+ln -s $DOTFILES_ROOT/tmux.conf ~/.tmux.conf
+
 # ln -s $DOTFILES_ROOT/minttyrc ~/.minttyrc
 
