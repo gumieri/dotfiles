@@ -2,49 +2,21 @@
 
 DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-if [ -h ~/.vim ]; then
-  printf "~/.vim exists\n"
-else
-  ln -s $DOTFILES_ROOT/vim ~/.vim
-  printf "~/.vim linked\n"
-fi
-
-if [ -h ~/.vimrc ]; then
-  printf "~/.vimrc exists\n"
-else
-  ln -s $DOTFILES_ROOT/vimrc ~/.vimrc
-  printf "~/.vimrc linked\n"
-fi
-
-if [ -h ~/.oh-my-zsh ]; then
-  printf "~/.oh-my-zsh exists\n"
-else
-  ln -s $DOTFILES_ROOT/oh-my-zsh ~/.oh-my-zsh
-  printf "~/.oh-my-zsh linked\n"
-fi
-
-if [ -h ~/.tmux ]; then
-  printf "~/.tmux exists\n"
-else
-  ln -s $DOTFILES_ROOT/tmux ~/.tmux
-  printf "~/.tmux linked\n"
-fi
-
-if [ -h ~/.tmux.conf ]; then
-  printf "~/.tmux.conf exists\n"
-else
-  ln -s $DOTFILES_ROOT/tmux.conf ~/.tmux.conf
-  printf "~/.tmux.conf linked\n"
-fi
-
 if [ `uname -o` == "Cygwin" ]; then
-  if [ -h ~/.minttyrc ]; then
-    printf "~/.minttyrc exists\n"
-  else
-    ln -s $DOTFILES_ROOT/minttyrc ~/.minttyrc
-    printf "~/.minttyrc linked\n"
-  fi
+  DOTFILES=(vim vimrc oh-my-zsh tmux tmux.conf minttyrc)
+else
+  DOTFILES=(vim vimrc oh-my-zsh tmux tmux.conf)
 fi
+
+for dotfile in "${DOTFILES[@]}"
+  do
+   if [ -h ~/."${dotfile}" ]; then
+    printf "~/."${dotfile}" exists\n"
+  else
+    ln -s $DOTFILES_ROOT/"${dotfile}" ~/."${dotfile}"
+    printf "~/."${dotfile}" linked\n"
+  fi
+done
 
 printf "%s installation end\n" $DOTFILES_ROOT
 
