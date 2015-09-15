@@ -10,6 +10,10 @@ if [ ! -h ~/.oh-my-zsh ]; then
   ln -s $DOTFILES_ROOT/oh-my-zsh ~/.oh-my-zsh
 fi
 
+if [ ! -h ~/.tmux ]; then
+  ln -s $DOTFILES_ROOT/tmux ~/.tmux
+fi
+
 ln -s $DOTFILES_ROOT/vimrc ~/.vimrc
 
 ln -s $DOTFILES_ROOT/tmux.conf ~/.tmux.conf
