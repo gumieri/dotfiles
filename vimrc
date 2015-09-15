@@ -13,7 +13,7 @@ execute pathogen#infect()
 
 " Code editor configurations
 syntax enable
-colorscheme monokai
+colorscheme badwolf
 set number
 set history=1000
 set laststatus=2
