@@ -3,9 +3,9 @@
 DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 if [ `uname -o` == "Cygwin" ]; then
-  DOTFILES=(vim vimrc oh-my-zsh tmux tmux.conf minttyrc)
+  DOTFILES=(vim vimrc oh-my-zsh tmux tmux.conf minttyrc zshrc)
 else
-  DOTFILES=(vim vimrc oh-my-zsh tmux tmux.conf)
+  DOTFILES=(vim vimrc oh-my-zsh tmux tmux.conf zshrc)
 fi
 
 for dotfile in "${DOTFILES[@]}"
