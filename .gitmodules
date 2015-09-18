@@ -12,16 +12,16 @@
 	url = https://github.com/bling/vim-airline.git
 [submodule "vim/bundle/vim-elixir"]
 	path = vim/bundle/vim-elixir
-	url = git@github.com:elixir-lang/vim-elixir.git
+	url = https://github.com/elixir-lang/vim-elixir.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
-	url = git@github.com:robbyrussell/oh-my-zsh.git
+	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "vim/bundle/badwolf"]
 	path = vim/bundle/badwolf
-	url = git@github.com:sjl/badwolf.git
+	url = https://github.com/sjl/badwolf.git
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
 [submodule "tmux/plugins/tmux-resurrect"]
 	path = tmux/plugins/tmux-resurrect
-	url = git@github.com:tmux-plugins/tmux-resurrect.git
+	url = https://github.com/tmux-plugins/tmux-resurrect.git
