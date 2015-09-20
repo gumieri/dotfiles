@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 
-DOTFILES_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+DOTFILES_ROOT=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 
-if [ `uname -o` == "Cygwin" ]; then
-  DOTFILES=(vim vimrc oh-my-zsh tmux tmux.conf minttyrc zshrc)
-else
-  DOTFILES=(vim vimrc oh-my-zsh tmux tmux.conf zshrc)
+DOTFILES=(vim vimrc oh-my-zsh tmux tmux.conf zshrc)
+if [[ "$(uname -s)" == *CYGWIN* ]]
+then
+  DOTFILES+=(minttyrc)
 fi
 
 for dotfile in "${DOTFILES[@]}"
-  do
-   if [ -h ~/."${dotfile}" ]; then
+do
+  if [ -h ~/."${dotfile}" ]
+  then
     printf "~/."${dotfile}" exists\n"
   else
     ln -s $DOTFILES_ROOT/"${dotfile}" ~/."${dotfile}"
