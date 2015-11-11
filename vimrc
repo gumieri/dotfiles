@@ -32,3 +32,6 @@ set expandtab
 
 " vim-airline configurations
 let g:airline_powerline_fonts = 1
+
+" bind ^s to save
+nnoremap <silent> <C-S> :write<CR>
