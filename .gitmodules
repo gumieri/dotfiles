@@ -25,3 +25,6 @@
 [submodule "tmux/plugins/tmux-resurrect"]
 	path = tmux/plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
+[submodule "vim/bundle/vim-rails"]
+	path = vim/bundle/vim-rails
+	url = https://github.com/tpope/vim-rails.git
