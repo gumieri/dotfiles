@@ -4,6 +4,9 @@ set nocompatible
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 
+" enable 256 colors (before colorscheme)
+set t_Co=256
+
 " silence
 set visualbell
 
