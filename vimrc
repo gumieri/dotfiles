@@ -20,6 +20,8 @@ colorscheme badwolf
 set number
 set history=1000
 set laststatus=2
+set scrolloff=10
+set cursorline
 
 " Indentation
 set autoindent
