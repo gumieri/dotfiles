@@ -83,5 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Disable software flow control
+stty -ixon
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
