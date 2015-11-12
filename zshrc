@@ -87,4 +87,4 @@ source $ZSH/oh-my-zsh.sh
 stty -ixon
 
 # Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
