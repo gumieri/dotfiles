@@ -14,7 +14,7 @@ do
   then
     printf "~/."${dotfile}" exists\n"
   else
-    ln -s $DOTFILES_ROOT/"${dotfile}" ~/."${dotfile}"
+    ln -s "${DOTFILES_ROOT}"/"${dotfile}" ~/."${dotfile}"
     printf "~/."${dotfile}" linked\n"
   fi
 done
