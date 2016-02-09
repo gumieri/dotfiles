@@ -1,8 +1,8 @@
 BoldAsFont=no
 CursorType=block
 Scrollbar=none
-Font=Droid Sans Mono Slashed for Pow
-FontHeight=11
+Font=Sauce Code Powerline
+FontHeight=10
 Term=xterm-256color
 ForegroundColour=131,148,150
 BackgroundColour=0,0,0
@@ -23,4 +23,4 @@ White=238,232,213
 BoldWhite=253,246,227
 Locale=C
 Charset=UTF-8
-Transparency=low
+Transparency=off
