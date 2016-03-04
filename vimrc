@@ -35,5 +35,8 @@ set expandtab
 " vim-airline configurations
 let g:airline_powerline_fonts = 1
 
+" <Ctrl-l> redraws the screen and removes any search highlighting
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
 " bind ^s to save
 nnoremap <silent> <C-S> :write<CR>
