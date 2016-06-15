@@ -1,0 +1,6 @@
+# Recursive grep
+alias grepr='grep -R -n -H --exclude-dir={.git}'
+
+# Docker tools
+alias dcp='docker-compose'
+alias dmc='docker-machine'
