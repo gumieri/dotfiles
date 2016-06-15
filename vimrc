@@ -16,7 +16,7 @@ execute pathogen#infect()
 
 " Code editor configurations
 syntax enable
-colorscheme badwolf
+colorscheme preto
 set number
 set history=1000
 set laststatus=2
@@ -34,6 +34,7 @@ set expandtab
 
 " vim-airline configurations
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'serene' " other good themes for preto: jay, simple
 
 " <Ctrl-l> redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
