@@ -22,7 +22,8 @@ set history=1000
 set laststatus=2
 set scrolloff=10
 set cursorline
-set undodir=~/.vim/undo-dir
+set directory=$HOME/.vim/swap
+set undodir=$HOME/.vim/undo
 set undofile
 
 " Indentation
