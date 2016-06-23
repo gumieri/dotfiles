@@ -20,7 +20,7 @@ do
 done
 
 printf "%s synchronizing submodules\n"
-(cd $DOTFILES_ROOT && git submodule update --init --recursive)
+(cd "${DOTFILES_ROOT}" && git submodule update --init --recursive)
 
 printf "%s installation end\n" $DOTFILES_ROOT
 
