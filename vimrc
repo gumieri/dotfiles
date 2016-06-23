@@ -10,6 +10,10 @@ set t_Co=256
 " silence
 set visualbell
 
+" performance
+set lazyredraw
+set ttyfast
+
 " Plugin Manager Pathogen
 set runtimepath^=~/.vim/bundle/vim-pathogen
 execute pathogen#infect()
