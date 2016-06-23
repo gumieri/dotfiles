@@ -20,19 +20,27 @@ execute pathogen#infect()
 
 " Code editor configurations
 syntax enable
-colorscheme preto
-set number                    " show number of the line
-set history=1000              " increase the history commands
-set laststatus=2              " for multiple windows (2 = always)
-set scrolloff=10              " number of lines always above or below the cursor
-set cursorline                " highlight the line where is the cursor
+colorscheme preto " there's also: badwolf
+
+set number       " show number of the line
+set history=100  " increase the history commands
+set laststatus=2 " always show status line
+set scrolloff=10 " number of lines always above or below the cursor
+set cursorline   " highlight the line where is the cursor
+set showmatch    " highlight the sibling block mark: (), [], {}
+set incsearch		 " live search
+
+" Advanced buffering/temporary files for the opened projects
 set directory=$HOME/.vim/swap " storage all the .swp files
+set hidden                    " enable switch files and keep the swap
+
 set undodir=$HOME/.vim/undo   " storage undo files
 set undofile                  " enable persistent undo
 
 " Indentation
+filetype indent plugin on
+
 set autoindent    " copy the indentation from previous line
-set smartindent   " it will try to indent based on C lang
 set smarttab      " allow use of tab with bellow settings
 set tabstop=2     " number of spaces for indentation
 set shiftwidth=2  " used with tabstop and >> << == commands
