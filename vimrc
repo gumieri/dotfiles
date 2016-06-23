@@ -15,7 +15,7 @@ set lazyredraw
 set ttyfast
 
 " Plugin Manager Pathogen
-set runtimepath^=~/.vim/bundle/vim-pathogen
+set runtimepath^=$HOME/.vim/bundle/vim-pathogen
 execute pathogen#infect()
 
 " Code editor configurations
