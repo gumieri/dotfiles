@@ -53,5 +53,7 @@ let g:airline_theme = 'serene' " other good themes with preto: jay, simple
 " <Ctrl-l> redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+nnoremap <Tab> <C-^>
+
 " bind ^s to save
 nnoremap <silent> <C-S> :write<CR>
