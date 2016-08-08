@@ -50,6 +50,9 @@ set shiftwidth=2  " used with tabstop and >> << == commands
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'badwolf'
 
+" Ignore
+set wildignore+=**/node_modules
+
 " <Ctrl-l> redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
