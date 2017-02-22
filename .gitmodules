@@ -1,17 +1,14 @@
-[submodule "vim/bundle/vim-pathogen"]
-	path = vim/bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule "vim/bundle/vim-airline"]
-	path = vim/bundle/vim-airline
+	path = vim/pack/ages/start/vim-airline
 	url = https://github.com/bling/vim-airline.git
 [submodule "vim/bundle/vim-elixir"]
-	path = vim/bundle/vim-elixir
+	path = vim/pack/ages/start/vim-elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "vim/bundle/badwolf"]
-	path = vim/bundle/badwolf
+	path = vim/pack/ages/start/badwolf
 	url = https://github.com/sjl/badwolf.git
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
@@ -20,35 +17,35 @@
 	path = tmux/plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
 [submodule "vim/bundle/vim-rails"]
-	path = vim/bundle/vim-rails
+	path = vim/pack/ages/start/vim-rails
 	url = https://github.com/tpope/vim-rails.git
 [submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
+	path = vim/pack/ages/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "vim/bundle/vim-multiple-cursors"]
-	path = vim/bundle/vim-multiple-cursors
+	path = vim/pack/ages/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
 [submodule "vim/bundle/vim-go"]
-	path = vim/bundle/vim-go
+	path = vim/pack/ages/start/vim-go
 	url = https://github.com/fatih/vim-go.git
 [submodule "vim/bundle/preto"]
-	path = vim/bundle/preto
+	path = vim/pack/ages/start/preto
 	url = https://github.com/ewilazarus/preto
-[submodule "vim/bundle/editorconfig-vim"]
-	path = vim/bundle/editorconfig-vim
-	url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule "vim/bundle/vim-airline-themes"]
-	path = vim/bundle/vim-airline-themes
+	path = vim/pack/ages/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
 [submodule "vim/bundle/vim-javascript"]
-	path = vim/bundle/vim-javascript
+	path = vim/pack/ages/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
 [submodule "tmux/plugins/tmux-continuum"]
 	path = tmux/plugins/tmux-continuum
 	url = https://github.com/tmux-plugins/tmux-continuum.git
 [submodule "vim/bundle/vim-obsession"]
-	path = vim/bundle/vim-obsession
+	path = vim/pack/ages/start/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
 [submodule "vim/bundle/vim-autoswap"]
-	path = vim/bundle/vim-autoswap
+	path = vim/pack/ages/start/vim-autoswap
 	url = https://github.com/gioele/vim-autoswap.git
+[submodule "vim/pack/ages/start/editorconfig-vim"]
+	path = vim/pack/ages/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
