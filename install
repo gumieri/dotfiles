@@ -2,7 +2,7 @@
 
 DOTFILES_ROOT=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 
-DOTFILES=(fonts vim vimrc oh-my-zsh tmux tmux.conf tmuxline.conf zshrc zshrc.alias)
+DOTFILES=(fonts vim vimrc oh-my-zsh tmux tmux.conf tmuxline.conf zsh zshrc zshrc.alias)
 if [[ "$(uname -s)" == *CYGWIN* ]]
 then
   DOTFILES+=(minttyrc)
