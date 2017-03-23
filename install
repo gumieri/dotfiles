@@ -2,6 +2,10 @@
 
 DOTFILES_ROOT=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 
+printf "${DOTFILES_ROOT} - starting installation\n"
+
+printf "${DOTFILES_ROOT} - binding dotfiles\n"
+
 DOTFILES=(fonts vim vimrc oh-my-zsh tmux tmux.conf tmuxline.conf zsh zshrc zshrc.alias)
 if [[ "$(uname -s)" == *CYGWIN* ]]
 then
@@ -10,17 +14,17 @@ fi
 
 for dotfile in "${DOTFILES[@]}"
 do
-  if [ -h ~/."${dotfile}" ]
+  if [ -h "${HOME}"/."${dotfile}" ]
   then
-    printf "~/."${dotfile}" exists\n"
+    printf "${HOME}/.${dotfile} exists\n"
   else
-    ln -s "${DOTFILES_ROOT}"/"${dotfile}" ~/."${dotfile}"
-    printf "~/."${dotfile}" linked\n"
+    ln -s "${DOTFILES_ROOT}"/"${dotfile}" "${HOME}"/."${dotfile}"
+    printf "${HOME}/.${dotfile} linked\n"
   fi
 done
 
-printf "%s synchronizing submodules\n"
-(cd "${DOTFILES_ROOT}" && git submodule update --init --recursive)
+printf "${DOTFILES_ROOT} - synchronizing submodules\n"
 
-printf "%s installation end\n" $DOTFILES_ROOT
+(cd "${DOTFILES_ROOT}" && git submodule update --quiet --init --recursive --depth=1)
 
+printf "${DOTFILES_ROOT} - installation finished\n"
