@@ -25,6 +25,6 @@ done
 
 printf "${DOTFILES_ROOT} - synchronizing submodules\n"
 
-(cd "${DOTFILES_ROOT}" && git submodule update --quiet --init --recursive --depth=1)
+(cd "${DOTFILES_ROOT}" && git submodule update --quiet --init --recursive --depth 1)
 
 printf "${DOTFILES_ROOT} - installation finished\n"

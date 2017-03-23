@@ -52,6 +52,7 @@ let g:ctrlp_show_hidden = 1
 
 " Ignore
 set wildignore+=**/node_modules
+set wildignore+=**/coverage
 
 " <Ctrl-l> redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
