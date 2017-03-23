@@ -47,6 +47,9 @@ set shiftwidth=2  " used with tabstop and >> << == commands
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'badwolf'
 
+" ctrlp.vim configurations
+let g:ctrlp_show_hidden = 1
+
 " Ignore
 set wildignore+=**/node_modules
 
