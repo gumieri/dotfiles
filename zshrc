@@ -6,9 +6,11 @@ ZSH=$HOME/.oh-my-zsh
 
 NEW_ZSH=$HOME/.zsh
 
-ZSH_THEME=agnostic
+ZSH_THEME="agnostic"
 
-ZSH_PLUGINS=(docker docker-compose git tmux)
+ZSH_PLUGINS=("docker" "git" "tmux")
+
+HISTFILE=$NEW_ZSH/history
 
 # Load all stock functions (from $fpath files) called below.
 autoload -U compaudit compinit
@@ -27,8 +29,8 @@ done
 unset config_file
 
 # Completion dump file
-[[ -z "$ZSH_COMPDUMP" ]] && ZSH_COMPDUMP="${NEW_ZSH}/completion-${SHORT_HOST}-${ZSH_VERSION}.dump"
-compinit -i -d "${ZSH_COMPDUMP}"
+[[ -z $ZSH_COMPDUMP ]] && ZSH_COMPDUMP=$NEW_ZSH/completion.$SHORT_HOST.$ZSH_VERSION.dump
+compinit -i -d $ZSH_COMPDUMP
 
 ## Loading things
 
@@ -40,7 +42,7 @@ done
 unset plugin
 
 # Theme
-[[ -f $HOME/.zsh/themes/$ZSH_THEME.zsh-theme ]] && source $HOME/.zsh/themes/$ZSH_THEME.zsh-theme
+[[ -f $NEW_ZSH/themes/$ZSH_THEME.zsh-theme ]] && source $NEW_ZSH/themes/$ZSH_THEME.zsh-theme
 
 # Aliases
 [[ -f $HOME/.zshrc.alias ]] && source $HOME/.zshrc.alias
