@@ -5,7 +5,7 @@
 	path = vim/pack/ages/start/vim-elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
 [submodule "oh-my-zsh"]
-	path = oh-my-zsh
+	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "vim/bundle/badwolf"]
 	path = vim/pack/ages/start/badwolf

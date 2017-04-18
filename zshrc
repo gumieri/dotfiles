@@ -12,7 +12,7 @@ HISTFILE="${ZSH}/history"
 autoload -U compaudit compinit
 
 ## oh-my-zsh libs
-for config_file ($HOME/.oh-my-zsh/lib/*.zsh)
+for config_file ($ZSH/oh-my-zsh/lib/*.zsh)
 do
   source $config_file
 done
