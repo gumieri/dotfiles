@@ -27,6 +27,9 @@ set cursorline   " highlight the line where is the cursor
 set showmatch    " highlight the sibling block mark: (), [], {}
 set incsearch		 " live search
 
+" Change viminfo location to ~./vim
+set viminfo+=n$HOME/.vim/info
+
 " Advanced buffering/temporary files for the opened projects
 set directory=$HOME/.vim/swap " storage all the .swp files
 set hidden                    " enable switch files and keep the swap
