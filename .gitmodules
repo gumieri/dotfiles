@@ -49,3 +49,6 @@
 [submodule "vim/pack/ages/start/editorconfig-vim"]
 	path = vim/pack/ages/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "tmux/plugins/tmux-battery"]
+	path = tmux/plugins/tmux-battery
+	url = https://github.com/tmux-plugins/tmux-battery.git
