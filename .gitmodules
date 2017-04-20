@@ -19,9 +19,6 @@
 [submodule "vim/bundle/vim-rails"]
 	path = vim/pack/ages/start/vim-rails
 	url = https://github.com/tpope/vim-rails.git
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/pack/ages/start/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "vim/bundle/vim-multiple-cursors"]
 	path = vim/pack/ages/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
@@ -55,3 +52,6 @@
 [submodule "asdf"]
 	path = asdf
 	url = https://github.com/asdf-vm/asdf.git
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf.git

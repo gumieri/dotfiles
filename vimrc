@@ -24,10 +24,6 @@ set hidden                    " enable switch files and keep the swap
 set undodir=$HOME/.vim/undo   " storage undo files
 set undofile                  " enable persistent undo
 
-" Ignore
-set wildignore+=**/node_modules
-set wildignore+=**/coverage
-
 source $HOME/.vim/indentation.vim
 
 source $HOME/.vim/shortcuts.vim

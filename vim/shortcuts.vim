@@ -1,3 +1,6 @@
+" <Ctrl-p> with fzf
+nnoremap <C-p> :FZF<CR>
+
 " <Ctrl-l> redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
