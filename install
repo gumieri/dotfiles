@@ -6,7 +6,7 @@ printf "${DOTFILES_ROOT} - starting installation\n"
 
 printf "${DOTFILES_ROOT} - binding dotfiles\n"
 
-DOTFILES=(fonts vim vimrc zsh zshrc tmux tmux.conf asdf fzf)
+DOTFILES=(fonts vim vimrc zsh zshrc tmux tmux.conf asdf fzf xinitrc)
 if [[ "$(uname -s)" == *CYGWIN* ]]
 then
   DOTFILES+=(minttyrc)
