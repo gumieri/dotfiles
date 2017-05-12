@@ -1,9 +1,6 @@
 [submodule "vim/bundle/vim-airline"]
 	path = vim/pack/ages/start/vim-airline
 	url = https://github.com/bling/vim-airline.git
-[submodule "vim/bundle/vim-elixir"]
-	path = vim/pack/ages/start/vim-elixir
-	url = https://github.com/elixir-lang/vim-elixir.git
 [submodule "oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
@@ -16,24 +13,15 @@
 [submodule "tmux/plugins/tmux-resurrect"]
 	path = tmux/plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
-[submodule "vim/bundle/vim-rails"]
-	path = vim/pack/ages/start/vim-rails
-	url = https://github.com/tpope/vim-rails.git
 [submodule "vim/bundle/vim-multiple-cursors"]
 	path = vim/pack/ages/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
-[submodule "vim/bundle/vim-go"]
-	path = vim/pack/ages/start/vim-go
-	url = https://github.com/fatih/vim-go.git
 [submodule "vim/bundle/preto"]
 	path = vim/pack/ages/start/preto
 	url = https://github.com/ewilazarus/preto
 [submodule "vim/bundle/vim-airline-themes"]
 	path = vim/pack/ages/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "vim/bundle/vim-javascript"]
-	path = vim/pack/ages/start/vim-javascript
-	url = https://github.com/pangloss/vim-javascript.git
 [submodule "tmux/plugins/tmux-continuum"]
 	path = tmux/plugins/tmux-continuum
 	url = https://github.com/tmux-plugins/tmux-continuum.git
@@ -55,3 +43,6 @@
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "vim/pack/ages/start/vim-polyglot"]
+	path = vim/pack/ages/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
