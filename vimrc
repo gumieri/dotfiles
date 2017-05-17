@@ -1,6 +1,3 @@
-" Use Vim settings
-set nocompatible " must be first line
-
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 
