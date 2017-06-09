@@ -1,3 +1,7 @@
+" bufferline
+let g:bufferline_echo = 0
+let g:bufferline_modified = ' ✚'
+
 " vim-airline
 let g:airline_powerline_fonts = 1
 

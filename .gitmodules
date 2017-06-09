@@ -46,3 +46,9 @@
 [submodule "vim/pack/ages/start/vim-polyglot"]
 	path = vim/pack/ages/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "vim/pack/ages/start/vim-bufferline"]
+	path = vim/pack/ages/start/vim-bufferline
+	url = https://github.com/bling/vim-bufferline.git
+[submodule "vim/pack/ages/start/vim-fugitive"]
+	path = vim/pack/ages/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git

@@ -10,3 +10,6 @@ nnoremap <silent> <S-Tab> :bp<CR>
 
 " bind ^s to save
 nnoremap <silent> <C-S> :write<CR>
+
+nnoremap <silent> <F2> :%y+<CR>
+nnoremap <silent> <F4> ggdG"+P<CR>
