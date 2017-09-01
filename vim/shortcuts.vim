@@ -8,8 +8,14 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 nnoremap <silent> <Tab> :bn<CR>
 nnoremap <silent> <S-Tab> :bp<CR>
 
-" bind ^s to save
+" <Ctrl-x> to close the current buffer
+nnoremap <silent> <C-x> :bd<CR>
+
+" <Ctrl-s> to save
 nnoremap <silent> <C-S> :write<CR>
+
+" <Ctrl-q> to quit
+nnoremap <silent> <C-Q> :quit<CR>
 
 nnoremap <silent> <F2> :%y+<CR>
 nnoremap <silent> <F4> ggdG"+P<CR>
