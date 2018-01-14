@@ -1,5 +1,6 @@
 syntax enable
-colorscheme badwolf
+set background=dark
+colorscheme gruvbox
 
 set mouse=a      " enable mouse actions
 set number       " show number of the line

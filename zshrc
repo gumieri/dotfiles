@@ -4,7 +4,7 @@ stty -ixon
 # Settings
 ZDOTDIR="${HOME}/.zsh"
 
-ZSH_THEME="agnostic"
+ZSH_THEME="promptline"
 
 HISTFILE="${ZDOTDIR}/history"
 

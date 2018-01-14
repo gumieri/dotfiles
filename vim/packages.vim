@@ -4,6 +4,7 @@ let g:bufferline_modified = ' ✚'
 
 " vim-airline
 let g:airline_powerline_fonts = 1
+let g:gruvbox_contrast_dark = 'hard'
 
 " vim-autoswap
 let g:autoswap_detect_tmux = 1

@@ -5,7 +5,7 @@
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "vim/bundle/badwolf"]
-	path = vim/pack/ages/start/badwolf
+	path = vim/pack/colorschemes/start/badwolf
 	url = https://github.com/sjl/badwolf.git
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
@@ -16,9 +16,6 @@
 [submodule "vim/bundle/vim-multiple-cursors"]
 	path = vim/pack/ages/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
-[submodule "vim/bundle/preto"]
-	path = vim/pack/ages/start/preto
-	url = https://github.com/ewilazarus/preto
 [submodule "vim/bundle/vim-airline-themes"]
 	path = vim/pack/ages/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
@@ -52,3 +49,6 @@
 [submodule "vim/pack/ages/start/vim-fugitive"]
 	path = vim/pack/ages/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/pack/colorschemes/start/gruvbox"]
+	path = vim/pack/colorschemes/start/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
