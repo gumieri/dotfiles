@@ -8,6 +8,9 @@ ZSH_THEME="promptline"
 
 HISTFILE="${ZDOTDIR}/history"
 
+EDITOR=vim
+VISUAL=$EDITOR
+
 # oh-my-zsh libs
 for config_file ($ZDOTDIR/oh-my-zsh/lib/*.zsh)
 do
