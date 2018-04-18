@@ -1,6 +1,6 @@
 # gumieri/.files
 ```
-git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/install
+git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/setup
 ```
 
 ## Packages to be installed

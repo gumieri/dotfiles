@@ -6,10 +6,21 @@ printf "${DOTFILES_ROOT} - starting installation\n"
 
 printf "${DOTFILES_ROOT} - binding dotfiles\n"
 
-DOTFILES=(fonts vim vimrc zsh zshrc tmux tmux.conf asdf fzf xinitrc)
-if [[ "$(uname -s)" == *CYGWIN* ]]
+DOTFILES=(fonts asdf fzf)
+
+if command -v zsh > /dev/null
 then
-  DOTFILES+=(minttyrc)
+  DOTFILES+=(zsh zshrc)
+fi
+
+if command -v vim > /dev/null
+then
+  DOTFILES+=(vim vimrc)
+fi
+
+if command -v tmux > /dev/null
+then
+  DOTFILES+=(tmux tmux.conf)
 fi
 
 for dotfile in "${DOTFILES[@]}"

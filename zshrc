@@ -41,3 +41,5 @@ unset theme_path_zsh
 
 # Add ~/.zsh/bin to the Path
 [[ ! $PATH == *$ZDOTDIR/bin* ]] && PATH="${PATH}:${ZDOTDIR}/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
