@@ -2,6 +2,7 @@ syntax enable
 set background=dark
 colorscheme gruvbox
 
+set hlsearch     " enable highlight search
 set mouse=a      " enable mouse actions
 set number       " show number of the line
 set laststatus=2 " always show status line
