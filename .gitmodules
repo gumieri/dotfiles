@@ -1,60 +1,66 @@
-[submodule "vim/bundle/vim-airline"]
+[submodule "vim/airline"]
 	path = vim/pack/ages/start/vim-airline
-	url = https://github.com/bling/vim-airline.git
-[submodule "oh-my-zsh"]
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "vim/bundle/badwolf"]
+  branch = master
+  branch = master
+[submodule "vim/colorschemes/badwolf"]
 	path = vim/pack/colorschemes/start/badwolf
 	url = https://github.com/sjl/badwolf.git
-[submodule "tmux/plugins/tpm"]
+  branch = master
+[submodule "tmux/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
-[submodule "tmux/plugins/tmux-resurrect"]
+[submodule "tmux/resurrect"]
 	path = tmux/plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
-[submodule "vim/bundle/vim-multiple-cursors"]
+[submodule "vim/multiple-cursors"]
 	path = vim/pack/ages/start/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
-[submodule "vim/bundle/vim-airline-themes"]
+[submodule "vim/graphics/airline-themes"]
 	path = vim/pack/ages/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "tmux/plugins/tmux-continuum"]
+  branch = master
+[submodule "tmux/continuum"]
 	path = tmux/plugins/tmux-continuum
 	url = https://github.com/tmux-plugins/tmux-continuum.git
-[submodule "vim/bundle/vim-obsession"]
+  branch = master
+[submodule "vim/obsession"]
 	path = vim/pack/ages/start/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
-[submodule "vim/bundle/vim-autoswap"]
+  branch = master
+[submodule "vim/autoswap"]
 	path = vim/pack/ages/start/vim-autoswap
 	url = https://github.com/gioele/vim-autoswap.git
-[submodule "vim/pack/ages/start/editorconfig-vim"]
+[submodule "vim/editorconfig"]
 	path = vim/pack/ages/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
-[submodule "tmux/plugins/tmux-battery"]
+[submodule "tmux/battery"]
 	path = tmux/plugins/tmux-battery
 	url = https://github.com/tmux-plugins/tmux-battery.git
-[submodule "asdf"]
+[submodule "devtools/asdf"]
 	path = asdf
 	url = https://github.com/asdf-vm/asdf.git
-[submodule "fzf"]
+[submodule "devtools/fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "vim/pack/ages/start/vim-polyglot"]
+[submodule "vim/polyglot"]
 	path = vim/pack/ages/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
-[submodule "vim/pack/ages/start/vim-bufferline"]
+[submodule "vim/bufferline"]
 	path = vim/pack/ages/start/vim-bufferline
 	url = https://github.com/bling/vim-bufferline.git
-[submodule "vim/pack/ages/start/vim-fugitive"]
+[submodule "vim/fugitive"]
 	path = vim/pack/ages/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/pack/colorschemes/start/gruvbox"]
+[submodule "vim/colorschemes/gruvbox"]
 	path = vim/pack/colorschemes/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
-[submodule "vim/pack/ages/start/ale"]
+[submodule "vim/ale"]
 	path = vim/pack/ages/start/ale
 	url = https://github.com/w0rp/ale.git
-[submodule "vim/pack/ages/start/vim-go"]
+[submodule "vim/go"]
 	path = vim/pack/ages/start/vim-go
 	url = https://github.com/fatih/vim-go.git
