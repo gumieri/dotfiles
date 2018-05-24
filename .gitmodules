@@ -52,3 +52,9 @@
 [submodule "vim/pack/colorschemes/start/gruvbox"]
 	path = vim/pack/colorschemes/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+[submodule "vim/pack/ages/start/ale"]
+	path = vim/pack/ages/start/ale
+	url = https://github.com/w0rp/ale.git
+[submodule "vim/pack/ages/start/vim-go"]
+	path = vim/pack/ages/start/vim-go
+	url = https://github.com/fatih/vim-go.git
