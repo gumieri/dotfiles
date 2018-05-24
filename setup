@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 printf "Setting up dotfiles\n"
 
-DOTFILES=(fonts asdf fzf Xresources)
+DOTFILES=(fonts asdf fzf Xresources Xmodmap)
 
 # Verifying available commands / programs
 if command -v zsh > /dev/null

@@ -73,3 +73,7 @@
 	path = vim/pack/ages/start/vim-go
 	url = https://github.com/fatih/vim-go.git
 	branch = master
+[submodule "config/awesome/lain"]
+	path = config/awesome/lain
+	url = https://github.com/lcpz/lain.git
+	branch = master
