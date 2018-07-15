@@ -7,6 +7,9 @@ let g:airline_powerline_fonts = 1
 let g:gruvbox_contrast_light = 'hard'
 let g:gruvbox_contrast_dark = 'hard'
 
+" vim-go
+let g:go_fmt_command = "goimports"
+
 " vim-autoswap
 let g:autoswap_detect_tmux = 1
 

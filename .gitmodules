@@ -5,7 +5,6 @@
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
   branch = master
-  branch = master
 [submodule "vim/colorschemes/badwolf"]
 	path = vim/pack/colorschemes/start/badwolf
 	url = https://github.com/sjl/badwolf.git
