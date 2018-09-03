@@ -2,6 +2,9 @@
 let g:bufferline_echo = 0
 let g:bufferline_modified = ' ✚'
 
+" vim-go
+let g:go_fmt_command = "goimports"
+
 " vim-airline
 let g:airline_powerline_fonts = 1
 let g:gruvbox_contrast_light = 'hard'
