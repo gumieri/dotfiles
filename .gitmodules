@@ -18,10 +18,6 @@
 	path = tmux/plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
 	branch = master
-[submodule "vim/multiple-cursors"]
-	path = vim/pack/ages/start/vim-multiple-cursors
-	url = https://github.com/terryma/vim-multiple-cursors.git
-	branch = master
 [submodule "vim/graphics/airline-themes"]
 	path = vim/pack/ages/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
