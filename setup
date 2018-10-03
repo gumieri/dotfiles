@@ -42,7 +42,12 @@ do
     if [[ $module = *"${dotfile}"* ]]
     then
       printf "  - Downloading module: ${module}\n"
-      git submodule update --quiet --init --depth 1 ${PWD}/${module}
+      if [[ $* == *--upgrade* ]]
+      then
+        git submodule update --remote --quiet --init --depth 1 ${PWD}/${module}
+      else
+        git submodule update --quiet --init --depth 1 ${PWD}/${module}
+      fi
       printf "  - Download complete\n"
     fi
   done
