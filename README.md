@@ -17,6 +17,7 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/setup
 * automake
 * autoconf
 * libtool
+* perl-Digest-SHA `// shasum`
 * readline (dev)
 * ncurses (dev)
 * openssl (dev)
@@ -32,12 +33,12 @@ sudo apt-get install vim zsh tmux wmctrl automake autoconf libreadline-dev libnc
 
 ### RHEL/Centos
 ```
-sudo yum install vim zsh tmux wmctrl automake autoconf readline-devel ncurses-devel openssl-devel libyaml-devel libxslt-devel libffi-devel libtool unixODBC-devel
+sudo yum install vim zsh tmux wmctrl automake autoconf perl-Digest-SHA readline-devel ncurses-devel openssl-devel libyaml-devel libxslt-devel libffi-devel libtool unixODBC-devel
 ```
 
 ### Fedora
 ```
-sudo dnf install vim zsh tmux wmctrl automake autoconf readline-devel ncurses-devel openssl-devel libyaml-devel libxslt-devel libffi-devel libtool unixODBC-devel
+sudo dnf install vim zsh tmux wmctrl automake autoconf perl-Digest-SHA readline-devel ncurses-devel openssl-devel libyaml-devel libxslt-devel libffi-devel libtool unixODBC-devel
 ```
 
 ### mac osx (homebrew)
