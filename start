@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+tmux a 2>/dev/null || tmux
