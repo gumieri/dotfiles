@@ -23,3 +23,8 @@ let g:fzf_layout = { 'down': '~20%' }
 let g:ale_fixers = {'javascript': ['prettier_standard']}
 let g:ale_linters = {'javascript': ['']}
 let g:ale_fix_on_save = 1
+
+" polyglot
+if exists('g:loaded_polyglot')
+  let g:polyglot_disabled = ['go']
+endif
