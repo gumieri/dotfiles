@@ -49,10 +49,6 @@
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
 	branch = master
-[submodule "vim/polyglot"]
-	path = vim/pack/ages/start/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot.git
-	branch = master
 [submodule "vim/bufferline"]
 	path = vim/pack/ages/start/vim-bufferline
 	url = https://github.com/bling/vim-bufferline.git
