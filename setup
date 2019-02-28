@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
+set -e
+
+color_white='\033[1;37m'
+color_green='\033[1;32m'
+color_red='\033[1;33m'
+color_end='\033[0m'
+
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 # Change directory to this script location
 cd "$(dirname "${BASH_SOURCE[0]}")"
-
-printf "Setting up dotfiles\n"
 
 DOTFILES=(fonts asdf fzf Xdefaults)
 
@@ -27,33 +33,67 @@ modules=$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }')
 
 for dotfile in "${DOTFILES[@]}"
 do
-  printf "${dotfile}\n"
-
-  if [ -h "${HOME}/.${dotfile}" ]
-  then
-    printf "  - Already exists: ${HOME}/.${dotfile}\n"
-  else
-    ln -s "${PWD}/${dotfile}" "${HOME}/.${dotfile}"
-    printf "  - Link created: ${HOME}/.${dotfile}\n"
-  fi
+  printf "${color_white}${dotfile}${color_end}\n"
 
   for module in $modules
   do
     if [[ $module = *"${dotfile}"* ]]
     then
       printf "  - Downloading module: ${module}\n"
-      if [[ $* == *--upgrade* ]]
-      then
-        git submodule update --remote --quiet --init --depth 1 ${PWD}/${module}
-      else
-        git submodule update --quiet --init --depth 1 ${PWD}/${module}
-      fi
-      printf "  - Download complete\n"
+      git submodule update --remote --quiet --init --depth 1 ${PWD}/${module} &>/dev/null
+      printf "  - ${color_green}Download complete${color_end}\n"
     fi
   done
+
+  link_path="${HOME}/.${dotfile}"
+  dotfile_path="${PWD}/${dotfile}"
+
+  # Symbolic link
+  if [ -h "${link_path}" ]
+  then
+    if [ "$(readlink "${link_path}")" = "${dotfile_path}" ]
+    then
+      printf "  - Link exists: ${link_path}\n"
+    else
+      printf "  - ${color_red}Warning${color_end}: ${link_path} already exists\n"
+    fi
+  else
+    ln -s "${dotfile_path}" "${link_path}"
+    printf "  - ${color_green}Link created${color_end}: ${link_path}\n"
+  fi
+done
+
+# XDG Dotfiles
+
+XDG_DOTFILES=()
+
+if command -v sway > /dev/null
+then
+  XDG_DOTFILES+=(sway)
+fi
+
+for dotfile in "${XDG_DOTFILES[@]}"
+do
+  printf "${color_white}${dotfile}${color_end}\n"
+
+  link_path="${XDG_CONFIG_HOME}/${dotfile}"
+  dotfile_path="${PWD}/config/${dotfile}"
+  # Symbolic link
+  if [ -h $link_path ]
+  then
+    if [ "$(readlink $link_path)" = $dotfile_path ]
+    then
+      printf "  - Link exists: ${link_path}\n"
+    else
+      printf "  - ${color_red}Warning${color_end}: ${link_path} already exists\n"
+    fi
+  else
+    ln -s "${dotfile_path}" "${link_path}"
+    printf "  - ${color_green}Link created${color_end}: ${link_path}\n"
+  fi
 done
 
 # Post-download setup
 $PWD/fzf/install --bin
 
-printf "Setup completed\n"
+printf "${color_white}Setup completed${color_end}\n"
