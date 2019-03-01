@@ -72,6 +72,11 @@ then
   XDG_DOTFILES+=(sway)
 fi
 
+if command -v rofi > /dev/null
+then
+  XDG_DOTFILES+=(rofi)
+fi
+
 for dotfile in "${XDG_DOTFILES[@]}"
 do
   printf "${color_white}${dotfile}${color_end}\n"
