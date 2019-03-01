@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+color_white='\033[1;37m'
+color_green='\033[1;32m'
+color_red='\033[1;33m'
+color_end='\033[0m'
+
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+DOTFILES=(fonts asdf fzf Xdefaults)
+
+# Verifying available commands / programs
+if command -v vim > /dev/null
+then
+  DOTFILES+=(vim)
+fi
+
+if command -v zsh > /dev/null
+then
+  DOTFILES+=(zsh zshrc)
+fi
+
+if command -v tmux > /dev/null
+then
+  DOTFILES+=(tmux tmux.conf)
+fi
+
+XDG_DOTFILES=()
+
+if command -v sway > /dev/null
+then
+  XDG_DOTFILES+=(sway)
+fi
+
+if command -v rofi > /dev/null
+then
+  XDG_DOTFILES+=(rofi)
+fi
+
+if command -v kitty > /dev/null
+then
+  XDG_DOTFILES+=(kitty)
+fi

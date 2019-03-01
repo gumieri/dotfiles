@@ -1,40 +1,18 @@
 #!/usr/bin/env bash
-set -e
 
-color_white='\033[1;37m'
-color_green='\033[1;32m'
-color_red='\033[1;33m'
-color_end='\033[0m'
+# Change directory to this script location and back to it's parent
+cd "$(dirname "${BASH_SOURCE[0]}")" && cd ..
 
-XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
-
-# Change directory to this script location
-cd "$(dirname "${BASH_SOURCE[0]}")"
-
-DOTFILES=(fonts asdf fzf Xdefaults)
-
-# Verifying available commands / programs
-if command -v zsh > /dev/null
-then
-  DOTFILES+=(zsh zshrc)
-fi
-
-if command -v vim > /dev/null
-then
-  DOTFILES+=(vim vimrc)
-fi
-
-if command -v tmux > /dev/null
-then
-  DOTFILES+=(tmux tmux.conf)
-fi
+source ./bin/common
 
 modules=$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }')
-
 for dotfile in "${DOTFILES[@]}"
 do
   printf "${color_white}${dotfile}${color_end}\n"
 
+  # modules
+  if [[ $* != *--no-modules* ]]
+  then
   for module in $modules
   do
     if [[ $module = *"${dotfile}"* ]]
@@ -44,6 +22,7 @@ do
       printf "  - ${color_green}Download complete${color_end}\n"
     fi
   done
+  fi
 
   link_path="${HOME}/.${dotfile}"
   dotfile_path="${PWD}/${dotfile}"
@@ -64,25 +43,26 @@ do
 done
 
 # XDG Dotfiles
-
-XDG_DOTFILES=()
-
-if command -v sway > /dev/null
-then
-  XDG_DOTFILES+=(sway)
-fi
-
-if command -v rofi > /dev/null
-then
-  XDG_DOTFILES+=(rofi)
-fi
-
 for dotfile in "${XDG_DOTFILES[@]}"
 do
   printf "${color_white}${dotfile}${color_end}\n"
 
+  # modules
+  if [[ $* != *--no-modules* ]]
+  then
+  for module in $modules
+  do
+    if [[ $module = *"${dotfile}"* ]]
+    then
+      printf "  - Downloading module: ${module}\n"
+      git submodule update --remote --quiet --init --depth 1 ${PWD}/${module} &>/dev/null
+      printf "  - ${color_green}Download complete${color_end}\n"
+    fi
+  done
+  fi
+
   link_path="${XDG_CONFIG_HOME}/${dotfile}"
-  dotfile_path="${PWD}/config/${dotfile}"
+  dotfile_path="${PWD}/xdg/${dotfile}"
   # Symbolic link
   if [ -h $link_path ]
   then
@@ -98,6 +78,7 @@ do
   fi
 done
 
+printf "${color_white}fzf${color_end}\n"
 # Post-download setup
 $PWD/fzf/install --bin
 

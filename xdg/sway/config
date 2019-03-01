@@ -1,3 +1,5 @@
+### Variables
+
 # Arc-Dark Pallete
 set $base_color #404552
 set $text_color #d3dae3
@@ -14,48 +16,26 @@ set $dark_sidebar_bg #353945
 set $link_color #5294e2
 set $menu_bg #383c4a
 
-### Variables
-#
+# Default fonts
+set $mono_font "Fira Code"
+set $sans_font "Cantarell"
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-set $term gnome-terminal
-# Your preferred application launcher
-set $menu rofi -show run
+
+# Terminal emulator
+set $term kitty
+
+# Application launcher
+set $menu rofi -show combi
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $HOME/Pictures/wallpaper fill
-# output DP-2 resolution 1920x1080 position 0,1080
-# output HDMI-A-1 resolution 1920x1080 position 0,0
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-### Key bindings
 #
 # Basics:
 #
@@ -63,7 +43,7 @@ output * bg $HOME/Pictures/wallpaper fill
     bindsym $mod+Return exec $term
 
     # kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # start your launcher
     bindsym $mod+d exec $menu
@@ -78,8 +58,10 @@ output * bg $HOME/Pictures/wallpaper fill
     # reload the configuration file
     bindsym $mod+Shift+c reload
 
+    bindsym $mod+Alt+l exec 'swaylock --color 000000 --inside-color ffffff'
+
     # exit sway (logs you out of your wayland session)
-    bindsym $mod+Shift+e exit
+    bindsym $mod+Alt+e exit
 #
 # Moving around:
 #
@@ -198,8 +180,10 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    status_command i3status
+    height 5
+    status_command $XDG_CONFIG_HOME/sway/status-bar
     position top
+
     colors {
         statusline #ffffff
         background #00000000
@@ -210,11 +194,18 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# Appearance
+font $mono_font 10
+
 gaps inner 10
 
 default_border none
 
-input "9494:4:CM_Storm_QuickFire_Rapid_keyboard" {
-  xkb_options caps:escape
-  xkb_options compose:ralt
+input * {
+  tap enabled
+  natural_scroll disabled
+  xkb_options caps:escape,compose:ralt
 }
+
+include $XDG_CONFIG_HOME/sway/local/*

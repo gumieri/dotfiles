@@ -2,3 +2,4 @@ rofi.combi-modi:    window,drun,ssh,run
 rofi.theme:         gruvbox-dark
 rofi.font:          Sauce Code Powerline Regular 10
 rofi.modi:          combi,run
+rofi.theme: /usr/share/rofi/themes/Arc-Dark.rasi

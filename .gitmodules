@@ -69,3 +69,11 @@
 	path = vim/pack/ages/start/vim-go
 	url = https://github.com/fatih/vim-go.git
 	branch = master
+[submodule "vim/pack/colorschemes/start/iceberg.vim"]
+	path = vim/pack/colorschemes/start/iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim.git
+	branch = master
+[submodule "xdg/bumblebee-status"]
+	path = xdg/sway/lib/bumblebee-status
+	url = https://github.com/tobi-wan-kenobi/bumblebee-status.git
+	branch = master

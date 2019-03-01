@@ -1,14 +1,33 @@
 # gumieri/.files
 ```
-git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/setup
+git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/setup
 ```
 
-## Packages to be installed
+### Programs contemplated
 
-### basic of the dotfiles
-* vim
-* zsh
-* tmux
+#### vim
+  Text editor.
+  - default colorscheme: iceberg
+
+#### zsh
+  Shell.
+  - default theme: promptline
+
+#### tmux
+  Terminal multiplexer.
+
+#### sway
+  Window manager.
+  - GTK theme: Arc Dark
+
+#### rofi
+  Application launcher.
+  - default theme: Arc Dark
+
+#### kitty
+  Terminal emulator.
+
+## Dependencies of some programs
 
 ### vim-autoswap extension
 * wmctrl

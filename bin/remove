@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Change directory to this script location and back to it's parent
+cd "$(dirname "${BASH_SOURCE[0]}")" && cd ..
+
+source ./bin/common
+
+for dotfile in "${DOTFILES[@]}"
+do
+  printf "${color_white}${dotfile}${color_end}\n"
+
+  link_path="${HOME}/.${dotfile}"
+  dotfile_path="${PWD}/${dotfile}"
+
+  # Symbolic link
+  if [ -h "${link_path}" ]
+  then
+    if [ "$(readlink "${link_path}")" = "${dotfile_path}" ]
+    then
+      rm "${link_path}"
+    printf "  - ${color_green}Link removed${color_end}: ${link_path}\n"
+    fi
+  fi
+done
+
+for dotfile in "${XDG_DOTFILES[@]}"
+do
+  printf "${color_white}${dotfile}${color_end}\n"
+
+  link_path="${XDG_CONFIG_HOME}/${dotfile}"
+  dotfile_path="${PWD}/xdg/${dotfile}"
+  # Symbolic link
+  if [ -h $link_path ]
+  then
+    if [ "$(readlink $link_path)" = $dotfile_path ]
+    then
+      rm "${link_path}"
+      printf "  - ${color_green}Link removed${color_end}: ${link_path}\n"
+    fi
+  fi
+done
+
+printf "${color_white}Links removed${color_end}\n"
