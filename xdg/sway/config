@@ -30,7 +30,7 @@ set $up k
 set $right l
 
 # Terminal emulator
-set $term kitty
+set $term kitty -d $($XDG_CONFIG_HOME/sway/focused-cwd)
 
 # Application launcher
 set $menu rofi -show combi
