@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
 $XDG_CONFIG_HOME/sway/lib/bumblebee-status/bumblebee-status \
-  -m battery time pasink pasource \
-  -p time.format="%F %T" \
-  -t iceberg-powerline
+  --modules \
+    git \
+    pasink \
+    pasource \
+    brightness \
+    load \
+    battery \
+    time \
+  --parameters \
+    time.format="%F %T" \
+  --theme gruvbox-powerline

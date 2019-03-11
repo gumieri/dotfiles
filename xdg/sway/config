@@ -1,10 +1,34 @@
 ### Variables
 
-# Arc-Dark Pallete
+# Gruvbox-Dark Pallete
+set $transparent_color #00000000
+set $red_color #cc241d
+set $red2_color #fb4934
+set $green_color #98971a
+set $green2_color #d8bb26
+set $yellow_color #d79921
+set $yellow2_color #fabd2f
+set $blue_color #458588
+set $blue2_color #83a598
+set $purple_color #b16286
+set $purple2_color #d3869b
+set $aqua_color #689d6a
+set $aqua2_color #8ec07c
+set $gray_color #a89984
+set $gray2_color #928374
+set $orange_color #d65d0e
+set $orange2_color #928374
+
+set $bg_color #282828
+set $fg_color #ebdbb2
+set $bg1_color #3c3836
+set $bg2_color #504945
+set $bg3_color #665c54
+set $bg4_color #7c6f64
+set $bg0_h_color #1d2021
+
 set $base_color #404552
 set $text_color #d3dae3
-set $bg_color #383c4a
-set $fg_color #d3dae3
 set $tooltip_bg_color #4B5162
 set $tooltip_fg_color #ffffff
 set $selected_bg_color #5294e2
@@ -175,6 +199,10 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+include /etc/sway/config.d/*
+
+include $XDG_CONFIG_HOME/sway/local/*
+
 #
 # Status Bar:
 #
@@ -182,18 +210,16 @@ bindsym $mod+r mode "resize"
 bar {
     height 5
     status_command $XDG_CONFIG_HOME/sway/status-bar
-    position top
+    position bottom
 
     colors {
-        statusline #ffffff
-        background #00000000
-        focused_workspace $bg_color $selected_bg_color50 $text_color
-        active_workspace $bg_color $bg_color50 $text_color
-        inactive_workspace $bg_color $bg_color50 $text_color
+        statusline $bg0_h_color
+        background $transparent_color
+        focused_workspace $transparent_color $bg_color $fg_color
+        active_workspace $transparent_color $bg_color50 $fg_color
+        inactive_workspace $transparent_color $bg_color00 $fg_color
     }
 }
-
-include /etc/sway/config.d/*
 
 # Appearance
 font $mono_font 10
@@ -206,6 +232,5 @@ input * {
   tap enabled
   natural_scroll disabled
   xkb_options caps:escape,compose:ralt
+  xkb_numlock enabled
 }
-
-include $XDG_CONFIG_HOME/sway/local/*
