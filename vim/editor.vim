@@ -1,6 +1,6 @@
 syntax enable
 set background=dark
-colorscheme iceberg
+colorscheme gruvbox
 
 set hlsearch     " enable highlight search
 set mouse=a      " enable mouse actions
