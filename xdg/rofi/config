@@ -1,4 +1,4 @@
 rofi.combi-modi:    window,drun,ssh,run
-rofi.theme:         gruvbox-dark
+rofi.theme:         gruvbox-dark-hard
 rofi.font:          Sauce Code Powerline Regular 10
 rofi.modi:          combi,run
