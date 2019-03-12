@@ -2,7 +2,7 @@
 
 # Gruvbox-Dark Pallete
 set $no_color #00000000
-set $black_color #ffffff
+set $black_color #000000
 set $red_color #cc241d
 set $red2_color #fb4934
 set $green_color #98971a
@@ -31,7 +31,7 @@ set $bg_color $bg0_color
 set $fg_color #ebdbb2
 
 # Default fonts
-set $mono_font "Fira Code"
+set $mono_font "Hack"
 set $sans_font "Cantarell"
 
 # Logo key. Use Mod1 for Alt.
@@ -204,10 +204,10 @@ bar {
 
     colors {
         statusline $bg_color
-        background $bg_color00
-        focused_workspace $blue_color $bg_color $blue_color
-        active_workspace $no_color $bg_color50 $fg_color
-        inactive_workspace $no_color $bg_color00 $fg_color
+        background $bg_color
+        focused_workspace $blue2_color $bg_color $blue2_color
+        active_workspace $bg_color $bg_color $blue2_color
+        inactive_workspace $bg_color $bg_color $fg_color
     }
 }
 

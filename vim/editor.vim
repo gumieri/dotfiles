@@ -2,6 +2,8 @@ syntax enable
 set background=dark
 colorscheme gruvbox
 
+highlight Normal ctermbg=None
+
 set hlsearch     " enable highlight search
 set mouse=a      " enable mouse actions
 set number       " show number of the line

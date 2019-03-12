@@ -8,7 +8,7 @@ ZSH_THEME="promptline"
 
 HISTFILE="${ZDOTDIR}/history"
 
-EDITOR=vim
+EDITOR=nvim
 VISUAL=$EDITOR
 
 # oh-my-zsh libs
