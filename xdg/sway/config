@@ -1,7 +1,8 @@
 ### Variables
 
 # Gruvbox-Dark Pallete
-set $transparent_color #00000000
+set $no_color #00000000
+set $black_color #ffffff
 set $red_color #cc241d
 set $red2_color #fb4934
 set $green_color #98971a
@@ -19,26 +20,15 @@ set $gray2_color #928374
 set $orange_color #d65d0e
 set $orange2_color #928374
 
-set $bg_color #282828
-set $fg_color #ebdbb2
+set $bg0_color #282828
 set $bg1_color #3c3836
 set $bg2_color #504945
 set $bg3_color #665c54
 set $bg4_color #7c6f64
 set $bg0_h_color #1d2021
 
-set $base_color #404552
-set $text_color #d3dae3
-set $tooltip_bg_color #4B5162
-set $tooltip_fg_color #ffffff
-set $selected_bg_color #5294e2
-set $selected_fg_color #ffffff
-set $insensitive_bg_color #3e4350
-set $insensitive_fg_color #7c818c
-set $notebook_bg #404552
-set $dark_sidebar_bg #353945
-set $link_color #5294e2
-set $menu_bg #383c4a
+set $bg_color $bg0_color
+set $fg_color #ebdbb2
 
 # Default fonts
 set $mono_font "Fira Code"
@@ -213,20 +203,48 @@ bar {
     position bottom
 
     colors {
-        statusline $bg0_h_color
-        background $transparent_color
-        focused_workspace $transparent_color $bg_color $fg_color
-        active_workspace $transparent_color $bg_color50 $fg_color
-        inactive_workspace $transparent_color $bg_color00 $fg_color
+        statusline $bg_color
+        background $bg_color00
+        focused_workspace $blue_color $bg_color $blue_color
+        active_workspace $no_color $bg_color50 $fg_color
+        inactive_workspace $no_color $bg_color00 $fg_color
     }
 }
 
 # Appearance
-font $mono_font 10
+font $mono_font 8
 
-gaps inner 10
+gaps inner 4
 
-default_border none
+default_border pixel 2
+
+client.focused \
+  $no_color \
+  $no_color \
+  $no_color \
+  $no_color \
+  $blue_color
+
+client.focused_inactive \
+  $bg_color \
+  $no_color \
+  $no_color \
+  $no_color \
+  $bg_color
+
+client.unfocused \
+  $no_color \
+  $no_color \
+  $no_color \
+  $no_color \
+  $bg_color
+
+client.urgent \
+  $no_color \
+  $no_color \
+  $no_color \
+  $no_color \
+  $red_color
 
 input * {
   tap enabled
