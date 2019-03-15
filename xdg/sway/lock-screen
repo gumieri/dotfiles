@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+no_color='00000000'
+black_color='000000'
+red_color='cc241d'
+red2_color='fb4934'
+green_color='98971a'
+green2_color='d8bb26'
+yellow_color='d79921'
+yellow2_color='fabd2f'
+blue_color='458588'
+blue2_color='83a598'
+purple_color='b16286'
+purple2_color='d3869b'
+aqua_color='689d6a'
+aqua2_color='8ec07c'
+gray_color='a89984'
+gray2_color='928374'
+orange_color='d65d0e'
+orange2_color='928374'
+
+bg0_color='282828'
+bg1_color='3c3836'
+bg2_color='504945'
+bg3_color='665c54'
+bg4_color='7c6f64'
+bg0_h_color='1d2021'
+
+bg_color=$bg0_color
+fg_color='ebdbb2'
+
+swaylock \
+  --color ${bg_color} \
+  --inside-color ${fg_color}

@@ -1,0 +1,142 @@
+/*
+red_color #cc241d
+red2_color #fb4934
+green_color #98971a
+green2_color #d8bb26
+yellow_color #d79921
+yellow2_color #fabd2f
+blue_color #458588
+blue2_color #83a598
+purple_color #b16286
+purple2_color #d3869b
+aqua_color #689d6a
+aqua2_color #8ec07c
+gray_color #a89984
+gray2_color #928374
+orange_color #d65d0e
+orange2_color #928374
+
+bg0_color #282828
+bg1_color #3c3836
+bg2_color #504945
+bg3_color #665c54
+bg4_color #7c6f64
+bg0_h_color #1d2021
+
+fg_color #ebdbb2
+*/
+
+* {
+    border: 0;
+    border-radius: 0;
+    padding: 0 0;
+    font-family: Hack, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    min-height: 0;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0);
+    color: #ebdbb2;
+}
+
+#workspaces button {
+    border: 3px;
+    border-style: solid;
+    background: transparent;
+    color: #1d2021;
+}
+
+#workspaces button.focused {
+    border-color: #458588;
+}
+
+#mode {
+    background: #64727D;
+}
+
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode, #idle_inhibitor {
+    border: 3px;
+    border-style: solid;
+    padding: 0 10px;
+}
+
+#clock {
+    border-color: #282828;
+    background-color: #3c3836;
+}
+
+#battery {
+    background-color: #ebdbb2;
+    color: #3c3836;
+}
+
+#battery.charging {
+    color: #ebdbb2;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ebdbb2;
+        color: #3c3836;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: #f53c3c;
+    color: #ebdbb2;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+    border-color: #d8bb26;
+    background: #98971a;
+    color: #3c3836;
+}
+
+#memory {
+    border-color: #d3869b;
+    background: #b16286;
+}
+
+#network {
+    border-color: #83a598;
+    background: #458588;
+}
+
+#network.disconnected {
+    background: #f53c3c;
+}
+
+#pulseaudio {
+    border-color: #fabd2f;
+    background: #d79921;
+    color: #3c3836;
+}
+
+#pulseaudio.muted {
+    border-color: #8ec07c;
+    background: #689d6a;
+    color: #1d2021;
+}
+
+#temperature {
+    background: #f0932b;
+}
+
+#temperature.critical {
+    background: #eb4d4b;
+}
+
+#tray {
+    border-style: hidden;
+    background-color: rgba(0, 0, 0, 0);
+}

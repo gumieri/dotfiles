@@ -32,6 +32,11 @@ then
   XDG_DOTFILES+=(sway)
 fi
 
+if command -v waybar > /dev/null
+then
+  XDG_DOTFILES+=(waybar)
+fi
+
 if command -v rofi > /dev/null
 then
   XDG_DOTFILES+=(rofi)

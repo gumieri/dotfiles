@@ -5,7 +5,9 @@ $XDG_CONFIG_HOME/sway/lib/bumblebee-status/bumblebee-status \
     git \
     pasink \
     pasource \
+    gpmdp \
     brightness \
+    memory \
     load \
     battery \
     time \

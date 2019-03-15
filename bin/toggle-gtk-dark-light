@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-DARK=Arc-Dark
+DARK=Materia-dark
 ICONS_DARK=Paper
-CURSOR_DARK=Oxygen_Zion
+CURSOR_DARK=Oxygen_Black
 
-LIGHT=Arc
+LIGHT=Materia
 ICONS_LIGHT=Paper
 CURSOR_LIGHT=Oxygen_White
 

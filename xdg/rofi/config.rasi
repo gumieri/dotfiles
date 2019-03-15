@@ -1,0 +1,9 @@
+configuration {
+  combi-modi: "window,drun,ssh,run";
+  font:       "Sauce Code Powerline Regular 10";
+  modi:       "combi,run";
+  matching:   "fuzzy";
+  show-icons: true;
+  lines:      25;
+  theme:      "gruvbox-dark-hard";
+}
