@@ -8,6 +8,8 @@ ZSH_THEME="promptline"
 
 HISTFILE="${ZDOTDIR}/history"
 
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
 EDITOR=nvim
 VISUAL=$EDITOR
 

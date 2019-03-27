@@ -62,7 +62,7 @@ do
   fi
 
   link_path="${XDG_CONFIG_HOME}/${dotfile}"
-  dotfile_path="${PWD}/xdg/${dotfile}"
+  dotfile_path="${PWD}/${dotfile}"
   # Symbolic link
   if [ -h $link_path ]
   then
@@ -80,6 +80,6 @@ done
 
 printf "${color_white}fzf${color_end}\n"
 # Post-download setup
-$PWD/fzf/install --bin
+$PWD/fzf/install --bin --xdg
 
 printf "${color_white}Setup completed${color_end}\n"

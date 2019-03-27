@@ -41,17 +41,18 @@
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format-wifi": "  {essid}",
         "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
-        "format-disconnected": "⚠ Disconnected"
+        "format-disconnected": "⚠ Disconnected",
+        "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
-        "scroll-step": 1,
+        "scroll-step": 2,
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {
             "headphones": "",
-            "handsfree": "",
-            "headset": "",
+            "handsfree": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",

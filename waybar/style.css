@@ -51,6 +51,7 @@ window#waybar {
 }
 
 #workspaces button.focused {
+    color: #ebdbb2;
     border-color: #458588;
 }
 
@@ -58,10 +59,10 @@ window#waybar {
     background: #64727D;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #tray, #mode, #idle_inhibitor {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #idle_inhibitor {
     border: 3px;
     border-style: solid;
-    padding: 0 10px;
+    padding: 0 15px;
 }
 
 #clock {

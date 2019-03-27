@@ -1,3 +1,3 @@
-[[ $- == *i* ]] && source "${HOME}/.fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "${XDG_CONFIG_HOME}/fzf/shell/completion.zsh" 2> /dev/null
 
-source "${HOME}/.fzf/shell/key-bindings.zsh"
+source "${XDG_CONFIG_HOME}/fzf/shell/key-bindings.zsh"

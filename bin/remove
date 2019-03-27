@@ -28,7 +28,7 @@ do
   printf "${color_white}${dotfile}${color_end}\n"
 
   link_path="${XDG_CONFIG_HOME}/${dotfile}"
-  dotfile_path="${PWD}/xdg/${dotfile}"
+  dotfile_path="${PWD}/${dotfile}"
   # Symbolic link
   if [ -h $link_path ]
   then
