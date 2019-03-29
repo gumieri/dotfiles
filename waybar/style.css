@@ -72,12 +72,13 @@ window#waybar {
 
 #battery {
     background-color: #ebdbb2;
-    color: #3c3836;
+    color: #282828;
 }
 
 #battery.charging {
-    color: #ebdbb2;
-    background-color: #26A65B;
+    color: #1d2021;
+    border-color: #98971a;
+    background-color: #d8bb26;
 }
 
 @keyframes blink {
@@ -98,8 +99,8 @@ window#waybar {
 }
 
 #cpu {
-    border-color: #d8bb26;
-    background: #98971a;
+    border-color: #8ec07c;
+    background: #689d6a;
     color: #3c3836;
 }
 
