@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if command -v swayidle > /dev/null
+then
+  swayidle -w \
+    timeout 300 ./lock-screen \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep ./lock-screen
+fi

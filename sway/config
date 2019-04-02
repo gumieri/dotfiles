@@ -243,3 +243,7 @@ input * {
 }
 
 include ~/.config/sway/local/*
+
+exec ~/.config/sway/idle
+
+exec ~/.config/sway/mako
