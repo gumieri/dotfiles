@@ -10,7 +10,7 @@ HISTFILE="${ZDOTDIR}/history"
 
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
-EDITOR=nvim
+EDITOR=vim
 VISUAL=$EDITOR
 
 # oh-my-zsh libs

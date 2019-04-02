@@ -7,22 +7,18 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/s
 
 #### vim
   Text editor.
-  - default colorscheme: iceberg
 
 #### zsh
   Shell.
-  - default theme: promptline
 
 #### tmux
   Terminal multiplexer.
 
 #### sway
   Window manager.
-  - GTK theme: Arc Dark
 
 #### rofi
   Application launcher.
-  - default theme: Arc Dark
 
 #### kitty
   Terminal emulator.
@@ -63,4 +59,15 @@ sudo dnf install vim zsh tmux wmctrl automake autoconf perl-Digest-SHA readline-
 ### mac osx (homebrew)
 ```
 sudo brew install vim zsh tmux wmctrl coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc
+```
+
+## Sway
+
+I am building all necessary packages for sway into fedora copr, to enable it:
+```
+sudo dnf copr enable gumieri/sway
+```
+The available packages are:
+```
+sudo dnf install sway swayidle swaylock waybar wl-clipboard slurp grim mako rofi
 ```
