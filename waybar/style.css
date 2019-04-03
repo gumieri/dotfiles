@@ -14,7 +14,7 @@ aqua2_color #8ec07c
 gray_color #a89984
 gray2_color #928374
 orange_color #d65d0e
-orange2_color #928374
+orange2_color #fe8019
 
 bg0_color #282828
 bg1_color #3c3836
@@ -68,6 +68,11 @@ window#waybar {
 #clock {
     border-color: #282828;
     background-color: #3c3836;
+}
+
+#backlight {
+    border-color: #3c3836;
+    background-color: #282828;
 }
 
 #battery {
@@ -131,11 +136,13 @@ window#waybar {
 }
 
 #temperature {
-    background: #f0932b;
+    border-color: #a89984;
+    background: #928374;
 }
 
 #temperature.critical {
-    background: #eb4d4b;
+    border-color: #d65d0e;
+    background: #fe8019;
 }
 
 #tray {
