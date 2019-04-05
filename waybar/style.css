@@ -39,24 +39,26 @@ fg_color #ebdbb2
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0);
     color: #ebdbb2;
+    background: transparent;
 }
 
 #workspaces button {
     border: 3px;
     border-style: solid;
-    background: transparent;
     color: #1d2021;
+    background: transparent;
 }
 
 #workspaces button.focused {
     color: #ebdbb2;
     border-color: #458588;
+    font-weight: bold;
 }
 
 #mode {
-    background: #64727D;
+    color: #282828;
+    background: #fabd2f;
 }
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #idle_inhibitor {
@@ -66,8 +68,9 @@ window#waybar {
 }
 
 #clock {
-    border-color: #282828;
-    background-color: #3c3836;
+    font-weight: bold;
+    border-style: hidden;
+    background: transparent;
 }
 
 #backlight {
@@ -76,8 +79,8 @@ window#waybar {
 }
 
 #battery {
-    background-color: #ebdbb2;
     color: #282828;
+    background-color: #ebdbb2;
 }
 
 #battery.charging {
@@ -88,8 +91,8 @@ window#waybar {
 
 @keyframes blink {
     to {
-        background-color: #ebdbb2;
         color: #3c3836;
+        background-color: #ebdbb2;
     }
 }
 
@@ -105,8 +108,8 @@ window#waybar {
 
 #cpu {
     border-color: #8ec07c;
-    background: #689d6a;
     color: #3c3836;
+    background: #689d6a;
 }
 
 #memory {
@@ -125,14 +128,14 @@ window#waybar {
 
 #pulseaudio {
     border-color: #fabd2f;
-    background: #d79921;
     color: #3c3836;
+    background: #d79921;
 }
 
 #pulseaudio.muted {
     border-color: #8ec07c;
-    background: #689d6a;
     color: #1d2021;
+    background: #689d6a;
 }
 
 #temperature {
@@ -147,5 +150,5 @@ window#waybar {
 
 #tray {
     border-style: hidden;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
 }
