@@ -37,6 +37,11 @@ then
   XDG_DOTFILES+=(swaylock)
 fi
 
+if command -v mako > /dev/null
+then
+  XDG_DOTFILES+=(mako)
+fi
+
 if command -v waybar > /dev/null
 then
   XDG_DOTFILES+=(waybar)

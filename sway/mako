@@ -2,10 +2,5 @@
 
 if command -v swayidle > /dev/null
 then
-  mako \
-    --anchor 'top-right' \
-    --font 'Hack' \
-    --text-color '#ebdbb2' \
-    --border-color '#1d2021' \
-    --background-color '#282828'
+  mako
 fi
