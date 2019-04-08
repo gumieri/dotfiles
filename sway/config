@@ -92,7 +92,7 @@ floating_modifier $mod normal
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-bindsym $mod+Alt+l exec ~/.config/sway/lock-screen
+bindsym $mod+Alt+l exec swaylock
 
 # exit sway (logs you out of your wayland session)
 bindsym $mod+Alt+e exit
