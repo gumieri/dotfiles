@@ -245,8 +245,15 @@ input * {
   xkb_numlock enabled
 }
 
+# lock screen after a period of inactivity
+exec swayidle -w \
+    timeout 60 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+    timeout 300 swaylock \
+    before-sleep swaylock
+
+# notification service
+exec mako
+
+# include local configurations (not versioned at dotfiles)
 include ~/.config/sway/local/*
-
-exec ~/.config/sway/idle
-
-exec ~/.config/sway/mako

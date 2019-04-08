@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-if command -v swayidle > /dev/null
-then
-  mako
-fi
