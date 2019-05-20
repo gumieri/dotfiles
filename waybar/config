@@ -3,8 +3,8 @@
     "position": "bottom",
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode", "tray"],
-    // "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "cpu", "memory", "network", "temperature", "backlight", "battery", "clock"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "network", "backlight", "idle_inhibitor", "battery", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
         "format": "{name}"
@@ -16,7 +16,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
-        "spacing": 10
+        "spacing": 0
     },
     "clock": {
         "interval": 1,
@@ -51,17 +51,24 @@
         "scroll-step": 2,
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}%",
-        "format-muted": "",
+        "format-muted": "",
         "format-icons": {
             "headphones": "",
-            "handsfree": "",
-            "headset": "",
+            "handsfree": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", ""]
+            "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
     "battery": {
       "interval": 10,

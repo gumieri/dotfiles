@@ -48,6 +48,7 @@ window#waybar {
     border-style: solid;
     color: #1d2021;
     background: transparent;
+    padding: 0 2px;
 }
 
 #workspaces button.focused {
@@ -71,11 +72,17 @@ window#waybar {
     font-weight: bold;
     border-style: hidden;
     background: transparent;
+    padding: 0 30px;
 }
 
 #backlight {
     border-color: #3c3836;
     background-color: #282828;
+}
+
+#idle_inhibitor {
+    color: #928374;
+    background-color: #3c3836;
 }
 
 #battery {
