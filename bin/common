@@ -10,11 +10,6 @@ XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 DOTFILES=(fonts asdf XCompose Xdefaults)
 
 # Verifying available commands / programs
-if command -v vim > /dev/null
-then
-  DOTFILES+=(vim)
-fi
-
 if command -v zsh > /dev/null
 then
   DOTFILES+=(zsh zshrc)
@@ -27,6 +22,10 @@ fi
 
 XDG_DOTFILES=(fzf)
 
+if command -v nvim > /dev/null
+then
+  XDG_DOTFILES+=(nvim)
+fi
 if command -v sway > /dev/null
 then
   XDG_DOTFILES+=(sway)

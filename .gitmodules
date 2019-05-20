@@ -1,5 +1,5 @@
 [submodule "vim/airline"]
-	path = vim/pack/ages/start/vim-airline
+	path = nvim/pack/ages/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
 	branch = master
 [submodule "zsh/oh-my-zsh"]
@@ -7,7 +7,7 @@
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 	branch = master
 [submodule "vim/colorschemes/badwolf"]
-	path = vim/pack/colorschemes/start/badwolf
+	path = nvim/pack/colorschemes/start/badwolf
 	url = https://github.com/sjl/badwolf.git
 	branch = master
 [submodule "tmux/tpm"]
@@ -19,7 +19,7 @@
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
 	branch = master
 [submodule "vim/graphics/airline-themes"]
-	path = vim/pack/ages/start/vim-airline-themes
+	path = nvim/pack/ages/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
 	branch = master
 [submodule "tmux/continuum"]
@@ -27,15 +27,15 @@
 	url = https://github.com/tmux-plugins/tmux-continuum.git
 	branch = master
 [submodule "vim/obsession"]
-	path = vim/pack/ages/start/vim-obsession
+	path = nvim/pack/ages/start/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
 	branch = master
 [submodule "vim/autoswap"]
-	path = vim/pack/ages/start/vim-autoswap
+	path = nvim/pack/ages/start/vim-autoswap
 	url = https://github.com/gioele/vim-autoswap.git
 	branch = master
 [submodule "vim/editorconfig"]
-	path = vim/pack/ages/start/editorconfig-vim
+	path = nvim/pack/ages/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule "tmux/battery"]
 	path = tmux/plugins/tmux-battery
@@ -50,26 +50,26 @@
 	url = https://github.com/junegunn/fzf.git
 	branch = master
 [submodule "vim/bufferline"]
-	path = vim/pack/ages/start/vim-bufferline
+	path = nvim/pack/ages/start/vim-bufferline
 	url = https://github.com/bling/vim-bufferline.git
 	branch = master
 [submodule "vim/fugitive"]
-	path = vim/pack/ages/start/vim-fugitive
+	path = nvim/pack/ages/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	branch = master
 [submodule "vim/colorschemes/gruvbox"]
-	path = vim/pack/colorschemes/start/gruvbox
+	path = nvim/pack/colorschemes/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
 	branch = master
 [submodule "vim/ale"]
-	path = vim/pack/ages/start/ale
+	path = nvim/pack/ages/start/ale
 	url = https://github.com/w0rp/ale.git
 	branch = master
 [submodule "vim/go"]
-	path = vim/pack/ages/start/vim-go
+	path = nvim/pack/ages/start/vim-go
 	url = https://github.com/fatih/vim-go.git
 	branch = master
 [submodule "vim/pack/colorschemes/start/iceberg.vim"]
-	path = vim/pack/colorschemes/start/iceberg.vim
+	path = nvim/pack/colorschemes/start/iceberg.vim
 	url = https://github.com/cocopon/iceberg.vim.git
 	branch = master

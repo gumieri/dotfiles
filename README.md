@@ -5,11 +5,14 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/s
 
 ### Programs contemplated
 
-#### vim
-  Text editor.
+#### termite
+  Terminal emulator.
 
 #### zsh
   Shell.
+
+#### neovim
+  Text editor.
 
 #### tmux
   Terminal multiplexer.
@@ -17,11 +20,17 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/s
 #### sway
   Window manager.
 
+#### swaylock
+  Screen locker for sway.
+
+#### swayidle
+  Idle amanagement daemon for sway.
+
+#### waybar
+  Wayland bar for sway.
+
 #### rofi
   Application launcher.
-
-#### kitty
-  Terminal emulator.
 
 ## Dependencies of some programs
 
@@ -43,22 +52,17 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/s
 
 ### Debian/Ubuntu
 ```
-sudo apt-get install vim zsh tmux wmctrl automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev
-```
-
-### RHEL/Centos
-```
-sudo yum install vim zsh tmux wmctrl automake autoconf perl-Digest-SHA readline-devel ncurses-devel openssl-devel libyaml-devel libxslt-devel libffi-devel libtool unixODBC-devel
+sudo apt-get install neovim zsh tmux wmctrl automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev
 ```
 
 ### Fedora
 ```
-sudo dnf install vim zsh tmux wmctrl automake autoconf perl-Digest-SHA readline-devel ncurses-devel openssl-devel libyaml-devel libxslt-devel libffi-devel libtool unixODBC-devel
+sudo dnf install neovim zsh tmux wmctrl automake autoconf perl-Digest-SHA readline-devel ncurses-devel openssl-devel libyaml-devel libxslt-devel libffi-devel libtool unixODBC-devel
 ```
 
 ### mac osx (homebrew)
 ```
-sudo brew install vim zsh tmux wmctrl coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc
+sudo brew install neovim zsh tmux wmctrl coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc
 ```
 
 ## Sway
