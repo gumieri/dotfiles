@@ -49,7 +49,7 @@ set $border_size 3
 set $font_size 12
 
 # Terminal emulator
-set $term kitty -d $(~/.config/sway/focused-cwd kitty)
+set $term termite -d $(~/.config/sway/focused-cwd termite)
 
 # Application launcher
 set $menu rofi -show drun
@@ -191,20 +191,20 @@ bindsym $mod+minus scratchpad show
 # Resizing containers:
 mode "resize" {
   # left will shrink the containers width
-  bindsym $left resize shrink width 10 px or 10 ppt
-  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym $left resize shrink width 10 px
+  bindsym Left resize shrink width 10 px
 
   # right will grow the containers width
-  bindsym $right resize grow width 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym $right resize grow width 10 px
+  bindsym Right resize grow width 10 px
 
   # up will shrink the containers height
-  bindsym $up resize shrink height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym $up resize shrink height 10 px
+  bindsym Up resize shrink height 10 px
 
   # down will grow the containers height
-  bindsym $down resize grow height 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym $down resize grow height 10 px
+  bindsym Down resize grow height 10 px
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -247,9 +247,9 @@ input * {
 
 # lock screen after a period of inactivity
 exec swayidle -w \
-    timeout 60 'swaymsg "output * dpms off"' \
-        resume 'swaymsg "output * dpms on"' \
-    timeout 300 swaylock \
+    timeout 300 'swaymsg "output * dpms off"' \
+    timeout 330 swaylock \
+    resume 'swaymsg "output * dpms on"' \
     before-sleep swaylock
 
 # notification service

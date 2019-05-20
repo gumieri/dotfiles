@@ -56,3 +56,8 @@ if command -v kitty > /dev/null
 then
   XDG_DOTFILES+=(kitty)
 fi
+
+if command -v termite > /dev/null
+then
+  XDG_DOTFILES+=(termite)
+fi
