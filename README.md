@@ -14,9 +14,6 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/s
 #### neovim
   Text editor.
 
-#### tmux
-  Terminal multiplexer.
-
 #### sway
   Window manager.
 
@@ -52,17 +49,17 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/s
 
 ### Debian/Ubuntu
 ```
-sudo apt-get install neovim zsh tmux wmctrl automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev
+sudo apt-get install neovim zsh wmctrl automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev
 ```
 
 ### Fedora
 ```
-sudo dnf install neovim zsh tmux wmctrl automake autoconf perl-Digest-SHA readline-devel ncurses-devel openssl-devel libyaml-devel libxslt-devel libffi-devel libtool unixODBC-devel
+sudo dnf install neovim zsh wmctrl automake autoconf perl-Digest-SHA readline-devel ncurses-devel openssl-devel libyaml-devel libxslt-devel libffi-devel libtool unixODBC-devel
 ```
 
 ### mac osx (homebrew)
 ```
-sudo brew install neovim zsh tmux wmctrl coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc
+sudo brew install neovim zsh wmctrl coreutils automake autoconf openssl libyaml readline libxslt libtool unixodbc
 ```
 
 ## Sway

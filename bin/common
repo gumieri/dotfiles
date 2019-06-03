@@ -15,11 +15,6 @@ then
   DOTFILES+=(zsh zshrc)
 fi
 
-if command -v tmux > /dev/null
-then
-  DOTFILES+=(tmux tmux.conf)
-fi
-
 XDG_DOTFILES=(fzf asdf)
 
 if command -v nvim > /dev/null

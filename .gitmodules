@@ -6,21 +6,9 @@
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 	branch = master
-[submodule "tmux/tpm"]
-	path = tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm.git
-	branch = master
-[submodule "tmux/resurrect"]
-	path = tmux/plugins/tmux-resurrect
-	url = https://github.com/tmux-plugins/tmux-resurrect.git
-	branch = master
 [submodule "vim/graphics/airline-themes"]
 	path = nvim/pack/ages/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-	branch = master
-[submodule "tmux/continuum"]
-	path = tmux/plugins/tmux-continuum
-	url = https://github.com/tmux-plugins/tmux-continuum.git
 	branch = master
 [submodule "vim/obsession"]
 	path = nvim/pack/ages/start/vim-obsession
@@ -33,10 +21,6 @@
 [submodule "vim/editorconfig"]
 	path = nvim/pack/ages/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
-[submodule "tmux/battery"]
-	path = tmux/plugins/tmux-battery
-	url = https://github.com/tmux-plugins/tmux-battery.git
-	branch = master
 [submodule "devtools/asdf"]
 	path = asdf
 	url = https://github.com/asdf-vm/asdf.git
