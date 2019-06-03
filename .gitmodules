@@ -1,7 +1,6 @@
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-	branch = master
 [submodule "vim/obsession"]
 	path = nvim/pack/ages/start/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
