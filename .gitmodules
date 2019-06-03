@@ -6,10 +6,6 @@
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 	branch = master
-[submodule "vim/colorschemes/badwolf"]
-	path = nvim/pack/colorschemes/start/badwolf
-	url = https://github.com/sjl/badwolf.git
-	branch = master
 [submodule "tmux/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
@@ -68,8 +64,4 @@
 [submodule "vim/go"]
 	path = nvim/pack/ages/start/vim-go
 	url = https://github.com/fatih/vim-go.git
-	branch = master
-[submodule "vim/pack/colorschemes/start/iceberg.vim"]
-	path = nvim/pack/colorschemes/start/iceberg.vim
-	url = https://github.com/cocopon/iceberg.vim.git
 	branch = master
