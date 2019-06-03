@@ -1,14 +1,14 @@
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
 # Disable software flow control
 stty -ixon
 
 # Settings
-ZDOTDIR="${HOME}/.zsh"
+ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
 ZSH_THEME="promptline"
 
 HISTFILE="${ZDOTDIR}/history"
-
-XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 EDITOR=nvim
 VISUAL=$EDITOR
