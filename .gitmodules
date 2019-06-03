@@ -1,14 +1,6 @@
-[submodule "vim/airline"]
-	path = nvim/pack/ages/start/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
-	branch = master
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-	branch = master
-[submodule "vim/graphics/airline-themes"]
-	path = nvim/pack/ages/start/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
 	branch = master
 [submodule "vim/obsession"]
 	path = nvim/pack/ages/start/vim-obsession
@@ -29,10 +21,6 @@
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
 	branch = master
-[submodule "vim/bufferline"]
-	path = nvim/pack/ages/start/vim-bufferline
-	url = https://github.com/bling/vim-bufferline.git
-	branch = master
 [submodule "vim/fugitive"]
 	path = nvim/pack/ages/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -49,3 +37,6 @@
 	path = nvim/pack/ages/start/vim-go
 	url = https://github.com/fatih/vim-go.git
 	branch = master
+[submodule "nvim/pack/ages/start/vim-crystalline"]
+	path = nvim/pack/ages/start/vim-crystalline
+	url = https://github.com/rbong/vim-crystalline.git
