@@ -7,7 +7,7 @@ color_end='\033[0m'
 
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
-DOTFILES=(XCompose Xdefaults)
+DOTFILES=(XCompose)
 XDG_DOTFILES=(asdf fonts fzf)
 
 # Verifying available commands / programs
