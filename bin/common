@@ -7,7 +7,7 @@ color_end='\033[0m'
 
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
-DOTFILES=(fonts XCompose Xdefaults)
+DOTFILES=(XCompose Xdefaults)
 
 # Verifying available commands / programs
 if command -v zsh > /dev/null
@@ -15,7 +15,7 @@ then
   DOTFILES+=(zsh zshrc)
 fi
 
-XDG_DOTFILES=(fzf asdf)
+XDG_DOTFILES=(asdf fonts fzf)
 
 if command -v nvim > /dev/null
 then
