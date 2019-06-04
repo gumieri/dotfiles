@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+class=${1}
+swaymsg -t get_tree | jq --exit-status ".. | select(.window_properties?) | select(.window_properties.class==\"${class}\")"
