@@ -5,39 +5,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" && cd ..
 
 source ./bin/common
 
-for dotfile in "${DOTFILES[@]}"
-do
-  printf "${color_white}${dotfile}${color_end}\n"
-
-  link_path="${HOME}/.${dotfile}"
-  dotfile_path="${PWD}/${dotfile}"
-
-  # Symbolic link
-  if [ -h "${link_path}" ]
-  then
-    if [ "$(readlink "${link_path}")" = "${dotfile_path}" ]
-    then
-      rm "${link_path}"
-    printf "  - ${color_green}Link removed${color_end}: ${link_path}\n"
-    fi
-  fi
-done
-
-for dotfile in "${XDG_DOTFILES[@]}"
-do
-  printf "${color_white}${dotfile}${color_end}\n"
-
-  link_path="${XDG_CONFIG_HOME}/${dotfile}"
-  dotfile_path="${PWD}/${dotfile}"
-  # Symbolic link
-  if [ -h $link_path ]
-  then
-    if [ "$(readlink $link_path)" = $dotfile_path ]
-    then
-      rm "${link_path}"
-      printf "  - ${color_green}Link removed${color_end}: ${link_path}\n"
-    fi
-  fi
-done
+remove_files "${HOME}/." ${dot_files[@]}
+remove_files "${XDG_DATA_HOME}/" ${xdg_data_files[@]}
+remove_files "${XDG_CONFIG_HOME}/" ${xdg_config_files[@]}
 
 printf "${color_white}Links removed${color_end}\n"

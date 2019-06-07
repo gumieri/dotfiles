@@ -5,78 +5,9 @@ cd "$(dirname "${BASH_SOURCE[0]}")" && cd ..
 
 source ./bin/common
 
-modules=$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }')
-for dotfile in "${DOTFILES[@]}"
-do
-  printf "${color_white}${dotfile}${color_end}\n"
-
-  # modules
-  if [[ $* != *--no-modules* ]]
-  then
-  for module in $modules
-  do
-    if [[ $module = *"${dotfile}"* ]]
-    then
-      printf "  - Downloading module: ${module}\n"
-      git submodule update --remote --quiet --init --depth 1 ${PWD}/${module} &>/dev/null
-      printf "  - ${color_green}Download complete${color_end}\n"
-    fi
-  done
-  fi
-
-  link_path="${HOME}/.${dotfile}"
-  dotfile_path="${PWD}/${dotfile}"
-
-  # Symbolic link
-  if [ -h "${link_path}" ]
-  then
-    if [ "$(readlink "${link_path}")" = "${dotfile_path}" ]
-    then
-      printf "  - Link exists: ${link_path}\n"
-    else
-      printf "  - ${color_red}Warning${color_end}: ${link_path} already exists\n"
-    fi
-  else
-    ln -s "${dotfile_path}" "${link_path}"
-    printf "  - ${color_green}Link created${color_end}: ${link_path}\n"
-  fi
-done
-
-# XDG Dotfiles
-for dotfile in "${XDG_DOTFILES[@]}"
-do
-  printf "${color_white}${dotfile}${color_end}\n"
-
-  # modules
-  if [[ $* != *--no-modules* ]]
-  then
-  for module in $modules
-  do
-    if [[ $module = *"${dotfile}"* ]]
-    then
-      printf "  - Downloading module: ${module}\n"
-      git submodule update --remote --quiet --init --depth 1 ${PWD}/${module} &>/dev/null
-      printf "  - ${color_green}Download complete${color_end}\n"
-    fi
-  done
-  fi
-
-  link_path="${XDG_CONFIG_HOME}/${dotfile}"
-  dotfile_path="${PWD}/${dotfile}"
-  # Symbolic link
-  if [ -h $link_path ]
-  then
-    if [ "$(readlink $link_path)" = $dotfile_path ]
-    then
-      printf "  - Link exists: ${link_path}\n"
-    else
-      printf "  - ${color_red}Warning${color_end}: ${link_path} already exists\n"
-    fi
-  else
-    ln -s "${dotfile_path}" "${link_path}"
-    printf "  - ${color_green}Link created${color_end}: ${link_path}\n"
-  fi
-done
+setup_files "${HOME}/." ${dot_files[@]}
+setup_files "${XDG_DATA_HOME}/" ${xdg_data_files[@]}
+setup_files "${XDG_CONFIG_HOME}/" ${xdg_config_files[@]}
 
 printf "${color_white}fzf${color_end}\n"
 # Post-download setup

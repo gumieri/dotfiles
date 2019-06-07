@@ -6,52 +6,123 @@ color_red='\033[1;33m'
 color_end='\033[0m'
 
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 
-DOTFILES=(XCompose)
-XDG_DOTFILES=(asdf fonts fzf)
+modules=$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }')
+
+dot_files=()
+xdg_data_files=(fonts)
+xdg_config_files=(asdf environment.d fzf X11)
 
 # Verifying available commands / programs
 if command -v zsh > /dev/null
 then
-  DOTFILES+=(zshrc)
-  XDG_DOTFILES+=(zsh)
+  dot_files+=(zshrc)
+  xdg_config_files+=(zsh)
 fi
 
 if command -v nvim > /dev/null
 then
-  XDG_DOTFILES+=(nvim)
+  xdg_config_files+=(nvim)
 fi
+
 if command -v sway > /dev/null
 then
-  XDG_DOTFILES+=(sway)
+  xdg_config_files+=(sway)
 fi
 
 if command -v swaylock > /dev/null
 then
-  XDG_DOTFILES+=(swaylock)
+  xdg_config_files+=(swaylock)
 fi
 
 if command -v mako > /dev/null
 then
-  XDG_DOTFILES+=(mako)
+  xdg_config_files+=(mako)
 fi
 
 if command -v waybar > /dev/null
 then
-  XDG_DOTFILES+=(waybar)
+  xdg_config_files+=(waybar)
 fi
 
 if command -v rofi > /dev/null
 then
-  XDG_DOTFILES+=(rofi)
+  xdg_config_files+=(rofi)
 fi
 
 if command -v kitty > /dev/null
 then
-  XDG_DOTFILES+=(kitty)
+  xdg_config_files+=(kitty)
 fi
 
 if command -v termite > /dev/null
 then
-  XDG_DOTFILES+=(termite)
+  xdg_config_files+=(termite)
 fi
+
+function setup_files {
+  local prefix=$1
+  shift
+  local array_of_files=($@)
+
+  for file in "${array_of_files[@]}"
+  do
+    printf "${color_white}${file}${color_end}\n"
+
+    # modules
+    if [[ $* != *--no-modules* ]]
+    then
+    for module in $modules
+    do
+      if [[ $module = *"${file}"* ]]
+      then
+        printf "  - Downloading module: ${module}\n"
+        git submodule update --remote --quiet --init --depth 1 ${PWD}/${module} &>/dev/null
+        printf "  - ${color_green}Download complete${color_end}\n"
+      fi
+    done
+    fi
+
+    link_path="${prefix}${file}"
+    dotfile_path="${PWD}/${file}"
+
+    # Symbolic link
+    if [ -h $link_path ]
+    then
+      if [ "$(readlink $link_path)" = $dotfile_path ]
+      then
+        printf "  - Link exists: ${link_path}\n"
+      else
+        printf "  - ${color_red}Warning${color_end}: ${link_path} already exists\n"
+      fi
+    else
+      ln -s "${dotfile_path}" "${link_path}"
+      printf "  - ${color_green}Link created${color_end}: ${link_path}\n"
+    fi
+  done
+}
+
+function remove_files {
+  local prefix=$1
+  shift
+  local array_of_files=($@)
+
+  for file in "${array_of_files[@]}"
+  do
+    printf "${color_white}${file}${color_end}\n"
+
+    link_path="${prefix}${file}"
+    dotfile_path="${PWD}/${file}"
+
+    # Symbolic link
+    if [ -h "${link_path}" ]
+    then
+      if [ "$(readlink "${link_path}")" = "${dotfile_path}" ]
+      then
+        rm "${link_path}"
+      printf "  - ${color_green}Link removed${color_end}: ${link_path}\n"
+      fi
+    fi
+  done
+}
