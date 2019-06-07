@@ -13,13 +13,6 @@ HISTFILE="${ZDOTDIR}/history"
 EDITOR=nvim
 VISUAL=$EDITOR
 
-# oh-my-zsh libs
-for config_file ($ZDOTDIR/oh-my-zsh/lib/*.zsh)
-do
-  source $config_file
-done
-unset config_file
-
 autoload -U compaudit compinit
 
 autoload bashcompinit
@@ -30,7 +23,7 @@ bashcompinit
 compinit -i -d $ZSH_COMPDUMP
 
 # My zsh libs
-for config_file ($ZDOTDIR/lib/*.zsh)
+for config_file in $ZDOTDIR/lib/*.zsh
 do
   source $config_file
 done

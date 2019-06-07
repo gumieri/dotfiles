@@ -1,41 +1,27 @@
-[submodule "zsh/oh-my-zsh"]
-	path = zsh/oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "vim/obsession"]
 	path = nvim/pack/ages/start/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
-	branch = master
-[submodule "vim/autoswap"]
-	path = nvim/pack/ages/start/vim-autoswap
-	url = https://github.com/gioele/vim-autoswap.git
-	branch = master
 [submodule "vim/editorconfig"]
 	path = nvim/pack/ages/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule "devtools/asdf"]
 	path = asdf
 	url = https://github.com/asdf-vm/asdf.git
-	branch = master
 [submodule "devtools/fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
-	branch = master
 [submodule "vim/fugitive"]
 	path = nvim/pack/ages/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-	branch = master
-[submodule "vim/colorschemes/gruvbox"]
-	path = nvim/pack/colorschemes/start/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
-	branch = master
 [submodule "vim/ale"]
 	path = nvim/pack/ages/start/ale
 	url = https://github.com/w0rp/ale.git
-	branch = master
 [submodule "vim/go"]
 	path = nvim/pack/ages/start/vim-go
 	url = https://github.com/fatih/vim-go.git
-	branch = master
 [submodule "nvim/pack/ages/start/vim-crystalline"]
 	path = nvim/pack/ages/start/vim-crystalline
 	url = https://github.com/rbong/vim-crystalline.git
+[submodule "nvim/pack/ages/start/gruvbox"]
+	path = nvim/pack/ages/start/gruvbox
+	url = https://github.com/gruvbox-community/gruvbox.git
