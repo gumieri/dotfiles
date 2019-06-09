@@ -104,7 +104,7 @@ window#waybar {
 }
 
 #battery.critical:not(.charging) {
-    background: #f53c3c;
+    background: #fb4934;
     color: #ebdbb2;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -130,7 +130,8 @@ window#waybar {
 }
 
 #network.disconnected {
-    background: #f53c3c;
+    background: #fb4934;
+    border-color: #cc241d;
 }
 
 #pulseaudio {
@@ -140,9 +141,9 @@ window#waybar {
 }
 
 #pulseaudio.muted {
-    border-color: #8ec07c;
-    color: #1d2021;
-    background: #689d6a;
+    color: #282828;
+    border-color: #282828;
+    background: #3c3836;
 }
 
 #temperature {
