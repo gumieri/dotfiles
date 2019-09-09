@@ -25,3 +25,10 @@
 [submodule "nvim/pack/ages/start/gruvbox"]
 	path = nvim/pack/ages/start/gruvbox
 	url = https://github.com/gruvbox-community/gruvbox.git
+[submodule "nvim/pack/ages/start/--branch"]
+	path = nvim/pack/ages/start/--branch
+	url = https://github.com/hashivim/vim-terraform.git
+[submodule "nvim/pack/ages/start/vim-terraform"]
+	path = nvim/pack/ages/start/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
+	branch = master

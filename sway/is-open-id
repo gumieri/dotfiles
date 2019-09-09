@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+id=${1}
+swaymsg -t get_tree | jq --exit-status ".. | select(.app_id?) | select(.app_id==\"${id}\")"

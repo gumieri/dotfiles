@@ -31,7 +31,7 @@ set $bg_color $bg0_color
 set $fg_color #ebdbb2
 
 # Default fonts
-set $mono_font "Hack"
+set $mono_font "Fira Code"
 set $sans_font "Cantarell"
 
 # Logo key. Use Mod1 for Alt.
@@ -46,7 +46,7 @@ set $right l
 # Sizing
 set $gap_size 8
 set $border_size 3
-set $font_size 12
+set $font_size 11
 
 # Terminal emulator
 set $term termite -d $(~/.config/sway/focused-cwd termite) -e /bin/zsh
@@ -245,12 +245,18 @@ input * {
   xkb_numlock enabled
 }
 
+bindswitch lid:on output eDP-1 disable
+bindswitch lid:off output eDP-1 enable
+
 # lock screen after a period of inactivity
 exec swayidle -w \
     timeout 300 'swaymsg "output * dpms off"' \
+      resume 'swaymsg "output * dpms on"' \
     timeout 330 swaylock \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep swaylock
+      resume 'swaymsg "output * dpms on"' \
+    before-sleep swaylock \
+    after-resume 'sway output * enable' \
+    lock swaylock 
 
 # notification service
 exec mako

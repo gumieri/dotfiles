@@ -30,11 +30,11 @@ fg_color #ebdbb2
     border: 0;
     border-radius: 0;
     padding: 0 0;
-    font-family: Hack, Roboto, Helvetica, Arial, sans-serif;
+    font-family: DejaVu Sans Mono, Monospace;
     font-size: 12px;
     min-height: 0;
     margin-right: 2px;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
     margin-left: 2px;
 }
 
@@ -62,7 +62,7 @@ window#waybar {
     background: #fabd2f;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #idle_inhibitor {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode {
     border: 3px;
     border-style: solid;
     padding: 0 15px;
@@ -72,17 +72,11 @@ window#waybar {
     font-weight: bold;
     border-style: hidden;
     background: transparent;
-    padding: 0 30px;
 }
 
 #backlight {
     border-color: #3c3836;
     background-color: #282828;
-}
-
-#idle_inhibitor {
-    color: #928374;
-    background-color: #3c3836;
 }
 
 #battery {
@@ -154,6 +148,12 @@ window#waybar {
 #temperature.critical {
     border-color: #d65d0e;
     background: #fe8019;
+}
+
+#idle_inhibitor {
+    font-weight: bold;
+    border-style: hidden;
+    background: transparent;
 }
 
 #tray {

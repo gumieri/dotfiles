@@ -12,7 +12,7 @@ mkdir -p $XDG_CACHE_HOME/zsh
 ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 HISTFILE="${XDG_DATA_HOME}/zsh/history"
 ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
-ZSH_THEME="promptline"
+ZSH_THEME="gruvbox"
 
 EDITOR=nvim
 VISUAL=$EDITOR
@@ -39,3 +39,6 @@ unset theme_path_zsh
 
 # Add ~/.zsh/bin to the Path
 [[ ! $PATH == *$ZDOTDIR/bin* ]] && PATH="${PATH}:${ZDOTDIR}/bin"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/rafael.gumieri@tecnospeed.local/dotfiles/asdf/installs/terraform/0.12.3/bin/terraform terraform

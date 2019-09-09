@@ -1,3 +1,5 @@
+[options]
+font = DejaVu Sans Mono 11
 [colors]
 foreground        = #ebdbb2
 foreground_bold   = #ebdbb2

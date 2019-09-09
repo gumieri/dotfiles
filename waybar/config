@@ -4,7 +4,7 @@
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode", "tray"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "cpu", "memory", "network", "backlight", "idle_inhibitor", "battery", "clock"],
+    "modules-right": [ "pulseaudio", "cpu", "memory", "network", "backlight", "battery", "clock", "idle_inhibitor"],
     "sway/workspaces": {
         "disable-scroll": true,
         "format": "{name}"
@@ -50,12 +50,12 @@
     "pulseaudio": {
         "scroll-step": 2,
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-muted": "",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "",
         "format-icons": {
             "headphones": "",
-            "handsfree": "",
-            "headset": "",
+            "handsfree": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -66,8 +66,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "",
+            "deactivated": ""
         }
     },
     "battery": {

@@ -3,7 +3,7 @@
 # Change directory to this script location and back to it's parent
 cd "$(dirname "${BASH_SOURCE[0]}")" && cd ..
 
-source ./bin/common
+source ./share/dotfiles/common
 
 setup_files "${HOME}/." ${dot_files[@]}
 setup_files "${XDG_DATA_HOME}/" ${xdg_data_files[@]}

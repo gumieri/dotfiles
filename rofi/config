@@ -1,4 +1,4 @@
 rofi.combi-modi:    drun,ssh,run
 rofi.theme:         gruvbox-dark-hard
-rofi.font:          Hack 10
+rofi.font:          DejaVu Sans Mono 12
 rofi.modi:          combi,window,drun,ssh,run
