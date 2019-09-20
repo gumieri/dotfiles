@@ -1,10 +1,10 @@
 {
     "layer": "top",
-    "position": "bottom",
-    "height": 30,
-    "modules-left": ["sway/workspaces", "sway/mode", "tray"],
+    "position": "top",
+    "height": 20,
+    "modules-left": ["sway/workspaces", "tray"],
     "modules-center": ["sway/window"],
-    "modules-right": [ "pulseaudio", "cpu", "memory", "network", "backlight", "battery", "clock", "idle_inhibitor"],
+    "modules-right": ["sway/mode", "pulseaudio", "network", "backlight", "temperature", "battery", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
         "format": "{name}"
@@ -73,6 +73,7 @@
     "battery": {
       "interval": 10,
       "states": {
+          "full": 100,
           "warning": 30,
           "critical": 15
       },

@@ -5,5 +5,6 @@ configuration {
   matching:   "fuzzy";
   show-icons: true;
   lines:      25;
-  theme:      "gruvbox-dark-hard";
+  theme:      "Arc-Dark";
 }
+@import "/usr/share/rofi/themes/gruvbox-dark.rasi"

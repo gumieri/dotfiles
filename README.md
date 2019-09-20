@@ -5,7 +5,7 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/s
 
 ### Programs contemplated
 
-#### termite
+#### Alacritty
   Terminal emulator.
 
 #### zsh

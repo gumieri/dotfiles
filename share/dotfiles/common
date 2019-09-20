@@ -10,14 +10,12 @@ XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 
 modules=$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }')
 
-dot_files=()
-xdg_data_files=(fonts)
+xdg_data_files=(fonts themes icons)
 xdg_config_files=(asdf environment.d fzf X11)
 
 # Verifying available commands / programs
 if command -v zsh > /dev/null
 then
-  dot_files+=(zshrc)
   xdg_config_files+=(zsh)
 fi
 
@@ -54,11 +52,6 @@ fi
 if command -v alacritty > /dev/null
 then
   xdg_config_files+=(alacritty)
-fi
-
-if command -v termite > /dev/null
-then
-  xdg_config_files+=(termite)
 fi
 
 function setup_files {

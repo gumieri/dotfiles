@@ -1,6 +1,4 @@
 ### Variables
-
-# Gruvbox-Dark Pallete
 set $no_color #00000000
 set $black_color #000000
 set $red_color #cc241d
@@ -31,7 +29,7 @@ set $bg_color $bg0_color
 set $fg_color #ebdbb2
 
 # Default fonts
-set $mono_font "Fira Code"
+set $mono_font "Hack"
 set $sans_font "Cantarell"
 
 # Logo key. Use Mod1 for Alt.
@@ -45,7 +43,6 @@ set $right l
 
 # Sizing
 set $gap_size 8
-set $border_size 3
 set $font_size 11
 
 # Terminal emulator
@@ -212,13 +209,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+alt+8 resize set width 761px
+
 include /etc/sway/config.d/*
 
 font $mono_font $font_size
 
 gaps inner $gap_size
 
-default_border pixel $border_size
+default_border pixel 2
 
 client.focused $blue_color $blue_color $bg_color $blue_color $blue_color
 client.focused_inactive $bg_color $bg_color $blue_color $bg_color $bg_color
@@ -248,18 +247,22 @@ input * {
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
-# lock screen after a period of inactivity
-exec swayidle -w \
-    timeout 300 'swaymsg "output * dpms off"' \
-      resume 'swaymsg "output * dpms on"' \
-    timeout 330 swaylock \
-      resume 'swaymsg "output * dpms on"' \
-    before-sleep swaylock \
-    after-resume 'sway output * enable' \
-    lock swaylock 
+output * background ~/Pictures/wallpaper fill
+
+# # lock screen after a period of inactivity
+# exec swayidle -w \
+#     timeout 300 'swaymsg "output * dpms off"' \
+#       resume 'swaymsg "output * dpms on"' \
+#     timeout 330 swaylock \
+#       resume 'swaymsg "output * dpms on"' \
+#     before-sleep swaylock \
+#     after-resume 'sway output * enable' \
+#     lock swaylock 
 
 # notification service
 exec mako
+
+exec sway-session restore && sway-session save-loop
 
 # include local configurations (not versioned at dotfiles)
 include ~/.config/sway/local/*

@@ -1,8 +1,6 @@
-# Recursive grep
-alias grepr='grep -R -n -H --exclude-dir={.git,node_modules,log,tmp}'
-
-# Docker tools
-alias dcp='docker-compose'
-alias dmc='docker-machine'
-
+alias l='exa -lha'
+alias ll='exa -1a'
 alias lc='wc -l'
+alias vim='nvim'
+alias todo='note e todo'
+alias lb='note e logbook'
