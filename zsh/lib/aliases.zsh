@@ -5,4 +5,4 @@ alias grepr='grep -R -n -H --exclude-dir={.git,node_modules,log,tmp}'
 alias dcp='docker-compose'
 alias dmc='docker-machine'
 
-# Projects
+alias lc='wc -l'

@@ -51,9 +51,9 @@ then
   xdg_config_files+=(rofi)
 fi
 
-if command -v kitty > /dev/null
+if command -v alacritty > /dev/null
 then
-  xdg_config_files+=(kitty)
+  xdg_config_files+=(alacritty)
 fi
 
 if command -v termite > /dev/null

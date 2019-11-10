@@ -49,7 +49,7 @@ set $border_size 3
 set $font_size 11
 
 # Terminal emulator
-set $term termite -d $(~/.config/sway/focused-cwd termite) -e /bin/zsh
+set $term alacritty --working-directory $(~/.config/sway/focused-cwd alacritty)
 
 # Application launcher
 set $menu rofi -show drun
