@@ -1,0 +1,10 @@
+[Unit]
+Description=Redshift adjusts the color temperature of your screen according to your surroundings.
+Documentation=http://jonls.dk/redshift/
+
+[Service]
+ExecStart=/usr/bin/redshift -m wayland
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

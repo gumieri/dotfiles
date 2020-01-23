@@ -33,4 +33,4 @@ unset theme_path_zsh
 
 autoload -U +X bashcompinit && bashcompinit
 
-source /home/rafael.gumieri@tecnospeed.local/.config/broot/launcher/bash/br
+EDITOR=nvim

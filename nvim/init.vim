@@ -1,7 +1,3 @@
-if $XDG_CONFIG_HOME == ""
-  let $XDG_CONFIG_HOME = $HOME . '/.config'
-endif
-
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 

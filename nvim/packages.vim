@@ -2,9 +2,6 @@
 let g:bufferline_echo = 0
 let g:bufferline_modified = ' ✚'
 
-" vim-go
-let g:go_fmt_command = "goimports"
-
 " vim-airline
 let g:airline_powerline_fonts = 1
 let g:gruvbox_contrast_light = 'hard'
@@ -21,10 +18,5 @@ let g:fzf_layout = { 'down': '~20%' }
 
 " ale
 let g:ale_fixers = {'javascript': ['prettier_standard']}
-let g:ale_linters = {'javascript': ['']}
+let g:ale_linters = {'javascript': [''], 'go': ['gopls']}
 let g:ale_fix_on_save = 1
-
-" polyglot
-if exists('g:loaded_polyglot')
-  let g:polyglot_disabled = ['go']
-endif

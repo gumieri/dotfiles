@@ -1,38 +1,25 @@
-### Variables
-set $no_color #00000000
-set $black_color #000000
-set $red_color #cc241d
-set $red2_color #fb4934
-set $green_color #98971a
-set $green2_color #d8bb26
-set $yellow_color #d79921
-set $yellow2_color #fabd2f
-set $blue_color #458588
-set $blue2_color #83a598
-set $purple_color #b16286
-set $purple2_color #d3869b
-set $aqua_color #689d6a
-set $aqua2_color #8ec07c
-set $gray_color #a89984
-set $gray2_color #928374
-set $orange_color #d65d0e
-set $orange2_color #928374
+# Default font
+font "Hack" "10"
 
-set $bg0_color #282828
-set $bg1_color #3c3836
-set $bg2_color #504945
-set $bg3_color #665c54
-set $bg4_color #7c6f64
-set $bg0_h_color #1d2021
+# Sizing
+gaps inner 8
 
-set $bg_color $bg0_color
-set $fg_color #ebdbb2
+default_border pixel 2
 
-# Default fonts
-set $mono_font "Hack"
-set $sans_font "Cantarell"
+seat seat0 xcursor_theme xcursor-breeze 24
 
-# Logo key. Use Mod1 for Alt.
+# Colors
+set $color_urgent #cc241d
+set $color_focus #458588
+set $color_bg #282828
+
+client.focused $color_focus $color_focus $color_bg $color_focus $color_focus
+client.focused_inactive $color_bg $color_bg $color_focus $color_bg $color_bg
+client.unfocused $color_bg $color_bg $color_focus $color_bg $color_bg
+client.urgent $color_urgent $color_urgent $color_bg $color_urgent $color_urgent
+
+## Shortcuts
+# main key: logo/super key
 set $mod Mod4
 
 # Home row direction keys, like vim
@@ -41,14 +28,6 @@ set $down j
 set $up k
 set $right l
 
-# Sizing
-set $gap_size 8
-set $font_size 11
-
-# Application launcher
-set $menu rofi -show drun
-
-## Shortcuts
 # start the terminal
 bindsym $mod+Return exec alacritty --working-directory $(~/.config/sway/focused-cwd alacritty)
 
@@ -59,7 +38,7 @@ bindsym $mod+backslash exec firefox
 bindsym $mod+q kill
 
 # start your launcher
-bindsym $mod+d exec $menu
+bindsym $mod+d exec rofi -show drun
 
 # capture all screens to file
 bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
@@ -69,6 +48,8 @@ bindsym Alt+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%
 
 # capture the focused monitor to file
 bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
+# capture the focused window to file
+# bindsym Control+Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
 
 # capture all screens to clipboard
 bindsym Shift+Print exec grim - | wl-copy
@@ -80,9 +61,11 @@ bindsym Shift+Alt+Print exec grim -g "$(slurp)" - | wl-copy
 bindsym Shift+Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
 
 # open/close the Telegram Desktop App at right side
-bindsym $mod+bracketright exec ~/.config/sway/is-open-id "telegram-desktop" \
-   && sway '[app_id="telegram-desktop"]' kill \
-   || (telegram-desktop && sway '[app_id="telegram-desktop"]' resize set 400px)
+bindsym $mod+bracketright exec ~/.config/sway/is-open-id "telegramdesktop" \
+   && sway '[app_id="telegramdesktop"]' kill \
+   || (telegram-desktop && sway '[app_id="telegramdesktop"]' resize set 400px)
+
+bindsym $mod+bracketleft exec ~/.config/sway/is-open "discord" && sway '[class="discord"]' kill || discord
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -214,32 +197,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+alt+8 resize set width 761px
-
 include /etc/sway/config.d/*
-
-font $mono_font $font_size
-
-gaps inner $gap_size
-
-default_border pixel 2
-
-client.focused $blue_color $blue_color $bg_color $blue_color $blue_color
-client.focused_inactive $bg_color $bg_color $blue_color $bg_color $bg_color
-client.unfocused $bg_color $bg_color $blue_color $bg_color $bg_color
-client.urgent $red_color $red_color $bg_color $red_color $red_color
 
 bar {
   swaybar_command waybar
-  gaps $gap_size
-
-  colors {
-    statusline $no_color
-    background $black_color70
-    focused_workspace $blue2_color $bg_color $blue2_color
-    active_workspace $bg_color $bg_color $blue2_color
-    inactive_workspace $bg_color $bg_color $fg_color
-  }
 }
 
 input * {
@@ -249,29 +210,20 @@ input * {
   xkb_numlock enabled
 }
 
+output * {
+  background $(xdg-user-dir PICTURES)/wallhaven-j5137p-dark.png fill
+}
+
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
-output * background ~/Pictures/wallpaper fill
+for_window [app_id="firefox"] inhibit_idle fullscreen
 
-# # lock screen after a period of inactivity
-# exec swayidle -w \
-#     timeout 300 'swaymsg "output * dpms off"' \
-#       resume 'swaymsg "output * dpms on"' \
-#     timeout 330 swaylock \
-#       resume 'swaymsg "output * dpms on"' \
-#     before-sleep swaylock \
-#     after-resume 'sway output * enable' \
-#     lock swaylock 
-
-# Cloud files syncronization
-exec dropbox start
-
-# notification service
-exec mako
-
-# Eye strain protection
-exec redshift -m wayland
-
-# Restore previous session of the Sway
-exec sway-session restore && sway-session save-loop
+# lock screen after a period of inactivity
+exec swayidle -w \
+    timeout 300 'swaylock' \
+    timeout 330 'swaymsg "output * dpms off"' \
+      resume 'swaymsg "output * dpms on"' \
+    after-resume 'swaymsg "output * dpms on"' \
+    before-sleep 'output * enable && swaylock' \
+    lock 'swaylock'

@@ -1,10 +1,10 @@
 {
     "layer": "top",
-    "position": "top",
+    "position": "bottom",
     "height": 20,
     "modules-left": ["sway/workspaces", "tray"],
     "modules-center": ["sway/window"],
-    "modules-right": ["sway/mode", "pulseaudio", "network", "backlight", "temperature", "battery", "clock"],
+    "modules-right": ["sway/mode", "pulseaudio", "network", "backlight", "temperature", "battery", "clock", "idle_inhibitor"],
     "sway/workspaces": {
         "disable-scroll": true,
         "format": "{name}"
@@ -20,7 +20,7 @@
     },
     "clock": {
         "interval": 1,
-        "format": "{:%Y-%m-%d %H:%M:%S}"
+        "format": "{:%m-%d %H:%M:%S}"
     },
     "cpu": {
         "format": " {load}%"
@@ -38,13 +38,15 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon} {percent}%",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set -5%",
         "format-icons": ["", ""]
     },
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "  {essid}",
-        "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
-        "format-disconnected": "⚠ Disconnected",
+        "format-wifi": " {essid}",
+        "format-ethernet": " {ipaddr}/{cidr}",
+        "format-disconnected": "",
         "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
@@ -61,7 +63,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "amixer set Master toggle"
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -74,6 +76,7 @@
       "interval": 10,
       "states": {
           "full": 100,
+          "not-full": 99,
           "warning": 30,
           "critical": 15
       },
