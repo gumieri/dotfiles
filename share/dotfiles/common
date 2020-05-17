@@ -44,11 +44,6 @@ then
   xdg_config_files+=(waybar)
 fi
 
-if command -v rofi > /dev/null
-then
-  xdg_config_files+=(rofi)
-fi
-
 if command -v wofi > /dev/null
 then
   xdg_config_files+=(wofi)
