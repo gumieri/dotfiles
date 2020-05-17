@@ -38,7 +38,7 @@ bindsym $mod+backslash exec firefox
 bindsym $mod+q kill
 
 # start your launcher
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec wofi
 
 # capture all screens to file
 bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
@@ -65,7 +65,7 @@ bindsym $mod+bracketright exec ~/.config/sway/is-open-id "telegramdesktop" \
    && sway '[app_id="telegramdesktop"]' kill \
    || (telegram-desktop && sway '[app_id="telegramdesktop"]' resize set 400px)
 
-bindsym $mod+bracketleft exec ~/.config/sway/is-open "discord" && sway '[class="discord"]' kill || discord
+# bindsym $mod+bracketleft exec ~/.config/sway/is-open "discord" && sway '[class="discord"]' kill || sway '[class="discord"]' focus
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -211,19 +211,22 @@ input * {
 }
 
 output * {
-  background $(xdg-user-dir PICTURES)/wallhaven-j5137p-dark.png fill
+  background $(xdg-user-dir PICTURES)/Wallpapers/wallhaven-405380.jpg fill
 }
+
+output HDMI1 pos 0 0 res 1920x1080
+output eDP1 pos 1920 0 res 1366x768
 
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
-for_window [app_id="firefox"] inhibit_idle fullscreen
+# for_window [app_id="firefox"] inhibit_idle fullscreen
 
 # lock screen after a period of inactivity
-exec swayidle -w \
-    timeout 300 'swaylock' \
-    timeout 330 'swaymsg "output * dpms off"' \
-      resume 'swaymsg "output * dpms on"' \
-    after-resume 'swaymsg "output * dpms on"' \
-    before-sleep 'output * enable && swaylock' \
-    lock 'swaylock'
+# exec swayidle -w \
+#     timeout 300 'swaylock' \
+#     timeout 330 'swaymsg "output * dpms off"' \
+#       resume 'swaymsg "output * dpms on"' \
+#     after-resume 'swaymsg "output * dpms on"' \
+#     before-sleep 'output * enable && swaylock' \
+#     lock 'swaylock'

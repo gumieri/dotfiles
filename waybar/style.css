@@ -67,7 +67,7 @@ window#waybar {
     color: @yellow_color;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-redshift {
     padding: 0 5px;
     border-top: 2px;
     border-style: solid;
@@ -81,6 +81,14 @@ window#waybar {
 
 #backlight {
     color: @yellow_color;
+}
+
+#custom-redshift {
+    color: @orange_color;
+}
+
+#custom-redshift.disabled {
+    color: @blue_color;
 }
 
 #battery {

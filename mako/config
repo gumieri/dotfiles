@@ -1,5 +1,6 @@
 anchor=top-right
 font=Hack
+default-timeout=2000
 text-color=#ebdbb2
 border-color=#1d2021
 background-color=#282828

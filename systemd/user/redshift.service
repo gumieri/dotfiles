@@ -3,7 +3,7 @@ Description=Redshift adjusts the color temperature of your screen according to y
 Documentation=http://jonls.dk/redshift/
 
 [Service]
-ExecStart=/usr/bin/redshift -m wayland
+ExecStart=/usr/bin/redshift -vm wayland
 Restart=on-failure
 
 [Install]

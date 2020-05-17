@@ -4,7 +4,7 @@
     "height": 20,
     "modules-left": ["sway/workspaces", "tray"],
     "modules-center": ["sway/window"],
-    "modules-right": ["sway/mode", "pulseaudio", "network", "backlight", "temperature", "battery", "clock", "idle_inhibitor"],
+    "modules-right": ["sway/mode", "pulseaudio", "network", "temperature", "backlight", "custom/redshift", "battery", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
         "format": "{name}"
@@ -20,7 +20,7 @@
     },
     "clock": {
         "interval": 1,
-        "format": "{:%m-%d %H:%M:%S}"
+        "format": "{:%Y-%m-%d %H:%M:%S}"
     },
     "cpu": {
         "format": " {load}%"
@@ -43,7 +43,6 @@
         "format-icons": ["", ""]
     },
     "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format-wifi": " {essid}",
         "format-ethernet": " {ipaddr}/{cidr}",
         "format-disconnected": "",
@@ -64,6 +63,13 @@
             "default": ["", "", ""]
         },
         "on-click": "amixer set Master toggle"
+    },
+    "custom/redshift": {
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/redshift-waybar",
+      "return-type": "json",
+      "signal": 12,
+      "format": "",
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/redshift-toggle"
     },
     "idle_inhibitor": {
         "format": "{icon}",

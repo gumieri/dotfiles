@@ -49,9 +49,9 @@ then
   xdg_config_files+=(rofi)
 fi
 
-if command -v oguri > /dev/null
+if command -v wofi > /dev/null
 then
-  xdg_config_files+=(oguri)
+  xdg_config_files+=(wofi)
 fi
 
 if command -v alacritty > /dev/null
