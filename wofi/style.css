@@ -1,0 +1,60 @@
+@define-color red_color #cc241d;
+@define-color red2_color #fb4934;
+@define-color green_color #98971a;
+@define-color green2_color #d8bb26;
+@define-color yellow_color #d79921;
+@define-color yellow2_color #fabd2f;
+@define-color blue_color #458588;
+@define-color blue2_color #83a598;
+@define-color purple_color #b16286;
+@define-color purple2_color #d3869b;
+@define-color aqua_color #689d6a;
+@define-color aqua2_color #8ec07c;
+@define-color gray_color #a89984;
+@define-color gray2_color #928374;
+@define-color orange_color #d65d0e;
+@define-color orange2_color #fe8019;
+
+@define-color bg0_color #282828;
+@define-color bg1_color #3c3836;
+@define-color bg2_color #504945;
+@define-color bg3_color #665c54;
+@define-color bg4_color #7c6f64;
+@define-color bg0_h_color #1d2021;
+
+@define-color fg_color #ebdbb2;
+
+window {
+  margin: 2px;
+  border: 2px solid @blue_color;
+  background-color: @blue_color;
+}
+
+#input {
+  margin: 2px;
+  border: 2px solid @bg4_color;
+  background-color: @bg0_color;
+}
+
+#inner-box {
+  margin: 2px;
+  background-color: @bg0_color;
+}
+
+#outer-box {
+  margin: 2px;
+  border: 2px solid @bg0_h_color;
+  background-color: @bg0_h_color;
+}
+
+.entry image {
+  margin-right: 10px;
+}
+
+#scroll {
+  margin: 2px;
+}
+
+#text {
+  color: @fg_color;
+} 
