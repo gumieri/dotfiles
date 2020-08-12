@@ -67,7 +67,7 @@ window#waybar {
     color: @yellow_color;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-redshift {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-redshift, #disk {
     padding: 0 5px;
     border-top: 2px;
     border-style: solid;
@@ -117,11 +117,11 @@ window#waybar {
 }
 
 #cpu {
-    color: @bg0_h_color;
+    color: @fg_color ;
 }
 
 #memory {
-    color: @purple2_color;
+    color: @green_color;
 }
 
 #network {
@@ -146,6 +146,18 @@ window#waybar {
 
 #temperature.critical {
     color: @red2_color;
+}
+
+#temperature.cpu {
+    color: @fg_color;
+}
+
+#temperature.gpu {
+    color: @yellow_color;
+}
+
+#disk {
+  color: @gray_color
 }
 
 #tray {

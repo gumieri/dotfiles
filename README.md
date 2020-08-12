@@ -28,3 +28,6 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/s
 
 #### wofi
   Application launcher.
+
+#### yay
+  Pacman wrapper with AUR support.

@@ -54,6 +54,11 @@ then
   xdg_config_files+=(alacritty)
 fi
 
+if command -v yay > /dev/null
+then
+  xdg_config_files+=(yay)
+fi
+
 function setup_files {
   local prefix=$1
   shift
