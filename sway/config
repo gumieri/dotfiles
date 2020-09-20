@@ -60,12 +60,25 @@ bindsym Shift+Alt+Print exec grim -g "$(slurp)" - | wl-copy
 # capture the focused monitor to clipboard
 bindsym Shift+Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
 
+# open/close the Ferdi App
+# bindsym $mod+bracketright exec ~/.config/sway/is-open "Ferdi" && sway '[class="Ferdi"]' kill || (ferdi && sway '[class="Ferdi"]' focus)
+
 # open/close the Telegram Desktop App at right side
 bindsym $mod+bracketright exec ~/.config/sway/is-open-id "telegramdesktop" \
-   && sway '[app_id="telegramdesktop"]' kill \
+   && sway '[app_id="telegramdesktop"]' focus \
    || (telegram-desktop && sway '[app_id="telegramdesktop"]' resize set 400px)
 
-# bindsym $mod+bracketleft exec ~/.config/sway/is-open "discord" && sway '[class="discord"]' kill || sway '[class="discord"]' focus
+bindsym $mod+bracketleft exec ~/.config/sway/is-open "discord" \
+  && sway '[class="discord"]' focus \
+  || discord
+
+bindsym $mod+p exec ~/.config/sway/is-open "Google Play Music Desktop Player" \
+  && sway '[class="Google Play Music Desktop Player"]' focus \
+  || gpmdp
+
+bindsym $mod+o exec ~/.config/sway/is-open "Slack" \
+  && sway '[class="Slack"]' focus \
+  || slack
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -211,7 +224,7 @@ input * {
 }
 
 output * {
-  background $(xdg-user-dir PICTURES)/Wallpapers/wallhaven-405380.jpg fill
+  background $(xdg-user-dir PICTURES)/wallpaper fill
 }
 
 output HDMI1 pos 0 0 res 1920x1080
@@ -220,7 +233,7 @@ output eDP1 pos 1920 0 res 1366x768
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
-# for_window [app_id="firefox"] inhibit_idle fullscreen
+exec blueman-tray
 
 # lock screen after a period of inactivity
 # exec swayidle -w \
