@@ -52,7 +52,7 @@ window#waybar {
 
 #workspaces button {
     padding: 0 0px;
-    border-top: 2px;
+    border-bottom: 2px;
     color: @fg_color;
     border-color: transparent;
     border-style: solid;
@@ -69,7 +69,7 @@ window#waybar {
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-redshift, #disk {
     padding: 0 5px;
-    border-top: 2px;
+    border-bottom: 2px;
     border-style: solid;
 }
 
