@@ -12,18 +12,13 @@
 @define-color aqua_color #689d6a;
 @define-color aqua2_color #8ec07c;
 @define-color gray_color #a89984;
+@define-color gray_color #bfbfbf;
 @define-color gray2_color #928374;
 @define-color orange_color #d65d0e;
 @define-color orange2_color #fe8019;
 
-@define-color bg0_color #282828;
-@define-color bg1_color #3c3836;
-@define-color bg2_color #504945;
-@define-color bg3_color #665c54;
-@define-color bg4_color #7c6f64;
-@define-color bg0_h_color #1d2021;
-
-@define-color fg_color #ebdbb2;
+@define-color bg_color #ebdbb2;
+@define-color fg_color #e6e6e6;
 
 @keyframes blink {
     to {
@@ -52,7 +47,7 @@ window#waybar {
 
 #workspaces button {
     padding: 0 0px;
-    border-bottom: 2px;
+    border-top: 2px;
     color: @fg_color;
     border-color: transparent;
     border-style: solid;
@@ -67,9 +62,9 @@ window#waybar {
     color: @yellow_color;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-redshift, #disk {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-redshift, #custom-vpn, #disk {
     padding: 0 5px;
-    border-bottom: 2px;
+    border-top: 2px;
     border-style: solid;
 }
 
@@ -83,12 +78,36 @@ window#waybar {
     color: @yellow_color;
 }
 
+#custom-mic {
+    color: @purple_color;
+}
+
+#custom-mic.disabled {
+    color: @gray_color;
+}
+
+#custom-rec {
+    color: @red_color;
+}
+
+#custom-rec.disabled {
+    color: @gray_color;
+}
+
 #custom-redshift {
     color: @orange_color;
 }
 
 #custom-redshift.disabled {
     color: @blue_color;
+}
+
+#custom-vpn {
+    color: @aqua2_color;
+}
+
+#custom-vpn.disabled {
+    color: @gray_color;
 }
 
 #battery {
@@ -133,11 +152,11 @@ window#waybar {
 }
 
 #pulseaudio {
-    color: @purple2_color;
+    color: @blue2_color;
 }
 
 #pulseaudio.muted {
-    color: @bg0_color;
+    color: @bg_color;
 }
 
 #temperature {
@@ -152,7 +171,7 @@ window#waybar {
     color: @fg_color;
 }
 
-#temperature.gpu {
+#temperature.ssd {
     color: @yellow_color;
 }
 

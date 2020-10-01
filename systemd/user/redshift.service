@@ -7,4 +7,4 @@ ExecStart=/usr/bin/redshift -vm wayland
 Restart=on-failure
 
 [Install]
-WantedBy=default.target
+WantedBy=sway.target

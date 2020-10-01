@@ -40,25 +40,19 @@ bindsym $mod+q kill
 # start your launcher
 bindsym $mod+d exec wofi
 
-# capture all screens to file
-bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
 
-# capture the specified screen area to file
-bindsym Alt+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim-slurp.png')
+# Print Screen
+bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png') # capture all screens to file
+bindsym Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim-slurp.png') # capture the specified screen area to file
+bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png') # capture the focused monitor to file
 
-# capture the focused monitor to file
-bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
-# capture the focused window to file
-# bindsym Control+Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
+bindsym Alt+Print exec grim - | wl-copy # capture all screens to clipboard
+bindsym Alt+Shift+Print exec grim -g "$(slurp)" - | wl-copy # capture the specified screen area to clipboard
+bindsym Alt+Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy # capture the focused monitor to clipboard
 
-# capture all screens to clipboard
-bindsym Shift+Print exec grim - | wl-copy
-
-# capture the specified screen area to clipboard
-bindsym Shift+Alt+Print exec grim -g "$(slurp)" - | wl-copy
-
-# capture the focused monitor to clipboard
-bindsym Shift+Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+# Record Screen
+bindsym $mod+Shift+r exec wf-recorder -g "$(slurp)" --audio --file=$(xdg-user-dir VIDEOS)/$(date +'%Y-%m-%d-%H%M%S_wf-recorder-slurp.mp4') && pkill -SIGRTMIN+15 waybar
+bindsym $mod+Alt+r exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-focused
 
 # open/close the Ferdi App
 # bindsym $mod+bracketright exec ~/.config/sway/is-open "Ferdi" && sway '[class="Ferdi"]' kill || (ferdi && sway '[class="Ferdi"]' focus)
@@ -66,15 +60,11 @@ bindsym Shift+Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] |
 # open/close the Telegram Desktop App at right side
 bindsym $mod+bracketright exec ~/.config/sway/is-open-id "telegramdesktop" \
    && sway '[app_id="telegramdesktop"]' focus \
-   || (telegram-desktop && sway '[app_id="telegramdesktop"]' resize set 400px)
+   || (telegram-desktop && sway '[class="Telegram"]' resize set 400px)
 
 bindsym $mod+bracketleft exec ~/.config/sway/is-open "discord" \
   && sway '[class="discord"]' focus \
   || discord
-
-bindsym $mod+p exec ~/.config/sway/is-open "Google Play Music Desktop Player" \
-  && sway '[class="Google Play Music Desktop Player"]' focus \
-  || gpmdp
 
 bindsym $mod+o exec ~/.config/sway/is-open "Slack" \
   && sway '[class="Slack"]' focus \
@@ -163,6 +153,8 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
+bindsym $mod+grave exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/mic-toggle
+
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
 
@@ -227,13 +219,15 @@ output * {
   background $(xdg-user-dir PICTURES)/wallpaper fill
 }
 
-output HDMI1 pos 0 0 res 1920x1080
-output eDP1 pos 1920 0 res 1366x768
+output HDMI-A-1 pos 0 0
+output eDP-1 pos 1920 0
 
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
 exec blueman-tray
+
+# for_window [app_id="firefox"] inhibit_idle fullscreen
 
 # lock screen after a period of inactivity
 # exec swayidle -w \

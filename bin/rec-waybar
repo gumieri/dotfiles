@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if pgrep -x "wf-recorder" > /dev/null
+then
+  echo "{\"tooltip\": \"recording is active\", \"percentage\": 100, \"class\": \"enabled\"}"
+else
+  echo "{\"tooltip\": \"recording is off\", \"percentage\": 0, \"class\": \"disabled\"}"
+fi

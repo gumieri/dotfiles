@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -e
+
+if pgrep -x "wf-recorder" > /dev/null
+then
+  pkill -SIGINT -x "wf-recorder"
+else
+  filename=$(xdg-user-dir VIDEOS)/$(date +'%Y-%m-%d-%H%M%S_wf-recorder.mp4')
+  wf-recorder --audio --file=$filename &
+fi
+
+pkill -SIGRTMIN+15 waybar

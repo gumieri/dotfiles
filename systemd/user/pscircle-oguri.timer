@@ -1,9 +1,0 @@
-[Unit]
-Description=Backgroud image (wallpaper) of the running process tree by pscircle. Constantly updated by oguri.
-
-[Timer]
-OnUnitActiveSec=5s
-Persistent=true
-
-[Install]
-WantedBy=timers.target

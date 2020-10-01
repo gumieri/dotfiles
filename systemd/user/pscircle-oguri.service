@@ -1,9 +1,0 @@
-[Unit]
-Description=Backgroud image (wallpaper) of the running process tree by pscircle. Constantly updated by oguri.
-Requires=oguri.service
-
-[Service]
-ExecStart=%h/.local/bin/pscircle-oguri
-
-[Install]
-WantedBy=default.target

@@ -1,10 +1,10 @@
 {
     "layer": "top",
-    "position": "top",
+    "position": "bottom",
     "height": 20,
-    "modules-left": ["sway/workspaces", "tray"],
+    "modules-left": ["tray", "sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["sway/mode", "disk#root", "disk#raid", "temperature#motherboard", "temperature#gpu", "temperature#cpu", "memory", "pulseaudio", "network", "custom/redshift", "clock"],
+    "modules-right": ["sway/mode", "disk", "temperature#ssd", "temperature#cpu", "temperature#motherboard", "memory", "custom/rec", "custom/mic", "pulseaudio", "custom/vpn#tecnospeed", "network", "custom/redshift", "battery", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
         "format": "{name}"
@@ -28,35 +28,29 @@
     "memory": {
         "format": " {}%"
     },
-    "disk#root": {
+    "disk": {
       "interval": 30,
       "format": " {percentage_used}%",
       "path": "/",
       "tooltip": true
     },
-    "disk#raid": {
-      "interval": 30,
-      "format": " {percentage_used}%",
-      "path": "/media/raid/",
-      "tooltip": true
+    "temperature#ssd": {
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°C ",
+        "format": " {temperatureC}°C "
     },
     "temperature#motherboard": {
-        "hwmon-path": "/sys/class/hwmon/hwmon0/temp2_input",
-        "critical-threshold": 45,
+        "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+        "critical-threshold": 100,
         "format-critical": " {temperatureC}°C ",
         "format": " {temperatureC}°C "
     },
     "temperature#cpu": {
-        "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
         "critical-threshold": 60,
         "format-critical": " {temperatureC}°C ",
         "format": " {temperatureC}°C "
-    },
-    "temperature#gpu": {
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
-        "critical-threshold": 95,
-        "format-critical": " {temperatureC}°C ",
-        "format": " {temperatureC}°C "
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -85,14 +79,42 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "amixer set Master toggle"
+        "on-click": "pavucontrol"
     },
     "custom/redshift": {
       "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/redshift-waybar",
       "return-type": "json",
+      "interval": 3600,
       "signal": 12,
       "format": "",
       "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/redshift-toggle"
+    },
+    "custom/rec": {
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-waybar",
+      "return-type": "json",
+      "interval": 3600,
+      "signal": 15,
+      "format": "{icon}",
+      "format-icons": ["⬤"],
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-toggle"
+    },
+    "custom/mic": {
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/mic-waybar",
+      "return-type": "json",
+      "interval": 3600,
+      "signal": 13,
+      "format": "{icon}",
+      "format-icons": ["", ""],
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/mic-toggle"
+    },
+    "custom/vpn#tecnospeed": {
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vpn-tecnospeed-waybar",
+      "return-type": "json",
+      "interval": 3600,
+      "signal": 14,
+      "format": "{icon}",
+      "format-icons": ["", ""],
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vpn-tecnospeed-toggle"
     },
     "idle_inhibitor": {
         "format": "{icon}",

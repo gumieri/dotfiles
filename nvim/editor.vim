@@ -29,9 +29,9 @@ endfunction
 
 let g:crystalline_enable_sep = 1
 let g:crystalline_statusline_fn = 'StatusLine'
-let g:crystalline_theme = 'gruvbox'
+let g:crystalline_theme = 'dracula'
 
-set background=dark
+syntax enable
 colorscheme gruvbox
 
 highlight Normal ctermbg=None

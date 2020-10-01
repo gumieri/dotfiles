@@ -3,31 +3,18 @@
 git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/setup
 ```
 
-### Programs contemplated
+**alacritty** — Terminal emulator.
 
-#### Alacritty
-  Terminal emulator.
+***zsh*** — Shell.
 
-#### zsh
-  Shell.
+***neovim*** — Text editor.
 
-#### neovim
-  Text editor.
+***sway*** — Window manager.
 
-#### sway
-  Window manager.
+***swaylock*** — Screen locker for sway.
 
-#### swaylock
-  Screen locker for sway.
+***swayidle*** — Idle amanagement daemon for sway.
 
-#### swayidle
-  Idle amanagement daemon for sway.
+***waybar*** — Wayland bar for sway.
 
-#### waybar
-  Wayland bar for sway.
-
-#### wofi
-  Application launcher.
-
-#### yay
-  Pacman wrapper with AUR support.
+***wofi*** — Application launcher.

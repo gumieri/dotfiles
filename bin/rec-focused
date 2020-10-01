@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+if pgrep -x "wf-recorder" > /dev/null
+then
+  pkill -SIGINT -x "wf-recorder"
+else
+  geometry=$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')
+  filename=$(xdg-user-dir VIDEOS)/$(date +'%Y-%m-%d-%H%M%S_wf-recorder-slurp.mp4')
+
+  wf-recorder -g "$geometry" --audio --file=$filename &
+fi
+
+pkill -SIGRTMIN+15 waybar

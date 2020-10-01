@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+state=$(nmcli -f GENERAL.STATE con show tecnospeed)
+if [ -z "$state" ]
+then
+  cat ~/.cert/secret| nmcli c up tecnospeed --ask
+else
+  nmcli c down tecnospeed
+fi
+pkill -SIGRTMIN+14 waybar
