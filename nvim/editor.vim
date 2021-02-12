@@ -29,7 +29,7 @@ endfunction
 
 let g:crystalline_enable_sep = 1
 let g:crystalline_statusline_fn = 'StatusLine'
-let g:crystalline_theme = 'dracula'
+let g:crystalline_theme = 'gruvbox'
 
 syntax enable
 colorscheme gruvbox

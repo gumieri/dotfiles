@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# playing, paused, stopped
+p_status=$(playerctl status 2> /dev/null)
+p_volume=$(playerctl volume 2> /dev/null)
+# p_metadata=$(playerctl metadata) # If KEY is passed, print only those values. KEY may be artist,title, album, or any key found in the metadata
+
+if [ "$p_volume" = "" ]
+then
+  volume=0
+else
+  volume=$(echo "$p_volume*100" | bc)
+fi
+
+if [ "$p_status" = "" ]
+then
+  class="stopped"
+else
+  class=$(echo $p_status | tr '[:upper:]' '[:lower:]')
+fi
+  
+
+echo "{\"tooltip\": \"$p_status: \", \"percentage\": $volume, \"class\": \"$class\", \"alt\": \"$class\"}"

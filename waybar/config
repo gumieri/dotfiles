@@ -2,9 +2,9 @@
     "layer": "top",
     "position": "bottom",
     "height": 20,
-    "modules-left": ["tray", "sway/workspaces"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["sway/mode", "disk", "temperature#ssd", "temperature#cpu", "temperature#motherboard", "memory", "custom/rec", "custom/mic", "pulseaudio", "custom/vpn#tecnospeed", "network", "custom/redshift", "battery", "clock"],
+    "modules-left": ["tray", "network", "custom/vpn#tecnospeed", "custom/redshift", "custom/player", "pulseaudio", "custom/mic", "custom/rec"],
+    "modules-center": ["sway/workspaces"], 
+    "modules-right": ["sway/mode", "disk", "temperature#ssd", "temperature#cpu", "temperature#motherboard", "memory", "battery", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
         "format": "{name}"
@@ -80,6 +80,19 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/player": {
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/player-waybar",
+      "return-type": "json",
+      "interval": 60,
+      "signal": 16,
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/player-toggle",
+      "format": "{icon}",
+      "format-icons": {
+        "stopped": "",
+        "paused": "",
+        "playing": ""
+      },
     },
     "custom/redshift": {
       "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/redshift-waybar",

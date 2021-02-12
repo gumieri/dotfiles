@@ -222,6 +222,11 @@ output * {
 output HDMI-A-1 pos 0 0
 output eDP-1 pos 1920 0
 
+# media keys
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 

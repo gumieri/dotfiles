@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+playerctl play-pause
+pkill -SIGRTMIN+16 waybar

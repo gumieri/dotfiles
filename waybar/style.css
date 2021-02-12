@@ -12,12 +12,11 @@
 @define-color aqua_color #689d6a;
 @define-color aqua2_color #8ec07c;
 @define-color gray_color #a89984;
-@define-color gray_color #bfbfbf;
 @define-color gray2_color #928374;
 @define-color orange_color #d65d0e;
 @define-color orange2_color #fe8019;
 
-@define-color bg_color #ebdbb2;
+@define-color bg_color #1d2021;
 @define-color fg_color #e6e6e6;
 
 @keyframes blink {
@@ -38,7 +37,7 @@
     margin-right: 2px;
     margin-left: 2px;
     min-height: 0;
-    min-width: 12px;
+    min-width: 13px;
 }
 
 window#waybar {
@@ -47,7 +46,7 @@ window#waybar {
 
 #workspaces button {
     padding: 0 0px;
-    border-top: 2px;
+    border: 2px;
     color: @fg_color;
     border-color: transparent;
     border-style: solid;
@@ -62,7 +61,7 @@ window#waybar {
     color: @yellow_color;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-redshift, #custom-vpn, #disk {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-redshift, #custom-vpn, #disk, #custom-player {
     padding: 0 5px;
     border-top: 2px;
     border-style: solid;
@@ -78,12 +77,24 @@ window#waybar {
     color: @yellow_color;
 }
 
+#custom-player {
+    color: @yellow_color;
+}
+
+#custom-player.paused {
+    color: @gray2_color;
+}
+
+#custom-player.stopped {
+    color: @bg_color;
+}
+
 #custom-mic {
     color: @purple_color;
 }
 
 #custom-mic.disabled {
-    color: @gray_color;
+    color: @bg_color;
 }
 
 #custom-rec {
@@ -91,7 +102,7 @@ window#waybar {
 }
 
 #custom-rec.disabled {
-    color: @gray_color;
+    color: @bg_color;
 }
 
 #custom-redshift {
@@ -107,11 +118,11 @@ window#waybar {
 }
 
 #custom-vpn.disabled {
-    color: @gray_color;
+    color: @bg_color;
 }
 
 #battery {
-    color: @gray_color;
+    color: @bg_color;
 }
 
 #battery.full {
