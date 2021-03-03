@@ -40,7 +40,6 @@ bindsym $mod+q kill
 # start your launcher
 bindsym $mod+d exec wofi
 
-
 # Print Screen
 # bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png') # capture all screens to file
 # bindsym Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim-slurp.png') # capture the specified screen area to file
@@ -60,7 +59,7 @@ bindsym $mod+Alt+r exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-focus
 # open/close the Telegram Desktop App at right side
 bindsym $mod+bracketright exec ~/.config/sway/is-open-id "telegramdesktop" \
    && sway '[app_id="telegramdesktop"]' focus \
-   || (telegram-desktop && sway '[app_id="telegramdesktop"]' resize set 400px)
+   || telegram-desktop
 
 bindsym $mod+bracketleft exec ~/.config/sway/is-open "discord" \
   && sway '[class="discord"]' focus \
@@ -202,6 +201,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+n exec alacritty --class alacritty-nvim-todo -e /usr/bin/zsh -c '/usr/bin/nvim -c "set nonumber" ~/todo.md'
+
 include /etc/sway/config.d/*
 
 bar {
@@ -231,6 +232,8 @@ bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
 for_window [app_id="gnome-*"] floating enable
+for_window [app_id="telegramdesktop"] resize set 400px
+for_window [app_id="alacritty-nvim-todo"] floating enable
 
 # for_window [app_id="firefox"] inhibit_idle fullscreen
 
