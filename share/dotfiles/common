@@ -14,14 +14,29 @@ xdg_data_files=(fonts themes icons)
 xdg_config_files=(asdf systemd environment.d fzf X11)
 
 # Verifying available commands / programs
-if command -v zsh > /dev/null
+if command -v alacritty > /dev/null
 then
-  xdg_config_files+=(zsh)
+  xdg_config_files+=(alacritty)
+fi
+
+if command -v gammastep > /dev/null
+then
+  xdg_config_files+=(gammastep)
+fi
+
+if command -v mako > /dev/null
+then
+  xdg_config_files+=(mako)
 fi
 
 if command -v nvim > /dev/null
 then
   xdg_config_files+=(nvim)
+fi
+
+if command -v swappy > /dev/null
+then
+  xdg_config_files+=(swappy)
 fi
 
 if command -v sway > /dev/null
@@ -34,11 +49,6 @@ then
   xdg_config_files+=(swaylock)
 fi
 
-if command -v mako > /dev/null
-then
-  xdg_config_files+=(mako)
-fi
-
 if command -v waybar > /dev/null
 then
   xdg_config_files+=(waybar)
@@ -49,19 +59,14 @@ then
   xdg_config_files+=(wofi)
 fi
 
-if command -v alacritty > /dev/null
-then
-  xdg_config_files+=(alacritty)
-fi
-
 if command -v yay > /dev/null
 then
   xdg_config_files+=(yay)
 fi
 
-if command -v gammastep > /dev/null
+if command -v zsh > /dev/null
 then
-  xdg_config_files+=(gammastep)
+  xdg_config_files+=(zsh)
 fi
 
 function setup_files {
