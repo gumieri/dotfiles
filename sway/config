@@ -42,13 +42,13 @@ bindsym $mod+d exec wofi
 
 
 # Print Screen
-bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png') # capture all screens to file
-bindsym Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim-slurp.png') # capture the specified screen area to file
-bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png') # capture the focused monitor to file
+# bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png') # capture all screens to file
+# bindsym Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim-slurp.png') # capture the specified screen area to file
+# bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png') # capture the focused monitor to file
 
-bindsym Alt+Print exec grim - | wl-copy # capture all screens to clipboard
-bindsym Alt+Shift+Print exec grim -g "$(slurp)" - | wl-copy # capture the specified screen area to clipboard
-bindsym Alt+Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy # capture the focused monitor to clipboard
+bindsym Print exec grim - | swappy -f - # capture all screens to clipboard
+bindsym Shift+Print exec grim -g "$(slurp)" - | swappy -f - # capture the specified screen area to clipboard
+bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | swappy -f - # capture the focused monitor to clipboard
 
 # Record Screen
 bindsym $mod+Shift+r exec wf-recorder -g "$(slurp)" --audio --file=$(xdg-user-dir VIDEOS)/$(date +'%Y-%m-%d-%H%M%S_wf-recorder-slurp.mp4') && pkill -SIGRTMIN+15 waybar
@@ -60,7 +60,7 @@ bindsym $mod+Alt+r exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-focus
 # open/close the Telegram Desktop App at right side
 bindsym $mod+bracketright exec ~/.config/sway/is-open-id "telegramdesktop" \
    && sway '[app_id="telegramdesktop"]' focus \
-   || (telegram-desktop && sway '[class="Telegram"]' resize set 400px)
+   || (telegram-desktop && sway '[app_id="telegramdesktop"]' resize set 400px)
 
 bindsym $mod+bracketleft exec ~/.config/sway/is-open "discord" \
   && sway '[class="discord"]' focus \
@@ -245,4 +245,5 @@ for_window [app_id="gnome-*"] floating enable
 
 ## Init programs/apps
 ## does not use "daemons" here, if they break they will not start again)
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec blueman-tray

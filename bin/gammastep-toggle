@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+systemctl --user --quiet is-active gammastep
+if [ $? -eq 0 ]
+then
+  systemctl --user stop gammastep
+  pkill -SIGRTMIN+12 waybar
+else
+  systemctl --user start gammastep
+  pkill -SIGRTMIN+12 waybar
+fi

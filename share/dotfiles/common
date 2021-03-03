@@ -59,6 +59,11 @@ then
   xdg_config_files+=(yay)
 fi
 
+if command -v gammastep > /dev/null
+then
+  xdg_config_files+=(gammastep)
+fi
+
 function setup_files {
   local prefix=$1
   shift

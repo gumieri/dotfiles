@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "bottom",
     "height": 20,
-    "modules-left": ["tray", "network", "custom/vpn#tecnospeed", "custom/redshift", "custom/player", "pulseaudio", "custom/mic", "custom/rec"],
+    "modules-left": ["tray", "network", "custom/vpn#tecnospeed", "custom/gammastep", "custom/player", "pulseaudio", "custom/mic", "custom/rec"],
     "modules-center": ["sway/workspaces"], 
     "modules-right": ["sway/mode", "disk", "temperature#ssd", "temperature#cpu", "temperature#motherboard", "memory", "battery", "clock"],
     "sway/workspaces": {
@@ -16,6 +16,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
+        "icon-size": 12,
         "spacing": 0
     },
     "clock": {
@@ -94,13 +95,13 @@
         "playing": ""
       },
     },
-    "custom/redshift": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/redshift-waybar",
+    "custom/gammastep": {
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/gammastep-waybar",
       "return-type": "json",
       "interval": 3600,
       "signal": 12,
       "format": "",
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/redshift-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/gammastep-toggle"
     },
     "custom/rec": {
       "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-waybar",
