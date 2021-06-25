@@ -1,0 +1,9 @@
+[Unit]
+Description=wayout
+
+[Service]
+ExecStart=/home/rafael_gumieri/.local/bin/wayout
+Restart=on-failure
+
+[Install]
+WantedBy=sway.target

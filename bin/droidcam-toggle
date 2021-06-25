@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+p_name=droidcam-cli
+port=4747
+
+if pgrep -x "$p_name" > /dev/null
+then
+  pkill -SIGINT -x "$p_name"
+else
+  sway exec "$p_name adb $port"
+fi
+
+pkill -SIGRTMIN+17 waybar

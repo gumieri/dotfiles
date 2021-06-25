@@ -21,6 +21,8 @@ set hidden                               " enable switch files and keep the swap
 set undodir=$XDG_CONFIG_HOME/nvim/undo   " storage undo files
 set undofile                             " enable persistent undo
 
+set guifont=Hack
+
 source $XDG_CONFIG_HOME/nvim/indentation.vim
 
 source $XDG_CONFIG_HOME/nvim/shortcuts.vim

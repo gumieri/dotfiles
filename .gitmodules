@@ -22,12 +22,12 @@
 [submodule "nvim/pack/ages/start/vim-crystalline"]
 	path = nvim/pack/ages/start/vim-crystalline
 	url = https://github.com/rbong/vim-crystalline.git
-[submodule "nvim/pack/ages/start/gruvbox"]
-	path = nvim/pack/ages/start/gruvbox
-	url = https://github.com/gruvbox-community/gruvbox.git
 [submodule "nvim/pack/ages/start/vim-terraform"]
 	path = nvim/pack/ages/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
 [submodule "nvim/pack/ages/start/vim-polyglot"]
 	path = nvim/pack/ages/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "nvim/pack/ages/start/gruvbox"]
+	path = nvim/pack/ages/start/gruvbox
+	url = https://github.com/morhetz/gruvbox.git

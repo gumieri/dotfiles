@@ -19,6 +19,11 @@ then
   xdg_config_files+=(alacritty)
 fi
 
+if command -v foot > /dev/null
+then
+  xdg_config_files+=(foot)
+fi
+
 if command -v gammastep > /dev/null
 then
   xdg_config_files+=(gammastep)
@@ -32,6 +37,11 @@ fi
 if command -v nvim > /dev/null
 then
   xdg_config_files+=(nvim)
+fi
+
+if command -v paru > /dev/null
+then
+  xdg_config_files+=(paru)
 fi
 
 if command -v swappy > /dev/null
@@ -57,11 +67,6 @@ fi
 if command -v wofi > /dev/null
 then
   xdg_config_files+=(wofi)
-fi
-
-if command -v yay > /dev/null
-then
-  xdg_config_files+=(yay)
 fi
 
 if command -v zsh > /dev/null

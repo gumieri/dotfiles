@@ -6,7 +6,7 @@ gaps inner 8
 
 default_border pixel 2
 
-seat seat0 xcursor_theme xcursor-breeze 24
+seat seat0 xcursor_theme Breeze 24
 
 # Colors
 set $color_urgent #cc241d
@@ -29,13 +29,14 @@ set $up k
 set $right l
 
 # start the terminal
-bindsym $mod+Return exec alacritty --working-directory $(~/.config/sway/focused-cwd alacritty)
+bindsym $mod+Return exec footclient --working-directory $(~/.config/sway/focused-cwd foot)
 
 # start the browser
 bindsym $mod+backslash exec firefox
 
 # kill focused window
 bindsym $mod+q kill
+bindsym button3 kill
 
 # start your launcher
 bindsym $mod+d exec wofi
@@ -152,8 +153,6 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-bindsym $mod+grave exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/mic-toggle
-
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
 
@@ -201,7 +200,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+n exec alacritty --class alacritty-nvim-todo -e /usr/bin/zsh -c '/usr/bin/nvim -c "set nonumber" ~/todo.md'
+bindsym $mod+n exec footclient --app-id foot-nvim-todo /usr/bin/nvim -c "set nonumber" ~/todo.md
 
 include /etc/sway/config.d/*
 
@@ -217,7 +216,7 @@ input * {
 }
 
 output * {
-  background $(xdg-user-dir PICTURES)/wallpaper fill
+  background '/home/rafael_gumieri/Pictures/Wallpapers/sombrero.png' fill
 }
 
 output HDMI-A-1 pos 0 0
@@ -232,8 +231,10 @@ bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
 for_window [app_id="gnome-*"] floating enable
-for_window [app_id="telegramdesktop"] resize set 400px
-for_window [app_id="alacritty-nvim-todo"] floating enable
+for_window [app_id="zenity"] floating enable
+for_window [class="1Password"] floating enable
+for_window [app_id="foot-nvim-todo"] floating enable
+for_window [class="Google Play Music Desktop Player"] move scratchpad
 
 # for_window [app_id="firefox"] inhibit_idle fullscreen
 
@@ -246,7 +247,13 @@ for_window [app_id="alacritty-nvim-todo"] floating enable
 #     before-sleep 'output * enable && swaylock' \
 #     lock 'swaylock'
 
+## trigger all systemd units binded to sway.target
+exec systemctl --user start sway.target
+
 ## Init programs/apps
 ## does not use "daemons" here, if they break they will not start again)
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec blueman-tray
+exec noisetorch -i
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec 1password --silent

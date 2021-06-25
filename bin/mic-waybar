@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-amixer get Capture | grep '\[on\]'> /dev/null
-if [ $? -eq 0 ]
-then
-  echo "{\"volume\": \"100\", \"tooltip\": \"100%\", \"percentage\": 100, \"class\": \"enabled\"}"
-else
-  echo "{\"volume\": \"0\", \"tooltip\": \"disabled\", \"percentage\": 0, \"class\": \"disabled\"}"
-fi

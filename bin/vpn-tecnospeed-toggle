@@ -3,7 +3,7 @@
 state=$(nmcli -f GENERAL.STATE con show tecnospeed)
 if [ -z "$state" ]
 then
-  cat ~/.cert/secret| nmcli c up tecnospeed --ask
+  zenity --password --title='Tecnospeed VPN Password' | nmcli c up tecnospeed --ask
 else
   nmcli c down tecnospeed
 fi

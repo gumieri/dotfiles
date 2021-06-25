@@ -17,6 +17,15 @@ let g:autoswap_detect_tmux = 1
 let g:fzf_layout = { 'down': '~20%' }
 
 " ale
-let g:ale_fixers = {'javascript': ['prettier_standard']}
-let g:ale_linters = {'javascript': [''], 'go': ['gopls']}
+let g:ale_fixers = {
+      \'javascript': ['prettier_standard'],
+      \'rust': ['rustfmt'],
+   \}
+
+let g:ale_linters = {
+      \'javascript': [''],
+      \'go': ['gopls'],
+      \'rust': ['rls'],
+   \}
 let g:ale_fix_on_save = 1
+let g:ale_rust_rls_toolchain = 'stable'

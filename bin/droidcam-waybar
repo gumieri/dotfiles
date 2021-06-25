@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+p_name=droidcam-cli
+
+if pgrep -x "$p_name" > /dev/null
+then
+  echo "{\"tooltip\": \"droidcam is on\", \"percentage\": 100, \"class\": \"enabled\"}"
+else
+  echo "{\"tooltip\": \"droidcam is off\", \"percentage\": 0, \"class\": \"disabled\"}"
+fi
