@@ -7,8 +7,9 @@ then
 else
   geometry=$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')
   filename=$(xdg-user-dir VIDEOS)/$(date +'%Y-%m-%d-%H%M%S_wf-recorder-slurp.mp4')
+  output=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 
-  wf-recorder -g "$geometry" --audio --file=$filename &
+  wf-recorder -g "$geometry" --audio --output=$output --file=$filename &
 fi
 
 pkill -SIGRTMIN+15 waybar

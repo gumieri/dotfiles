@@ -41,21 +41,18 @@ bindsym button3 kill
 # start your launcher
 bindsym $mod+d exec wofi
 
-# Print Screen
-# bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png') # capture all screens to file
-# bindsym Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim-slurp.png') # capture the specified screen area to file
-# bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png') # capture the focused monitor to file
+# capture all screens to clipboard
+bindsym Print exec grim - | swappy -f -
 
-bindsym Print exec grim - | swappy -f - # capture all screens to clipboard
-bindsym Shift+Print exec grim -g "$(slurp)" - | swappy -f - # capture the specified screen area to clipboard
-bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | swappy -f - # capture the focused monitor to clipboard
+# capture the specified screen area to clipboard
+bindsym Shift+Print exec grim -g "$(slurp)" - | swappy -f -
+
+# capture the focused monitor to clipboard
+bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | swappy -f -
 
 # Record Screen
 bindsym $mod+Shift+r exec wf-recorder -g "$(slurp)" --audio --file=$(xdg-user-dir VIDEOS)/$(date +'%Y-%m-%d-%H%M%S_wf-recorder-slurp.mp4') && pkill -SIGRTMIN+15 waybar
 bindsym $mod+Alt+r exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-focused
-
-# open/close the Ferdi App
-# bindsym $mod+bracketright exec ~/.config/sway/is-open "Ferdi" && sway '[class="Ferdi"]' kill || (ferdi && sway '[class="Ferdi"]' focus)
 
 # open/close the Telegram Desktop App at right side
 bindsym $mod+bracketright exec ~/.config/sway/is-open-id "telegramdesktop" \
@@ -135,8 +132,6 @@ bindsym --to-code $mod+Shift+7 move container to workspace number 7:七
 bindsym --to-code $mod+Shift+8 move container to workspace number 8:八
 bindsym --to-code $mod+Shift+9 move container to workspace number 9:九
 bindsym --to-code $mod+Shift+0 move container to workspace number 10:十
-# Note: workspaces can have any name you want, not just numbers.
-# We just use 1-10 as the default.
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
@@ -252,8 +247,9 @@ exec systemctl --user start sway.target
 
 ## Init programs/apps
 ## does not use "daemons" here, if they break they will not start again)
-exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
+# exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec blueman-tray
 exec noisetorch -i
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec 1password --silent
+exec slack --startup

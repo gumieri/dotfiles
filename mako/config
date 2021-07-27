@@ -1,7 +1,7 @@
-anchor=bottom-right
+anchor=bottom-center
 font=Hack
-default-timeout=2000
+default-timeout=5000
 text-color=#e6e6e6
 border-color=#cc241d
-border-size=4
+border-size=2
 background-color=#282828

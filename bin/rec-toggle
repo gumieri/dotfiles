@@ -9,4 +9,5 @@ else
   wf-recorder --audio --file=$filename &
 fi
 
+sleep 1s
 pkill -SIGRTMIN+15 waybar

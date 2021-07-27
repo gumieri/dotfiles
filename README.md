@@ -1,6 +1,6 @@
 # gumieri/.files
 
-My current operating system is the Arch Linux. So it all is optimized considering this environment.
+My current operating system is the Arch Linux. So it is all optimized considering this environment.
 
 ```
 git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/setup
