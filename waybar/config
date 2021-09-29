@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "bottom",
     "height": 20,
-    "modules-left": ["tray", "network", "custom/vpn#tecnospeed", "custom/gammastep", "custom/player", "pulseaudio", "custom/rec", "custom/droidcam"],
+    "modules-left": ["tray", "network", "custom/vpn#tecnospeed", "custom/gammastep", "custom/rec", "custom/player", "pulseaudio"],
     "modules-center": ["sway/workspaces"], 
     "modules-right": ["sway/mode", "disk", "temperature#ssd", "temperature#cpu", "temperature#motherboard", "memory", "battery", "clock"],
     "sway/workspaces": {
@@ -120,15 +120,6 @@
       "format": "{icon}",
       "format-icons": ["", ""],
       "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/mic-toggle"
-    },
-    "custom/droidcam": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/droidcam-waybar",
-      "return-type": "json",
-      "interval": 3600,
-      "signal": 17,
-      "format": "{icon}",
-      "format-icons": [""],
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/droidcam-toggle"
     },
     "custom/vpn#tecnospeed": {
       "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vpn-tecnospeed-waybar",

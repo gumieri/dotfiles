@@ -31,6 +31,10 @@ set $right l
 # start the terminal
 bindsym $mod+Return exec footclient --working-directory $(~/.config/sway/focused-cwd foot)
 
+bindsym $mod+Alt+Return exec footclient --app-id foot-float --working-directory $(~/.config/sway/focused-cwd foot)
+
+bindsym $mod+n exec footclient --app-id foot-float /usr/bin/nvim -c "set nonumber" ~/todo.md
+
 # start the browser
 bindsym $mod+backslash exec firefox
 
@@ -66,6 +70,8 @@ bindsym $mod+bracketleft exec ~/.config/sway/is-open "discord" \
 bindsym $mod+o exec ~/.config/sway/is-open "Slack" \
   && sway '[class="Slack"]' focus \
   || slack
+
+bindsym $mod+Shift+v exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vpn-tecnospeed-toggle
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -195,13 +201,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+n exec footclient --app-id foot-nvim-todo /usr/bin/nvim -c "set nonumber" ~/todo.md
-
 include /etc/sway/config.d/*
-
-bar {
-  swaybar_command waybar
-}
 
 input * {
   tap enabled
@@ -228,7 +228,7 @@ bindswitch lid:off output eDP-1 enable
 for_window [app_id="gnome-*"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [class="1Password"] floating enable
-for_window [app_id="foot-nvim-todo"] floating enable
+for_window [app_id="foot-float"] floating enable
 for_window [class="Google Play Music Desktop Player"] move scratchpad
 
 # for_window [app_id="firefox"] inhibit_idle fullscreen
@@ -242,14 +242,12 @@ for_window [class="Google Play Music Desktop Player"] move scratchpad
 #     before-sleep 'output * enable && swaylock' \
 #     lock 'swaylock'
 
-## trigger all systemd units binded to sway.target
-exec systemctl --user start sway.target
+## Start Sway Session with imported environment variables
+exec "systemctl --user import-environment; systemctl --user start sway-session.target"
 
 ## Init programs/apps
 ## does not use "daemons" here, if they break they will not start again)
-# exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
-exec blueman-tray
-exec noisetorch -i
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec 1password --silent
 exec slack --startup
+exec noisetorch -i

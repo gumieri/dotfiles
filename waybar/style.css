@@ -61,7 +61,7 @@ window#waybar {
     color: @yellow_color;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-gammastep, #custom-vpn, #disk, #custom-player, #custom-droidcam {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-gammastep, #custom-vpn, #disk, #custom-player {
     padding: 0 5px;
     border-top: 2px;
     border-style: solid;
@@ -102,14 +102,6 @@ window#waybar {
 }
 
 #custom-rec.disabled {
-    color: @gray_color;
-}
-
-#custom-droidcam {
-    color: @red_color;
-}
-
-#custom-droidcam.disabled {
     color: @gray_color;
 }
 

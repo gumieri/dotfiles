@@ -79,7 +79,7 @@ scrolling:
 
 # Font configuration (changes require restart)
 font:
-  size: 10.0
+  size: 11.0
 
   normal:
     family: hack

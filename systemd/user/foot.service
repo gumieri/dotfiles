@@ -9,4 +9,4 @@ RestartSec=5
 StartLimitBurst=3
 
 [Install]
-WantedBy=sway.target
+WantedBy=graphical-session.target

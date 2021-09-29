@@ -1,33 +1,9 @@
-[submodule "vim/obsession"]
-	path = nvim/pack/ages/start/vim-obsession
-	url = https://github.com/tpope/vim-obsession.git
-[submodule "vim/editorconfig"]
-	path = nvim/pack/ages/start/editorconfig-vim
-	url = https://github.com/editorconfig/editorconfig-vim.git
 [submodule "devtools/asdf"]
 	path = asdf
 	url = https://github.com/asdf-vm/asdf.git
 [submodule "devtools/fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule "vim/fugitive"]
-	path = nvim/pack/ages/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/ale"]
-	path = nvim/pack/ages/start/ale
-	url = https://github.com/w0rp/ale.git
-[submodule "vim/go"]
-	path = nvim/pack/ages/start/vim-go
-	url = https://github.com/fatih/vim-go.git
-[submodule "nvim/pack/ages/start/vim-crystalline"]
-	path = nvim/pack/ages/start/vim-crystalline
-	url = https://github.com/rbong/vim-crystalline.git
 [submodule "nvim/pack/ages/start/vim-terraform"]
 	path = nvim/pack/ages/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
-[submodule "nvim/pack/ages/start/vim-polyglot"]
-	path = nvim/pack/ages/start/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot.git
-[submodule "nvim/pack/ages/start/gruvbox"]
-	path = nvim/pack/ages/start/gruvbox
-	url = https://github.com/morhetz/gruvbox.git

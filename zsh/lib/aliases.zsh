@@ -8,3 +8,5 @@ alias envfile='env $(cat .env | xargs)'
 alias ssh='TERM=xterm-256color ssh'
 alias gitpatch="git tag | sort -Vr | head -n 1 | awk -F. '{\$3++; print \$0}' | sed 's/ /./g'"
 alias jv='vim -c "set syntax=json"'
+alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
+alias dcp='docker-compose'
