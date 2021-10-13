@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -e
+
+width=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused) | .rect.width')
+if (( width > 1920 ))
+then
+  sway gaps horizontal current set 752
+else 
+  sway gaps horizontal current set 0
+fi
+
+pkill -SIGRTMIN+17 waybar

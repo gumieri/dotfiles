@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+width=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused) | .rect.width')
+if (( width > 1920 ))
+then
+  echo "{\"tooltip\": \"Ultrawide\", \"percentage\": 0, \"class\": \"disabled\"}"
+else
+  echo "{\"tooltip\": \"Wide\", \"percentage\": 100, \"class\": \"enabled\"}"
+fi

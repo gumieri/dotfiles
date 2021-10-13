@@ -61,7 +61,7 @@ window#waybar {
     color: @yellow_color;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-gammastep, #custom-vpn, #disk, #custom-player {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-gammastep, #custom-vpn, #disk, #custom-player, #custom-wide {
     padding: 0 5px;
     border-top: 2px;
     border-style: solid;
@@ -102,6 +102,14 @@ window#waybar {
 }
 
 #custom-rec.disabled {
+    color: @gray_color;
+}
+
+#custom-wide {
+    color: @orange_color;
+}
+
+#custom-wide.disabled {
     color: @gray_color;
 }
 
