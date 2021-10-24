@@ -35,17 +35,22 @@ set cursorline   " highlight the line where is the cursor
 set showmatch    " highlight the sibling block mark: (), [], {}
 set completeopt=menu,menuone,noselect
 
-lua <<EOF
-  vim.cmd([[colorscheme gruvbox]])
-  vim.cmd([[highlight Normal ctermbg=None]])
+colorscheme gruvbox
 
+highlight Normal ctermbg=None
+
+" JavaScript linter
+let g:ale_fixers = {'javascript': ['prettier_standard']}
+let g:ale_fix_on_save = 1
+
+lua <<EOF
   require('plugins')
 
-  require('setup-nvim-cmp')
+  require('setup-lsp')
 
   require('setup-fzf')
 
-  require('auto-session').setup()
+  require('setup-bufferline')
 
   require('lualine').setup {
     options = {theme = 'gruvbox'}
@@ -59,10 +64,8 @@ lua <<EOF
     { noremap = true, silent = true })
 
   -- Tab & Shift-Tab go forward and backward in the opened buffers
-  vim.api.nvim_set_keymap('n', '<Tab>', ':bn<CR>',
-    { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', '<S-Tab>', ':bp<CR>',
-    { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', '<Tab>', ':bn<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', '<S-Tab>', ':bp<CR>', { noremap = true, silent = true })
 
   -- <Ctrl-x> to close the current buffer
   vim.api.nvim_set_keymap('n', '<C-x>', ':bd<CR>',
@@ -77,7 +80,9 @@ lua <<EOF
     { noremap = true, silent = true })
 
   -- <Ctrl-p> with fzf
-  -- nnoremap <c-P> <cmd>lua require('fzf-lua').files()<CR>
   vim.api.nvim_set_keymap('n', '<c-P>', [[<Cmd>lua require('fzf-lua').files()<CR>]],
     { noremap = true, silent = true })
+
+  vim.cmd([[colorscheme gruvbox]])
+  vim.cmd([[highlight Normal ctermbg=None]])
 EOF

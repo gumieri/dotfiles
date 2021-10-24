@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+file="/tmp/vim-input-$(date +%s)"
+
+footclient --app-id foot-float /usr/bin/nvim -c "set nonumber" "$file"
+
+old-cliploard="$(wl-paste)"
+
+wl-copy -n < "$file"
+
+rm "$file"

@@ -75,6 +75,8 @@ bindsym $mod+Shift+v exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vpn-tec
 
 bindsym $mod+Shift+w exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/wide-toggle
 
+bindsym $mod+Shift+i exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vim-input-edit
+
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.

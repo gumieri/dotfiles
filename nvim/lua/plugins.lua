@@ -12,10 +12,12 @@ return require('packer').startup(function()
 
   use 'morhetz/gruvbox'
 
+  use 'dense-analysis/ale'
+
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
 
-  use { 'hoob3rt/lualine.nvim',
+  use { 'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
@@ -23,6 +25,10 @@ return require('packer').startup(function()
     requires = {
       'vijaymarupudi/nvim-fzf',
       'kyazdani42/nvim-web-devicons' }
+  }
+
+  use { 'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons'
   }
 
   use { 'hrsh7th/nvim-cmp',
@@ -34,4 +40,3 @@ return require('packer').startup(function()
       'saadparwaiz1/cmp_luasnip' }
   }
 end)
-
