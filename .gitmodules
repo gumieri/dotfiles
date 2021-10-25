@@ -1,3 +1,19 @@
+[submodule "tmux/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
+	branch = master
+[submodule "tmux/resurrect"]
+	path = tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect.git
+	branch = master
+[submodule "tmux/continuum"]
+	path = tmux/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum.git
+	branch = master
+[submodule "tmux/battery"]
+	path = tmux/plugins/tmux-battery
+	url = https://github.com/tmux-plugins/tmux-battery.git
+	branch = master
 [submodule "devtools/asdf"]
 	path = asdf
 	url = https://github.com/asdf-vm/asdf.git
