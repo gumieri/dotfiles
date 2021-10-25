@@ -16,20 +16,22 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/s
 
 **mako** — Notification daemon for Wayland
 
-***neovim*** — Edit text.
+**neovim** — Edit text.
 
 **paru** — AUR helper and pacman wrapper.
 
 **swappy** — Grab and edit on the fly snapshots of a Wayland compositor.
 
-***sway*** — An i3-compatible Wayland compositor. A window manager.
+**sway** — An i3-compatible Wayland compositor. A window manager.
 
-***swaylock*** — Screen locker for sway.
+**swaylock** — Screen locker for sway.
 
-***swayidle*** — Idle manager for Wayland.
+**swayidle** — Idle manager for Wayland.
 
-***waybar*** — Wayland bar for sway.
+**tmux** — terminal multiplexer
 
-***wofi*** — A rofi inspired launcher for wlroots compositors. Application launcher.
+**waybar** — Wayland bar for sway.
 
-***zsh*** — The Z shell.
+**wofi** — A rofi inspired launcher for wlroots compositors. Application launcher.
+
+**zsh** — The Z shell.
