@@ -11,7 +11,7 @@ XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 modules=$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }')
 
 xdg_data_files=(fonts themes icons)
-xdg_config_files=(asdf systemd environment.d fzf X11)
+xdg_config_files=(asdf systemd environment.d X11)
 
 # Verifying available commands / programs
 if command -v alacritty > /dev/null

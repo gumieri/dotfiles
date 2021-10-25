@@ -1,9 +1,6 @@
 [submodule "devtools/asdf"]
 	path = asdf
 	url = https://github.com/asdf-vm/asdf.git
-[submodule "devtools/fzf"]
-	path = fzf
-	url = https://github.com/junegunn/fzf.git
 [submodule "nvim/pack/ages/start/vim-terraform"]
 	path = nvim/pack/ages/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
