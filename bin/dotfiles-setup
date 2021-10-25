@@ -8,8 +8,4 @@ source ./share/dotfiles/common
 setup_files "${XDG_DATA_HOME}/" ${xdg_data_files[@]}
 setup_files "${XDG_CONFIG_HOME}/" ${xdg_config_files[@]}
 
-printf "${color_white}fzf${color_end}\n"
-# Post-download setup
-$PWD/fzf/install --bin --xdg
-
 printf "${color_white}Setup completed${color_end}\n"
