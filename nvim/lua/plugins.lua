@@ -10,7 +10,7 @@ return require('packer').startup(function()
 
   use 'ray-x/go.nvim'
 
-  use 'morhetz/gruvbox'
+  use 'sainnhe/gruvbox-material'
 
   use 'dense-analysis/ale'
 
