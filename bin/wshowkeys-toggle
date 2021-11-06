@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+systemctl --user --quiet is-active wshowkeys
+if [ $? -eq 0 ]
+then
+  systemctl --user stop wshowkeys
+  pkill -SIGRTMIN+18 waybar
+else
+  systemctl --user start wshowkeys
+  pkill -SIGRTMIN+18 waybar
+fi

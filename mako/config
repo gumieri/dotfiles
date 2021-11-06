@@ -1,7 +1,9 @@
-anchor=top-center
+anchor=bottom-right
 font=Hack Nerd Font Mono
 default-timeout=5000
 text-color=#e6e6e6
 border-color=#cc241d
 border-size=2
 background-color=#282828
+group-by=app-name
+margin=10,110,10

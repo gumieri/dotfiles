@@ -231,20 +231,10 @@ bindswitch lid:off output eDP-1 enable
 
 for_window [app_id="gnome-*"] floating enable
 for_window [app_id="zenity"] floating enable
-for_window [class="1Password"] floating enable
 for_window [app_id="foot-float"] floating enable
-for_window [class="Google Play Music Desktop Player"] move scratchpad
+for_window [class="1Password"] floating enable
 
-# for_window [app_id="firefox"] inhibit_idle fullscreen
-
-# lock screen after a period of inactivity
-# exec swayidle -w \
-#     timeout 300 'swaylock' \
-#     timeout 330 'swaymsg "output * dpms off"' \
-#       resume 'swaymsg "output * dpms on"' \
-#     after-resume 'swaymsg "output * dpms on"' \
-#     before-sleep 'output * enable && swaylock' \
-#     lock 'swaylock'
+for_window [app_id="firefox"] inhibit_idle fullscreen
 
 ## Start Sway Session with imported environment variables
 exec "systemctl --user import-environment; systemctl --user start sway-session.target"
@@ -255,3 +245,4 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec 1password --silent
 exec slack --startup
 exec noisetorch -i
+exec blueman-tray

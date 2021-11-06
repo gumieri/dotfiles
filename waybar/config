@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "bottom",
     "height": 20,
-    "modules-left": ["tray", "network", "custom/vpn#tecnospeed", "custom/gammastep", "custom/rec", "custom/player", "pulseaudio", "custom/wide"],
+    "modules-left": ["tray", "network", "custom/vpn#tecnospeed", "custom/gammastep", "custom/rec", "custom/player", "pulseaudio", "custom/wide", "custom/wshowkeys"],
     "modules-center": ["sway/workspaces"], 
     "modules-right": ["sway/mode", "disk", "temperature#ssd", "temperature#cpu", "temperature#motherboard", "memory", "battery", "clock"],
     "sway/workspaces": {
@@ -27,7 +27,7 @@
         "format": " {load}%"
     },
     "memory": {
-        "format": " {}%"
+        "format": " {}%"
     },
     "disk": {
       "interval": 30,
@@ -136,8 +136,16 @@
       "interval": 10,
       "signal": 17,
       "format": "{icon}",
-      "format-icons": ["", ""],
+      "format-icons": ["", ""],
       "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/wide-toggle"
+    },
+    "custom/wshowkeys": {
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/wshowkeys-waybar",
+      "return-type": "json",
+      "interval": 3600,
+      "signal": 18,
+      "format": "",
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/wshowkeys-toggle"
     },
     "idle_inhibitor": {
         "format": "{icon}",

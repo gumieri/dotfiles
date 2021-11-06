@@ -59,7 +59,6 @@ then
   xdg_config_files+=(swaylock)
 fi
 
-
 if command -v tmux > /dev/null
 then
   xdg_config_files+=(tmux tmux.conf)

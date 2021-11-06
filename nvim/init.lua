@@ -7,15 +7,6 @@ vim.cmd([[
   augroup end
 ]])
 
-require('setup-lsp')
-
-require('setup-fzf')
-
--- vim.opt.termguicolors = true
--- require('setup-bufferline')
-
-require('lualine').setup { options = {theme = 'gruvbox'} }
-
 require('go').setup()
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 
@@ -53,11 +44,11 @@ vim.api.nvim_set_keymap('n', '<C-Q>', ':quit<CR>',
   { noremap = true, silent = true })
 
 -- <Ctrl-p> with fzf/sk
-vim.api.nvim_set_keymap('n', '<c-P>', [[<Cmd>lua require('fzf-lua').files()<CR>]],
+vim.api.nvim_set_keymap('n', '<c-P>', [[<Cmd>lua require('telescope.builtin').find_files()<CR>]],
   { noremap = true, silent = true })
 
 -- JavaScript linter
-vim.g.ale_fixers = { javascript = {'prettier_standard'}}
+vim.g.ale_fixers = { javascript = {'standard'}}
 vim.g.ale_fix_on_save = 1
 
 -- Theme

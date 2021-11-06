@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+systemctl --user --quiet is-active wshowkeys
+if [ $? -eq 0 ]
+then
+  echo "{\"tooltip\": \"wshowkeys active\", \"percentage\": 100, \"class\": \"enabled\"}"
+else
+  echo "{\"tooltip\": \"wshowkeys inactive\", \"percentage\": 0, \"class\": \"disabled\"}"
+fi

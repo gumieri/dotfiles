@@ -29,10 +29,6 @@ require('lspconfig').rls.setup { -- Rust
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 
-require('lspconfig').sumneko_lua.setup { -- Lua
-  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-
 require('lspconfig').denols.setup { -- Deno/Node/JavaScript
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }

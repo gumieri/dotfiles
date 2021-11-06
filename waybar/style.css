@@ -31,7 +31,7 @@
     border: 0;
     border-radius: 0;
     padding: 0 0;
-    font-family: Hack, DejaVu Sans Mono, Monospace;
+    font-family: Hack;
     font-size: 10px;
     font-weight: bold;
     margin-right: 2px;
@@ -61,14 +61,13 @@ window#waybar {
     color: @yellow_color;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-gammastep, #custom-vpn, #disk, #custom-player, #custom-wide {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-gammastep, #custom-vpn, #disk, #custom-player, #custom-wide #custom-wshowkeys {
     padding: 0 5px;
     border-top: 2px;
     border-style: solid;
 }
 
 #clock {
-    font-weight: bold;
     border-color: transparent;
     border-style: solid;
 }
@@ -110,6 +109,14 @@ window#waybar {
 }
 
 #custom-wide.disabled {
+    color: @gray_color;
+}
+
+#custom-wshowkeys {
+    color: @red_color;
+}
+
+#custom-wshowkeys.disabled {
     color: @gray_color;
 }
 

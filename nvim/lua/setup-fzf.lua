@@ -209,7 +209,7 @@ require'fzf-lua'.setup {
     prompt            = 'Rg❯ ',
     input_prompt      = 'Grep For❯ ',
     -- cmd               = "rg --vimgrep",
-    rg_opts           = "--hidden --column --line-number --no-heading " ..
+    rg_opts           = "--column --line-number --no-heading " ..
                         "--color=always --smart-case -g '!{.git,node_modules}/*'",
     git_icons         = true,           -- show git icons?
     file_icons        = true,           -- show file icons?
