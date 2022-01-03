@@ -23,10 +23,6 @@ vim.o.scrolloff  = 10   -- number of lines always above or below the cursor
 vim.o.cursorline = true -- highlight the line where is the cursor
 vim.o.showmatch  = true -- highlight the sibling block mark: (), [], {}
 
--- <Ctrl-l> redraws the screen and removes any search highlighting
-vim.api.nvim_set_keymap('n', '<C-l>', ':nohl<CR><C-l>',
-  { noremap = true, silent = true })
-
 -- Tab & Shift-Tab go forward and backward in the opened buffers
 vim.api.nvim_set_keymap('n', '<Tab>', ':bn<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bp<CR>', { noremap = true, silent = true })

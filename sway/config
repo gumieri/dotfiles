@@ -84,13 +84,10 @@ bindsym $mod+Shift+i exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vim-inp
 # mouse button for dragging.
 floating_modifier $mod normal
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
 bindsym $mod+Alt+l exec swaylock
 
 # exit sway (logs you out of your wayland session)
-bindsym $mod+Alt+e exit
+bindsym $mod+Alt+e exec waylogout --screenshots --font="Hack 10" --effect-blur=7x5 --indicator-thickness=20 --ring-color=888888aa --inside-color=88888866 --text-color=eaeaeaaa --line-color=00000000 --ring-selection-color=33cc33aa --inside-selection-color=33cc3366 --text-selection-color=eaeaeaaa --line-selection-color=00000000 --logout-command="echo logout" --suspend-command="systemctl suspend" --poweroff-command="shutdown now" --reboot-command="shutdown -r now" --switch-user-command="sway exit" --selection-label
 
 ## Moving around:
 # Move your focus around
@@ -244,5 +241,4 @@ exec "systemctl --user import-environment; systemctl --user start sway-session.t
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec 1password --silent
 exec slack --startup
-exec noisetorch -i
 exec blueman-tray
