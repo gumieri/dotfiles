@@ -12,6 +12,7 @@ bashcompinit
 
 # Completion dump file
 compinit -i -d $ZSH_COMPDUMP
+_comp_options+=(globdots)
 
 # My zsh libs
 for config_file in $ZDOTDIR/lib/*.zsh

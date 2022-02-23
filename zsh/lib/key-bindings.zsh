@@ -69,9 +69,9 @@ bindkey '\C-x\C-e' edit-command-line
 # file rename magick
 bindkey "^[m" copy-prev-shell-word
 
-[[ $- == *i* ]] && source "/usr/share/fzf/key-bindings.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "/usr/share/fzf/shell/key-bindings.zsh" 2> /dev/null
 
-source "/usr/share/fzf/key-bindings.zsh"
+# source "/usr/share/fzf/key-bindings.zsh"
 
 function open-project-path {
   local project=$(p | fzf)

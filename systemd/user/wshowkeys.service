@@ -3,7 +3,7 @@ Description=wshowkeys
 Documentation=man:wshowkeys(1)
 
 [Service]
-ExecStart=/usr/local/bin/wshowkeys -t 2s -F 'hack 30' -a bottom -m 200
+ExecStart=wshowkeys -t 2s -F 'hack 30' -a bottom -m 200
 Restart=on-failure
 
 [Install]

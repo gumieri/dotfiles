@@ -6,7 +6,7 @@ gaps inner 8
 
 default_border pixel 2
 
-seat seat0 xcursor_theme Breeze 24
+seat seat0 xcursor_theme breeze_cursors 24
 
 # Colors
 set $color_urgent #cc241d
@@ -36,14 +36,15 @@ bindsym $mod+Alt+Return exec footclient --app-id foot-float --working-directory 
 bindsym $mod+n exec footclient --app-id foot-float /usr/bin/nvim -c "set nonumber" ~/todo.md
 
 # start the browser
-bindsym $mod+backslash exec firefox
+bindsym $mod+backslash exec google-chrome
+bindsym Control+Shift+Alt+backslash exec ddcutil setvcp 0x60 0x0f
 
 # kill focused window
 bindsym $mod+q kill
 bindsym button3 kill
 
 # start your launcher
-bindsym $mod+d exec wofi
+bindsym $mod+d exec /home/rafael_gumieri/.local/share/cargo/bin/kickoff
 
 # capture all screens to clipboard
 bindsym Print exec grim - | swappy -f -
@@ -63,11 +64,7 @@ bindsym $mod+bracketright exec ~/.config/sway/is-open-id "telegramdesktop" \
    && sway '[app_id="telegramdesktop"]' focus \
    || telegram-desktop
 
-bindsym $mod+bracketleft exec ~/.config/sway/is-open "discord" \
-  && sway '[class="discord"]' focus \
-  || discord
-
-bindsym $mod+o exec ~/.config/sway/is-open "Slack" \
+bindsym $mod+bracketleft exec ~/.config/sway/is-open "Slack" \
   && sway '[class="Slack"]' focus \
   || slack
 
@@ -238,7 +235,7 @@ exec "systemctl --user import-environment; systemctl --user start sway-session.t
 
 ## Init programs/apps
 ## does not use "daemons" here, if they break they will not start again)
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec 1password --silent
 exec slack --startup
 exec blueman-tray
