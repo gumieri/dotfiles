@@ -36,7 +36,8 @@ bindsym $mod+Alt+Return exec footclient --app-id foot-float --working-directory 
 bindsym $mod+n exec footclient --app-id foot-float /usr/bin/nvim -c "set nonumber" ~/todo.md
 
 # start the browser
-bindsym $mod+backslash exec google-chrome
+bindsym $mod+backslash exec firefox
+bindsym $mod+Alt+backslash exec google-chrome
 bindsym Control+Shift+Alt+backslash exec ddcutil setvcp 0x60 0x0f
 
 # kill focused window
