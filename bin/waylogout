@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -e
+
+dir=$(dirname ${BASH_SOURCE[0]})
+
+graceful_exit_browsers="pkill -INT chrome; pkill -INT firefox"
+
+waylogout \
+  --screenshots \
+  --font="Hack" \
+  --effect-blur=7x5 \
+  --indicator-thickness=20 \
+  --ring-color=888888aa \
+  --inside-color=88888866 \
+  --text-color=eaeaeaaa \
+  --line-color=00000000 \
+  --ring-selection-color=33cc33aa \
+  --inside-selection-color=33cc3366 \
+  --text-selection-color=eaeaeaaa \
+  --line-selection-color=00000000 \
+  --logout-command="$graceful_exit_browsers; sway exit" \
+  --suspend-command="$graceful_exit_browsers; $dir/sleep-til-tomorrow" \
+  --poweroff-command="$graceful_exit_browsers; shutdown now" \
+  --reboot-command="$graceful_exit_browsers; shutdown -r now" \
+  --switch-user-command="$graceful_exit_browsers; sway exit" \
+  --selection-label

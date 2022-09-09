@@ -3,7 +3,7 @@
 # playing, paused, stopped
 p_status=$(playerctl status 2> /dev/null)
 p_volume=$(playerctl volume 2> /dev/null)
-# p_metadata=$(playerctl metadata) # If KEY is passed, print only those values. KEY may be artist,title, album, or any key found in the metadata
+p_metadata=$(playerctl metadata --format "{{ artist }} - {{ album }} - {{ title }}")
 
 if [ "$p_volume" = "" ]
 then
@@ -18,6 +18,5 @@ then
 else
   class=$(echo $p_status | tr '[:upper:]' '[:lower:]')
 fi
-  
 
-echo "{\"tooltip\": \"$p_status: \", \"percentage\": $volume, \"class\": \"$class\", \"alt\": \"$class\"}"
+echo "{\"tooltip\": \"$p_status: $p_metadata\", \"percentage\": $volume, \"class\": \"$class\", \"alt\": \"$class\"}"

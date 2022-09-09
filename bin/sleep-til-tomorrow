@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -e
+
+days=1
+holidays=$1
+
+number_regex='^[0-9]+$'
+if [[ $holidays =~ $number_regex ]]
+then
+  days=$(($days+$holidays))
+fi
+
+weekday=$(date --date="+${days} days" +"%A")
+if [ $weekday = "Saturday" ]
+then
+  days=$(($days+1))
+elif [ $weekday = "Sunday" ]
+then
+  days=$(($days+2))
+fi
+
+date=$(date --date="+${days} days" +"%Y-%m-%d")
+
+sudo rtcwake -m disk --date "$date 08:00"

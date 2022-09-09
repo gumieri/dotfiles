@@ -60,15 +60,6 @@ bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | selec
 bindsym $mod+Shift+r exec wf-recorder -g "$(slurp)" --audio --file=$(xdg-user-dir VIDEOS)/$(date +'%Y-%m-%d-%H%M%S_wf-recorder-slurp.mp4') && pkill -SIGRTMIN+15 waybar
 bindsym $mod+Alt+r exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-focused
 
-# open/close the Telegram Desktop App at right side
-bindsym $mod+bracketright exec ~/.config/sway/is-open-id "telegramdesktop" \
-   && sway '[app_id="telegramdesktop"]' focus \
-   || telegram-desktop
-
-bindsym $mod+bracketleft exec ~/.config/sway/is-open "Slack" \
-  && sway '[class="Slack"]' focus \
-  || slack
-
 bindsym $mod+Shift+v exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vpn-tecnospeed-toggle
 
 bindsym $mod+Shift+w exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/wide-toggle
@@ -84,8 +75,10 @@ floating_modifier $mod normal
 
 bindsym $mod+Alt+l exec swaylock
 
+bindsym $mod+Alt+a exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/headset-toggle
+
 # exit sway (logs you out of your wayland session)
-bindsym $mod+Alt+e exec waylogout --screenshots --font="Hack 10" --effect-blur=7x5 --indicator-thickness=20 --ring-color=888888aa --inside-color=88888866 --text-color=eaeaeaaa --line-color=00000000 --ring-selection-color=33cc33aa --inside-selection-color=33cc3366 --text-selection-color=eaeaeaaa --line-selection-color=00000000 --logout-command="echo logout" --suspend-command="systemctl suspend" --poweroff-command="shutdown now" --reboot-command="shutdown -r now" --switch-user-command="sway exit" --selection-label
+bindsym $mod+Alt+e exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/waylogout
 
 ## Moving around:
 # Move your focus around
@@ -224,6 +217,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
+for_window [title="Picture-in-Picture"] floating enable
 for_window [app_id="gnome-*"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="foot-float"] floating enable
@@ -238,5 +232,6 @@ exec "systemctl --user import-environment; systemctl --user start sway-session.t
 ## does not use "daemons" here, if they break they will not start again)
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec 1password --silent
-exec slack --startup
-exec blueman-tray
+exec blueman-applet
+exec solaar --window hide
+exec slack -u --enable-features=WaylandWindowDecorations --ozone-platform=wayland --ozone-platform-hint=auto --enable-webrtc-pipewire-capture

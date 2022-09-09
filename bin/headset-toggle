@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+bluetoothctl info 38:18:4C:EA:0E:81 | rg 'Connected: yes'
+if [ $? -eq 0 ]
+then
+  bluetoothctl disconnect 38:18:4C:EA:0E:81
+else
+  bluetoothctl connect 38:18:4C:EA:0E:81
+fi
