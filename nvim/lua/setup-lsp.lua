@@ -20,21 +20,60 @@ cmp.setup({
   }
 })
 
-local servers = { 'gopls', 'rls', 'denols', 'sumneko_lua', 'pyright', 'rust_analyzer', 'tsserver' }
+local lspconfig = require("lspconfig")
+
+local lspformat = require("lsp-format")
+
+local servers = { 'gopls', 'rls', 'lua_ls', 'pyright', 'rust_analyzer', 'tsserver' }
 for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
-  }
+  lspconfig[lsp].setup { on_attach = lspformat.on_attach }
 end
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  auto_install = true,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
 }
+
+local prettier = require("prettier")
+
+prettier.setup({
+  bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
+  filetypes = {
+    "css",
+    "graphql",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "less",
+    "markdown",
+    "scss",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+  },
+  cli_options = {
+    arrow_parens = "always",
+    bracket_spacing = true,
+    bracket_same_line = false,
+    embedded_language_formatting = "auto",
+    end_of_line = "lf",
+    html_whitespace_sensitivity = "css",
+    -- jsx_bracket_same_line = false,
+    jsx_single_quote = false,
+    print_width = 80,
+    prose_wrap = "preserve",
+    quote_props = "as-needed",
+    semi = false,
+    single_attribute_per_line = false,
+    single_quote = false,
+    tab_width = 2,
+    trailing_comma = "es5",
+    use_tabs = false,
+    vue_indent_script_and_style = false,
+  },
+})

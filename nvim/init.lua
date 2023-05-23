@@ -7,9 +7,6 @@ vim.cmd([[
   augroup end
 ]])
 
-require('go').setup()
-vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
-
 -- Custom Settings
 vim.o.undofile   = true -- enable persistent undo
 vim.o.lazyredraw = true -- do not redraw everything everytime

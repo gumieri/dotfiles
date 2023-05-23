@@ -16,7 +16,7 @@ return require('packer').startup(function()
     requires = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-      { 'kyazdani42/nvim-web-devicons', opt = true },
+      { 'kyazdani42/nvim-web-devicons',             opt = true },
     },
     config = function()
       local actions = require('telescope.actions')
@@ -27,11 +27,11 @@ return require('packer').startup(function()
         },
         extensions = {
           fzf = {
-            fuzzy = true,                    -- false will only do exact matching
-            override_generic_sorter = true,  -- override the generic sorter
-            override_file_sorter = true,     -- override the file sorter
-            case_mode = 'smart_case',        -- or 'ignore_case' or 'respect_case'
-                                             -- the default case_mode is 'smart_case'
+            fuzzy = true,                   -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true,    -- override the file sorter
+            case_mode = 'smart_case',       -- or 'ignore_case' or 'respect_case'
+            -- the default case_mode is 'smart_case'
           }
         }
       }
@@ -52,6 +52,14 @@ return require('packer').startup(function()
     config = function() require('setup-lsp') end
   }
 
+  use {
+    "williamboman/mason.nvim",
+    run = ":MasonUpdate",
+    config = function()
+      require("mason").setup()
+    end
+  }
+
   use { 'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
@@ -62,6 +70,12 @@ return require('packer').startup(function()
           require('null-ls').builtins.completion.spell,
         },
       })
+    end
+  }
+
+  use { 'lukas-reineke/lsp-format.nvim',
+    config = function()
+      require("lsp-format").setup {}
     end
   }
 
@@ -82,10 +96,53 @@ return require('packer').startup(function()
 
   use { 'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function() require('lualine').setup { options = {theme = 'gruvbox'} } end
+    config = function()
+      require('lualine').setup {
+        options = { theme = 'gruvbox' }
+      }
+    end
   }
 
-  use 'ray-x/go.nvim'
+  use { 'ray-x/go.nvim',
+    config = function()
+      require('go').setup()
+    end
+  }
 
-  use { 'folke/lua-dev.nvim', module = 'lua-dev'}
+  use { 'jose-elias-alvarez/typescript.nvim',
+    requires = { 'neovim/nvim-lspconfig' },
+    config = function()
+      require("typescript").setup({
+        disable_commands = false,
+        debug = false,
+        go_to_source_definition = { fallback = true }
+      })
+    end
+  }
+
+  use { 'MunifTanjim/prettier.nvim',
+    requires = {
+      'neovim/nvim-lspconfig',
+      'jose-elias-alvarez/null-ls.nvim',
+    }
+  }
+
+  use { 'folke/lua-dev.nvim', module = 'lua-dev' }
+
+  use { 'simrat39/rust-tools.nvim',
+    requires = { 'neovim/nvim-lspconfig' },
+    config = function()
+      local rt = require("rust-tools")
+      rt.setup({
+        server = {
+          on_attach = function(_, bufnr)
+            -- Hover actions
+            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+            -- Code action groups
+            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+          end,
+        },
+      })
+    end
+  }
 end)
