@@ -34,8 +34,20 @@ function __git_prompt {
   return 1
 }
 
+function __remote {
+  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]
+  then
+    user=$( whoami )
+    hostname=$( hostname )
+    echo " %{$bold_cyan%}@$hostname%{$reset%} "
+    return
+  fi
+
+  return 1
+}
+
 setopt PROMPT_SUBST
 
-PROMPT="%{$bold_blue%}[%{$reset%}%# "
+PROMPT="%{$bold_blue%}[%{$reset%}$(__remote)%{$reset%}%# "
 
 RPROMPT=' %~%{$bold_blue%}]%{$reset%}$(__exit_prompt)$(__git_prompt)'
