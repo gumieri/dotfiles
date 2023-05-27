@@ -1,7 +1,7 @@
 local cmp = require('cmp')
 
 cmp.setup({
- snippet = {
+  snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
     end,
@@ -30,7 +30,58 @@ for _, lsp in pairs(servers) do
 end
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {
+    "bash",
+    "c",
+    "cmake",
+    "comment",
+    "cpp",
+    "css",
+    "diff",
+    "dockerfile",
+    "elixir",
+    "erlang",
+    "git_config",
+    "git_rebase",
+    "gitattributes",
+    "gitcommit",
+    "gitignore",
+    "go",
+    "gomod",
+    "gosum",
+    "gowork",
+    "graphql",
+    "hcl",
+    "html",
+    "http",
+    "ini",
+    "java",
+    "javascript",
+    "jq",
+    "jsdoc",
+    "json",
+    "json5",
+    "jsonc",
+    "latex",
+    "lua",
+    "luadoc",
+    "luap",
+    "luau",
+    "make",
+    "markdown",
+    "markdown_inline",
+    "ninja",
+    "passwd",
+    "proto",
+    "python",
+    "ruby",
+    "rust",
+    "sql",
+    "terraform",
+    "typescript",
+    "vim",
+    "vimdoc",
+  }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   auto_install = true,
   highlight = {
     enable = true,
