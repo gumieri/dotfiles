@@ -163,7 +163,46 @@ function remove_files {
   done
 }
 
+function install {
+  case $(uname) in
+    "Darwin")
+      install_homebrew
+    ;;
+    "Linux")
+      os=$(hostnamectl --json=short | jq '.OperatingSystemPrettyName' --raw-output)
+      if [ "$os" = "Arch Linux" ]
+      then
+        install_paru
+        paru -S - < ./paru_list
+      fi
+    ;;
+    *)
+
+    ;;
+  esac
+}
+
+function install_paru {
+  sudo pacman -S --needed base-devel
+  rm -rf /tmp/dotfiles_install
+  mkdir -p /tmp/dotfiles_install
+  cd /tmp/dotfiles_install
+  git clone --depth 1 https://aur.archlinux.org/paru.git
+  cd paru
+  makepkg -si
+  cd ..
+  rm -rf paru
+}
+
+function install_homebrew {
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
 case $1 in
+  "install-os-deps")
+    install
+    ;;
+
   "setup")
     setup_files "${HOME}/.local/bin" "local/bin" "${xdg_bin_files[@]}"
     setup_files "${XDG_DATA_HOME}" "local/share" ${xdg_data_files[@]}
@@ -187,3 +226,4 @@ case $1 in
     echo "    remove"
     ;;
 esac
+
