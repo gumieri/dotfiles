@@ -61,7 +61,7 @@ window#waybar {
     color: @yellow_color;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-gammastep, #custom-vpn, #disk, #custom-player, #custom-wide #custom-wshowkeys {
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-gammastep, #disk, #custom-player, #custom-wide #custom-wshowkeys {
     padding: 0 5px;
     border-top: 2px;
     border-style: solid;
@@ -126,14 +126,6 @@ window#waybar {
 
 #custom-gammastep.disabled {
     color: @blue_color;
-}
-
-#custom-vpn {
-    color: @aqua2_color;
-}
-
-#custom-vpn.disabled {
-    color: @gray_color;
 }
 
 #battery {

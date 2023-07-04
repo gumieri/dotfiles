@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "bottom",
     "height": 20,
-    "modules-left": ["tray", "network", "custom/vpn#tecnospeed", "custom/gammastep", "custom/rec", "custom/player", "pulseaudio", "custom/wide", "custom/wshowkeys"],
+    "modules-left": ["tray", "network", "custom/gammastep", "custom/rec", "custom/player", "pulseaudio", "custom/wide", "custom/wshowkeys"],
     "modules-center": ["sway/workspaces"], 
     "modules-right": ["sway/mode", "disk", "temperature#ssd", "temperature#cpu", "temperature#motherboard", "memory", "battery", "clock"],
     "sway/workspaces": {
@@ -83,46 +83,37 @@
         "on-click": "pavucontrol"
     },
     "custom/gammastep": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/gammastep-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/gammastep-waybar",
       "return-type": "json",
       "interval": 3600,
       "signal": 12,
       "format": "",
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/gammastep-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/gammastep-toggle"
     },
     "custom/mic": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/mic-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/mic-waybar",
       "return-type": "json",
       "interval": 3600,
       "signal": 13,
       "format": "{icon}",
       "format-icons": ["", ""],
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/mic-toggle"
-    },
-    "custom/vpn#tecnospeed": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vpn-tecnospeed-waybar",
-      "return-type": "json",
-      "interval": 3600,
-      "signal": 14,
-      "format": "{icon}",
-      "format-icons": ["", ""],
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vpn-tecnospeed-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/mic-toggle"
     },
     "custom/rec": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/rec-waybar",
       "return-type": "json",
       "interval": 3600,
       "signal": 15,
       "format": "{icon}",
       "format-icons": ["⬤"],
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/rec-toggle"
     },
     "custom/player": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/player-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/player-waybar",
       "return-type": "json",
       "interval": 60,
       "signal": 16,
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/player-toggle",
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/player-toggle",
       "format": "{icon}",
       "format-icons": {
         "stopped": "",
@@ -131,21 +122,21 @@
       },
     },
     "custom/wide": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/wide-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/wide-waybar",
       "return-type": "json",
       "interval": 10,
       "signal": 17,
       "format": "{icon}",
       "format-icons": ["", ""],
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/wide-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/wide-toggle"
     },
     "custom/wshowkeys": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/wshowkeys-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/wshowkeys-waybar",
       "return-type": "json",
       "interval": 3600,
       "signal": 18,
       "format": "",
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/bin/wshowkeys-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/wshowkeys-toggle"
     },
     "idle_inhibitor": {
         "format": "{icon}",

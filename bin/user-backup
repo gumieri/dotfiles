@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-restic backup $HOME \
-  --repo rclone:tecnospeed_drive:/Backups/`hostname` \
-  --exclude-caches \
-  --exclude=$XDG_CACHE_HOME/ \
-  --exclude=$PROJECTS_PATH/ \
-  --exclude=$HOME/.mozilla/ \
-  --password-file=$HOME/.cert/secret

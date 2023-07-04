@@ -60,8 +60,6 @@ bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | selec
 bindsym $mod+Shift+r exec wf-recorder -g "$(slurp)" --audio --file=$(xdg-user-dir VIDEOS)/$(date +'%Y-%m-%d-%H%M%S_wf-recorder-slurp.mp4') && pkill -SIGRTMIN+15 waybar
 bindsym $mod+Alt+r exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-focused
 
-bindsym $mod+Shift+v exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vpn-tecnospeed-toggle
-
 bindsym $mod+Shift+w exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/wide-toggle
 
 bindsym $mod+Shift+i exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vim-input-edit

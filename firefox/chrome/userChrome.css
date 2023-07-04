@@ -50,6 +50,10 @@ See the above repository for updates as well as full license text. */
   display: none !important;
 }
 
+#TabsToolbar .titlebar-buttonbox-container {
+  display: none !important;
+}
+
 /**** Maximize Print Overlay Preview Size ****/
 
   /** Allow panel to be taller and wider **/

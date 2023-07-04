@@ -11,6 +11,7 @@ env:
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
+  TERM_PROGRAM: alacritty
 
 window:
   opacity: 0.7
@@ -35,8 +36,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 0
-    y: 0
+    x: 4
+    y: 4
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -80,18 +81,18 @@ scrolling:
 
 # Font configuration (changes require restart)
 font:
-  size: 12.0
+  size: 13.5
 
   normal:
-    family: hack
+    family: Hack Nerd Font
     style: Regular
 
   bold:
-    family: hack
+    family: Hack Nerd Font
     style: Bold
 
   italic:
-    family: hack
+    family: Hack Nerd Font
     style: Italic
 
 
@@ -107,22 +108,6 @@ font:
   glyph_offset:
     x: 0
     y: 0
-
-  # Thin stroke font rendering (macOS only)
-  #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
-  # it is recommended to set `use_thin_strokes` to `false`
-  #
-  # macOS >= 10.14.x:
-  #
-  # If the font quality on non-retina display looks bad then set
-  # `use_thin_strokes` to `true` and enable font smoothing by running the
-  # following command:
-  #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
-  #
-  # This is a global setting and will require a log out or restart to take
-  # effect.
-  use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
@@ -284,9 +269,6 @@ working_directory: None
 # Alacritty will fall back to the WinPTY automatically if the ConPTY
 # backend cannot be initialized.
 enable_experimental_conpty_backend: false
-
-# Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: true
 
 debug:
   # Display the time it takes to redraw each frame.

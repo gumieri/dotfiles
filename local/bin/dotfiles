@@ -1,0 +1,189 @@
+#!/usr/bin/env bash
+
+# Change directory to this script location and back to dotfiles root
+cd "$(dirname $(readlink -f "${BASH_SOURCE[0]}"))" && cd ../..
+
+color_white='\033[1;37m'
+color_green='\033[1;32m'
+color_yellow='\033[1;33m'
+color_end='\033[0m'
+
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+
+xdg_bin_files=(dotfiles)
+xdg_data_files=(fonts themes icons dotfiles)
+xdg_config_files=(systemd environment.d X11)
+
+# Verifying available commands / programs
+if command -v alacritty > /dev/null
+then
+  xdg_config_files+=(alacritty)
+fi
+
+if command -v foot > /dev/null
+then
+  xdg_config_files+=(foot)
+fi
+
+if command -v gammastep > /dev/null
+then
+  xdg_config_files+=(gammastep)
+fi
+
+if command -v mako > /dev/null
+then
+  xdg_config_files+=(mako)
+fi
+
+if command -v nvim > /dev/null
+then
+  xdg_config_files+=(nvim)
+fi
+
+if command -v paru > /dev/null
+then
+  xdg_config_files+=(paru)
+fi
+
+if command -v swappy > /dev/null
+then
+  xdg_config_files+=(swappy)
+fi
+
+if command -v sway > /dev/null
+then
+  xdg_config_files+=(sway)
+fi
+
+if command -v swaylock > /dev/null
+then
+  xdg_config_files+=(swaylock)
+fi
+
+if command -v sketchybar > /dev/null
+then
+  xdg_config_files+=(sketchybar)
+fi
+
+if command -v skhd > /dev/null
+then
+  xdg_config_files+=(skhd)
+fi
+
+if command -v tmux > /dev/null
+then
+  xdg_config_files+=(tmux tmux.conf)
+fi
+
+if command -v waybar > /dev/null
+then
+  xdg_config_files+=(waybar)
+fi
+
+if command -v waylogout > /dev/null
+then
+  xdg_bin_files+=(waylogout)
+fi
+
+if command -v wofi > /dev/null
+then
+  xdg_config_files+=(wofi)
+fi
+
+if command -v yabai > /dev/null
+then
+  xdg_config_files+=(yabai)
+fi
+
+if command -v zsh > /dev/null
+then
+  xdg_config_files+=(zsh)
+fi
+
+function setup_files {
+  local to=$1
+  shift
+  local from=$1
+  shift
+  local array_of_files=($@)
+
+  for file in "${array_of_files[@]}"
+  do
+    printf "${color_white}${file}${color_end}\n"
+
+    link_path="${to}/${file}"
+
+    dotfile_path="${PWD}/${from}/${file}"
+    if [ -z "${from}" ]
+    then
+      dotfile_path="${PWD}/${file}"
+    fi
+
+    if [ -h $link_path ]
+    then
+      if [ "$(readlink $link_path)" = $dotfile_path ]
+      then
+        printf "  ${color_green}✓ Link exists${color_end}: ${link_path}\n"
+      else
+        printf "  ${color_yellow}⚠ Warning${color_end}: ${link_path} already exists\n"
+      fi
+    else
+      ln -s "${dotfile_path}" "${link_path}"
+      printf "  ${color_green}✓ Link created${color_end}: ${link_path}\n"
+    fi
+  done
+}
+
+function remove_files {
+  local prefix=$1
+  shift
+  local array_of_files=($@)
+
+  for file in "${array_of_files[@]}"
+  do
+    printf "${color_white}${file}${color_end}\n"
+
+    link_path="${prefix}/${file}"
+
+    dotfile_path="${PWD}/${from}/${file}"
+    if [ -z "${from}" ]
+    then
+      dotfile_path="${PWD}/${file}"
+    fi
+
+    if [ -h "${link_path}" ]
+    then
+      if [ "$(readlink "${link_path}")" = "${dotfile_path}" ]
+      then
+        rm "${link_path}"
+        printf "  ${color_green}✓ Link removed${color_end}: ${link_path}\n"
+      fi
+    fi
+  done
+}
+
+case $1 in
+  "setup")
+    setup_files "${HOME}/.local/bin" "local/bin" "${xdg_bin_files[@]}"
+    setup_files "${XDG_DATA_HOME}" "local/share" ${xdg_data_files[@]}
+    setup_files "${XDG_CONFIG_HOME}" "" ${xdg_config_files[@]}
+
+    printf "${color_white}Setup completed${color_end}\n"
+    ;;
+
+  "remove")
+    remove_files "${HOME}/.local/bin" "${xdg_bin_files[@]}"
+    remove_files "${XDG_DATA_HOME}" ${xdg_data_files[@]}
+    remove_files "${XDG_CONFIG_HOME}" ${xdg_config_files[@]}
+
+    printf "${color_white}Links removed${color_end}\n"
+    ;;
+
+  *)
+    echo "Usage: dotfiles <command>"
+    echo "commands:"
+    echo "    setup"
+    echo "    remove"
+    ;;
+esac

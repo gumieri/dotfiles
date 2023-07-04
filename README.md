@@ -1,20 +1,24 @@
 # gumieri/.files
 
 ```
-git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/setup
+git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/local/bin/setup
 ```
 
 **alacritty** — A fast, cross-platform, OpenGL terminal emulator.
 
-**asdf** — Extendable version manager.
+**neovim** — Edit text.
+
+**tmux** — terminal multiplexer
+
+**zsh** — The Z shell.
+
+## Linux/Sway
 
 **foot** — Wayland terminal emulator. Has daemon mode. Also very fast.
 
 **gammastep** — Set color temperature of display according to time of day. Fork of redshift. Blue light filter.
 
 **mako** — Notification daemon for Wayland
-
-**neovim** — Edit text.
 
 **paru** — AUR helper and pacman wrapper.
 
@@ -26,10 +30,16 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/bin/s
 
 **swayidle** — Idle manager for Wayland.
 
-**tmux** — terminal multiplexer
-
 **waybar** — Wayland bar for sway.
+
+**waylogout** — Graphical logout/suspend/reboot/shutdown dialog for wayland.
 
 **wofi** — A rofi inspired launcher for wlroots compositors. Application launcher.
 
-**zsh** — The Z shell.
+# Mac/Yabai
+
+**sketchybar** — Statusbar
+
+**skhd** — Simple hotkey daemon
+
+**yabai** — Tiling window manager

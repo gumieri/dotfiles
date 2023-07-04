@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-state=$(nmcli -f GENERAL.STATE con show tecnospeed)
-if [ -z "$state" ]
-then
-  echo "{\"tooltip\": \"VPN tecnospeed: disabled\", \"percentage\": 0, \"class\": \"disabled\"}"
-else
-  echo "{\"tooltip\": \"VPN tecnospeed: enabled\", \"percentage\": 100, \"class\": \"enabled\"}"
-fi
