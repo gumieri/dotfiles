@@ -15,6 +15,27 @@ xdg_bin_files=(dotfiles)
 xdg_data_files=(fonts themes icons dotfiles)
 xdg_config_files=(systemd environment.d X11)
 
+archlinux="Arch Linux"
+macos="Mac OS"
+
+case $(uname) in
+  "Darwin")
+    os=$macos
+  ;;
+
+  "Linux")
+    os_out=$(hostnamectl --json=short | jq '.OperatingSystemPrettyName' --raw-output)
+    if [ "${os_out}" = "${archlinux}" ]
+    then
+      os=$archlinux
+    fi
+  ;;
+
+  *)
+    printf "${color_yellow}Unsupported Operating System.${color_end}\n"
+  ;;
+esac
+
 # Verifying available commands / programs
 if command -v alacritty > /dev/null
 then
@@ -163,22 +184,16 @@ function remove_files {
   done
 }
 
-function install {
-  case $(uname) in
-    "Darwin")
+function install_package_manager {
+  case $os in
+    $macos)
       install_homebrew
     ;;
-    "Linux")
-      os=$(hostnamectl --json=short | jq '.OperatingSystemPrettyName' --raw-output)
-      if [ "$os" = "Arch Linux" ]
-      then
-        install_paru
-        paru -S - < ./paru_list
-      fi
-    ;;
-    *)
 
+    $archlinux)
+      install_paru
     ;;
+
   esac
 }
 
@@ -198,32 +213,78 @@ function install_homebrew {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
+function install_packages {
+  case $os in
+    $macos)
+      pmcmd='brew'
+      pmname='homebrew'
+      pmrun="xargs $pmcmd install < ./${pmname}_list"
+    ;;
+
+    $archlinux)
+      pmcmd='paru'
+      pmname=$pmcmd
+      pmrun="$pmcmd -S - < ./${pmname}_list"
+    ;;
+  esac
+
+  if command -v $pmcmd > /dev/null
+  then
+    eval $pmrun 
+  else
+    printf "${color_yellow}The required package manager is not installed.\n"
+    printf "The package manager for $os required is the '${pmname}'.\n"
+    printf "Please install it or run the command 'install-package-manager'\n"
+    printf "or 'install-everything'.${color_end}\n"
+  fi
+}
+
+function setup_dotfiles {
+  setup_files "${HOME}/.local/bin" "local/bin" "${xdg_bin_files[@]}"
+  setup_files "${XDG_DATA_HOME}" "local/share" ${xdg_data_files[@]}
+  setup_files "${XDG_CONFIG_HOME}" "" ${xdg_config_files[@]}
+
+  printf "${color_white}Setup completed${color_end}\n"
+}
+
+function remove_dotfiles {
+  remove_files "${HOME}/.local/bin" "${xdg_bin_files[@]}"
+  remove_files "${XDG_DATA_HOME}" ${xdg_data_files[@]}
+  remove_files "${XDG_CONFIG_HOME}" ${xdg_config_files[@]}
+
+  printf "${color_white}Links removed${color_end}\n"
+}
+
 case $1 in
-  "install-os-deps")
-    install
+  "install-everything")
+    install_package_manager
+    install_packages
+    setup
+    ;;
+
+  "install-package-manager")
+    install_package_manager
+    ;;
+
+  "install-packages")
+    install_packages
     ;;
 
   "setup")
-    setup_files "${HOME}/.local/bin" "local/bin" "${xdg_bin_files[@]}"
-    setup_files "${XDG_DATA_HOME}" "local/share" ${xdg_data_files[@]}
-    setup_files "${XDG_CONFIG_HOME}" "" ${xdg_config_files[@]}
-
-    printf "${color_white}Setup completed${color_end}\n"
+    setup_dotfiles
     ;;
 
   "remove")
-    remove_files "${HOME}/.local/bin" "${xdg_bin_files[@]}"
-    remove_files "${XDG_DATA_HOME}" ${xdg_data_files[@]}
-    remove_files "${XDG_CONFIG_HOME}" ${xdg_config_files[@]}
-
-    printf "${color_white}Links removed${color_end}\n"
+    remove_dotfiles
     ;;
 
   *)
-    echo "Usage: dotfiles <command>"
-    echo "commands:"
-    echo "    setup"
-    echo "    remove"
+    printf "Usage: dotfiles <command>\n"
+    printf "commands:\n"
+    printf "    install-everything\n"
+    printf "    install-package-manager\n"
+    printf "    install-packages\n"
+    printf "    setup\n"
+    printf "    remove\n"
     ;;
 esac
-
