@@ -1,11 +1,6 @@
 # Default font
 font "Hack" "10"
 
-# Sizing
-gaps inner 8
-
-default_border pixel 2
-
 seat seat0 xcursor_theme breeze_cursors 24
 
 # Colors
@@ -13,10 +8,18 @@ set $color_urgent #cc241d
 set $color_focus #458588
 set $color_bg #282828
 
+# directories
+set $dotdir $XDG_DATA_HOME/dotfiles
+
 client.focused $color_focus $color_focus $color_bg $color_focus $color_focus
 client.focused_inactive $color_bg $color_bg $color_focus $color_bg $color_bg
 client.unfocused $color_bg $color_bg $color_focus $color_bg $color_bg
 client.urgent $color_urgent $color_urgent $color_bg $color_urgent $color_urgent
+
+# Sizing
+gaps inner 8
+
+default_border pixel 2
 
 ## Shortcuts
 # main key: logo/super key
@@ -29,23 +32,22 @@ set $up k
 set $right l
 
 # start the terminal
-bindsym $mod+Return exec footclient --working-directory $(~/.config/sway/focused-cwd foot)
+bindsym $mod+Return exec footclient --working-directory $($dotdir/sway/focused-cwd foot)
 
-bindsym $mod+Alt+Return exec footclient --app-id foot-float --working-directory $(~/.config/sway/focused-cwd foot)
+bindsym $mod+Alt+Return exec footclient --app-id foot-float --working-directory $($dotdir/sway/focused-cwd foot)
 
 bindsym $mod+n exec footclient --app-id foot-float /usr/bin/nvim -c "set nonumber" ~/todo.md
 
 # start the browser
 bindsym $mod+backslash exec firefox
 bindsym $mod+Alt+backslash exec google-chrome
-bindsym Control+Shift+Alt+backslash exec ddcutil setvcp 0x60 0x0f
 
 # kill focused window
 bindsym $mod+q kill
 bindsym button3 kill
 
 # start your launcher
-bindsym $mod+d exec /home/rafael_gumieri/.local/share/cargo/bin/kickoff
+bindsym $mod+d exec wofi
 
 # capture all screens to clipboard
 bindsym Print exec grim - | swappy -f -
@@ -58,11 +60,11 @@ bindsym Control+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | selec
 
 # Record Screen
 bindsym $mod+Shift+r exec wf-recorder -g "$(slurp)" --audio --file=$(xdg-user-dir VIDEOS)/$(date +'%Y-%m-%d-%H%M%S_wf-recorder-slurp.mp4') && pkill -SIGRTMIN+15 waybar
-bindsym $mod+Alt+r exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/rec-focused
+bindsym $mod+Alt+r exec $dotdit/waybar/rec-focused
 
-bindsym $mod+Shift+w exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/wide-toggle
+bindsym $mod+Shift+w exec $dotdir/waybar/wide-toggle
 
-bindsym $mod+Shift+i exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/vim-input-edit
+bindsym $mod+Shift+i exec $dotdir/waybar/vim-input-edit
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -73,10 +75,10 @@ floating_modifier $mod normal
 
 bindsym $mod+Alt+l exec swaylock
 
-bindsym $mod+Alt+a exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/headset-toggle
+bindsym $mod+Alt+a exec $dotdir/waybar/headset-toggle
 
 # exit sway (logs you out of your wayland session)
-bindsym $mod+Alt+e exec $PROJECTS_PATH/github.com/gumieri/dotfiles/bin/waylogout
+bindsym $mod+Alt+e exec $dotdir/sway/waylogout
 
 ## Moving around:
 # Move your focus around
@@ -201,19 +203,13 @@ input * {
 }
 
 output * {
-  background '/home/rafael_gumieri/Pictures/Wallpapers/sombrero.png' fill
+  background '$(xdg-user-dir PICTURES)/wallpaper' fill
 }
-
-output HDMI-A-1 pos 0 0
-output eDP-1 pos 1920 0
 
 # media keys
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-
-bindswitch lid:on output eDP-1 disable
-bindswitch lid:off output eDP-1 enable
 
 for_window [title="Picture-in-Picture"] floating enable
 for_window [app_id="gnome-*"] floating enable
@@ -231,5 +227,4 @@ exec "systemctl --user import-environment; systemctl --user start sway-session.t
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec 1password --silent
 exec blueman-applet
-exec solaar --window hide
 exec slack -u --enable-features=WaylandWindowDecorations --ozone-platform=wayland --ozone-platform-hint=auto --enable-webrtc-pipewire-capture

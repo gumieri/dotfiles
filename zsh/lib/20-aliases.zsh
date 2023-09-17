@@ -1,5 +1,5 @@
-alias l='exa -lha'
-alias ll='exa -1a'
+alias l='eza -lha'
+alias ll='eza -1a'
 alias lc='wc -l'
 alias v='nvim'
 alias jv='nvim -c "set syntax=json"'

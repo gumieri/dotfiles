@@ -83,37 +83,37 @@
         "on-click": "pavucontrol"
     },
     "custom/gammastep": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/gammastep-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/gammastep-waybar",
       "return-type": "json",
       "interval": 3600,
       "signal": 12,
       "format": "",
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/gammastep-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/gammastep-toggle"
     },
     "custom/mic": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/mic-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/mic-waybar",
       "return-type": "json",
       "interval": 3600,
       "signal": 13,
       "format": "{icon}",
       "format-icons": ["", ""],
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/mic-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/mic-toggle"
     },
     "custom/rec": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/rec-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/rec-waybar",
       "return-type": "json",
       "interval": 3600,
       "signal": 15,
       "format": "{icon}",
       "format-icons": ["⬤"],
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/rec-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/rec-toggle"
     },
     "custom/player": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/player-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/player-waybar",
       "return-type": "json",
       "interval": 60,
       "signal": 16,
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/player-toggle",
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/player-toggle",
       "format": "{icon}",
       "format-icons": {
         "stopped": "",
@@ -122,21 +122,21 @@
       },
     },
     "custom/wide": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/wide-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/wide-waybar",
       "return-type": "json",
       "interval": 10,
       "signal": 17,
       "format": "{icon}",
       "format-icons": ["", ""],
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/wide-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/wide-toggle"
     },
     "custom/wshowkeys": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/wshowkeys-waybar",
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/wshowkeys-waybar",
       "return-type": "json",
       "interval": 3600,
       "signal": 18,
       "format": "",
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/waybar/wshowkeys-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/wshowkeys-toggle"
     },
     "idle_inhibitor": {
         "format": "{icon}",
