@@ -1,7 +1,7 @@
 # Default font
 font "Hack" "10"
 
-seat seat0 xcursor_theme breeze_cursors 24
+seat seat0 xcursor_theme oomox-GruvboxBlue 24
 
 # Colors
 set $color_urgent #cc241d
