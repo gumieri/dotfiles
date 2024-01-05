@@ -67,6 +67,11 @@ then
   xdg_config_files+=(paru)
 fi
 
+if command -v starship > /dev/null
+then
+  xdg_config_files+=(starship)
+fi
+
 if command -v swappy > /dev/null
 then
   xdg_config_files+=(swappy)
