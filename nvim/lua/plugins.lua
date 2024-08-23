@@ -23,13 +23,18 @@ return require('packer').startup(function()
         defaults = {
           mappings = { i = { ['<esc>'] = actions.close } },
         },
+        pickers = {
+          find_files = {
+            -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+          },
+        },
         extensions = {
           fzf = {
             fuzzy = true,                   -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
             override_file_sorter = true,    -- override the file sorter
-            case_mode = 'smart_case',       -- or 'ignore_case' or 'respect_case'
-            -- the default case_mode is 'smart_case'
+            case_mode = 'smart_case',       -- or 'ignore_case' or 'respect_case' the default case_mode is 'smart_case'
           }
         }
       }
@@ -45,7 +50,8 @@ return require('packer').startup(function()
       'hrsh7th/cmp-buffer',
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
-      'rafamadriz/friendly-snippets'
+      'rafamadriz/friendly-snippets',
+      'hrsh7th/cmp-calc'
     },
     config = function() require('setup-lsp') end
   }
@@ -104,6 +110,15 @@ return require('packer').startup(function()
   use { 'ray-x/go.nvim',
     config = function()
       require('go').setup()
+
+      local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*.go",
+        callback = function()
+          require('go.format').goimport()
+        end,
+        group = format_sync_grp,
+      })
     end
   }
 
