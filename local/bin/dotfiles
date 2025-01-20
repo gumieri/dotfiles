@@ -16,13 +16,8 @@ xdg_data_files=(fonts themes icons dotfiles)
 xdg_config_files=(systemd environment.d X11)
 
 archlinux="Arch Linux"
-macos="Mac OS"
 
 case $(uname) in
-  "Darwin")
-    os=$macos
-  ;;
-
   "Linux")
     os_out=$(hostnamectl --json=short | jq '.OperatingSystemPrettyName' --raw-output)
     if [ "${os_out}" = "${archlinux}" ]
@@ -87,16 +82,6 @@ then
   xdg_config_files+=(swaylock)
 fi
 
-if command -v sketchybar > /dev/null
-then
-  xdg_config_files+=(sketchybar)
-fi
-
-if command -v skhd > /dev/null
-then
-  xdg_config_files+=(skhd)
-fi
-
 if command -v tmux > /dev/null
 then
   xdg_config_files+=(tmux tmux.conf)
@@ -115,11 +100,6 @@ fi
 if command -v wofi > /dev/null
 then
   xdg_config_files+=(wofi)
-fi
-
-if command -v yabai > /dev/null
-then
-  xdg_config_files+=(yabai)
 fi
 
 if command -v zsh > /dev/null
@@ -191,10 +171,6 @@ function remove_files {
 
 function install_package_manager {
   case $os in
-    $macos)
-      install_homebrew
-    ;;
-
     $archlinux)
       install_paru
     ;;
@@ -214,18 +190,8 @@ function install_paru {
   rm -rf paru
 }
 
-function install_homebrew {
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-}
-
 function install_packages {
   case $os in
-    $macos)
-      pmcmd='brew'
-      pmname='homebrew'
-      pmrun="xargs $pmcmd install < ./${pmname}_list"
-    ;;
-
     $archlinux)
       pmcmd='paru'
       pmname=$pmcmd

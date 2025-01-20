@@ -35,11 +35,3 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/local
 **waylogout** — Graphical logout/suspend/reboot/shutdown dialog for wayland.
 
 **wofi** — A rofi inspired launcher for wlroots compositors. Application launcher.
-
-# Mac/Yabai
-
-**sketchybar** — Statusbar
-
-**skhd** — Simple hotkey daemon
-
-**yabai** — Tiling window manager
