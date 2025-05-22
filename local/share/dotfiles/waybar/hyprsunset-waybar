@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+systemctl --user --quiet is-active hyprsunset
+if [ $? -eq 0 ]
+then
+  temperature=$(journalctl --user -eu hyprsunset | grep -o 'Color temperature: .*' | tail -1 | awk '{print $3}')
+  echo "{\"temperature\": \"$temperature\", \"tooltip\": \"$temperature\", \"percentage\": 100, \"class\": \"enabled\"}"
+else
+  echo "{\"temperature\": \"\", \"tooltip\": \"disabled\", \"percentage\": 0, \"class\": \"disabled\"}"
+fi

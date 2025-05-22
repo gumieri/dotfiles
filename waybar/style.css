@@ -28,19 +28,21 @@
 
 * {
     color: @fg_color;
-    border: 0;
-    border-radius: 0;
-    padding: 0 0;
-    font-family: Hack;
-    font-size: 12px;
+    border: 0px;
+    border-radius: 0px;
+    padding: 0 0px;
+    font-weight: bold;
+    font-family: MonaspiceNe Nerd Font;
+    font-size: 13px;
     margin-right: 2px;
     margin-left: 2px;
-    min-height: 0;
-    min-width: 13px;
+    min-height: 0px;
+    min-width: 12px;
 }
 
 window#waybar {
     background: transparent;
+    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%);
 }
 
 #workspaces button {
@@ -49,6 +51,7 @@ window#waybar {
     color: @fg_color;
     border-color: transparent;
     border-style: solid;
+    border-radius: 5px;
 }
 
 #workspaces button.focused {
@@ -60,9 +63,9 @@ window#waybar {
     color: @yellow_color;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-mic, #custom-gammastep, #disk, #custom-player, #custom-wide #custom-wshowkeys {
+#clock, #battery, #bluetooth, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #custom-rec, #custom-vpn, #custom-hyprsunset, #disk, #custom-player, #custom-wide #custom-wshowkeys {
     padding: 0 5px;
-    border-top: 2px;
+    border-bottom: 2px;
     border-style: solid;
 }
 
@@ -73,6 +76,10 @@ window#waybar {
 
 #backlight {
     color: @yellow_color;
+}
+
+#custom-vpn {
+    color: @aqua2_color;
 }
 
 #custom-player {
@@ -119,11 +126,11 @@ window#waybar {
     color: @gray_color;
 }
 
-#custom-gammastep {
+#custom-hyprsunset {
     color: @orange_color;
 }
 
-#custom-gammastep.disabled {
+#custom-hyprsunset.disabled {
     color: @blue_color;
 }
 
@@ -150,6 +157,14 @@ window#waybar {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+#bluetooth {
+    color: @gray_color;
+}
+
+#bluetooth.connected {
+    color: @blue_color;
 }
 
 #cpu {
@@ -182,14 +197,6 @@ window#waybar {
 
 #temperature.critical {
     color: @red2_color;
-}
-
-#temperature.cpu {
-    color: @fg_color;
-}
-
-#temperature.gpu {
-    color: @yellow_color;
 }
 
 #disk {

@@ -24,7 +24,7 @@ local lspconfig = require("lspconfig")
 
 local lspformat = require("lsp-format")
 
-local servers = { 'gopls', 'rls', 'lua_ls', 'pyright', 'rust_analyzer', 'tsserver' }
+local servers = { 'gopls', 'rls', 'lua_ls', 'pyright', 'rust_analyzer', 'ts_ls' }
 for _, lsp in pairs(servers) do
   lspconfig[lsp].setup { on_attach = lspformat.on_attach }
 end
@@ -78,7 +78,6 @@ require('nvim-treesitter.configs').setup {
     "rust",
     "sql",
     "terraform",
-    "typescript",
     "vim",
     "vimdoc",
   }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -103,8 +102,6 @@ prettier.setup({
     "less",
     "markdown",
     "scss",
-    "typescript",
-    "typescriptreact",
     "yaml",
   },
   cli_options = {

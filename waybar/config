@@ -1,19 +1,28 @@
 {
     "layer": "top",
-    "position": "bottom",
-    "height": 20,
-    "modules-left": ["tray", "network", "custom/gammastep", "backlight", "custom/rec", "custom/player", "pulseaudio", "custom/wide", "custom/wshowkeys"],
-    "modules-center": ["sway/workspaces"], 
-    "modules-right": ["sway/mode", "disk", "cpu", "temperature#cpu", "temperature#gpu", "temperature#motherboard", "memory", "battery", "clock"],
-    "sway/workspaces": {
+    "position": "top",
+    "height": 23,
+    "modules-left": ["tray", "network", "custom/vpn", "custom/hyprsunset", "custom/rec", "custom/player", "pulseaudio", "custom/wshowkeys"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["disk", "cpu", "temperature#nvme", "temperature#nand", "memory", "bluetooth", "battery", "clock"],
+    "hyprland/workspaces": {
         "disable-scroll": true,
-        "format": "{name}"
+        "format": "{icon}",
+        "format-icons": {
+          "1": "一",
+          "2": "二",
+          "3": "三",
+          "4": "四",
+          "5": "五",
+          "6": "六",
+          "7": "七",
+          "8": "八",
+          "9": "九",
+          "10": "十",
+        }
     },
-    "sway/window": {
+    "hyprland/window": {
         "max-length": 100
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
         "icon-size": 12,
@@ -27,7 +36,7 @@
         "format": " {load}"
     },
     "memory": {
-        "format": " {}%"
+        "format": " {}%"
     },
     "disk": {
       "interval": 30,
@@ -35,23 +44,17 @@
       "path": "/",
       "tooltip": true
     },
-    "temperature#gpu": {
-        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+    "temperature#nvme": {
+        "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
         "critical-threshold": 80,
         "format-critical": "󰾲 {temperatureC}°C ",
         "format": "󰾲 {temperatureC}°C "
     },
-    "temperature#motherboard": {
-        "hwmon-path": "/sys/class/hwmon/hwmon0/temp2_input",
-        "critical-threshold": 100,
+    "temperature#nand": {
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
         "format-critical": "󰚗 {temperatureC}°C ",
         "format": "󰚗 {temperatureC}°C "
-    },
-    "temperature#cpu": {
-        "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
-        "critical-threshold": 60,
-        "format-critical": " {temperatureC}°C ",
-        "format": " {temperatureC}°C "
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -62,14 +65,14 @@
     },
     "network": {
         "format-wifi": " {essid}",
-        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "format-ethernet": "󰈀 {ifname}",
         "format-disconnected": "󰲛",
         "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
         "scroll-step": 2,
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth": "{icon}  {volume}%",
         "format-muted": "",
         "format-icons": {
             "headphones": "",
@@ -82,22 +85,29 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/gammastep": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/gammastep-waybar",
+    "bluetooth": {
+      "format": "",
+      "format-connected": "{device_battery_percentage}%",
+      "tooltip-format": "{controller_alias}\t{controller_address}",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+    "custom/hyprsunset": {
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/hyprsunset-waybar",
       "return-type": "json",
       "interval": 3600,
       "signal": 12,
       "format": "",
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/gammastep-toggle"
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/hyprsunset-toggle"
     },
-    "custom/mic": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/mic-waybar",
+    "custom/vpn": {
+      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/vpn-waybar",
       "return-type": "json",
       "interval": 3600,
       "signal": 13,
       "format": "{icon}",
-      "format-icons": ["", ""],
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/mic-toggle"
+      "format-icons": [" ", " "],
+      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/vpn-toggle"
     },
     "custom/rec": {
       "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/rec-waybar",
@@ -120,15 +130,6 @@
         "paused": "",
         "playing": ""
       },
-    },
-    "custom/wide": {
-      "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/wide-waybar",
-      "return-type": "json",
-      "interval": 10,
-      "signal": 17,
-      "format": "{icon}",
-      "format-icons": ["", ""],
-      "on-click": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/wide-toggle"
     },
     "custom/wshowkeys": {
       "exec": "$PROJECTS_PATH/github.com/gumieri/dotfiles/local/share/dotfiles/waybar/wshowkeys-waybar",

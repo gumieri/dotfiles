@@ -8,30 +8,20 @@ git clone https://github.com/gumieri/dotfiles.git ~/dotfiles && ~/dotfiles/local
 
 **neovim** — Edit text.
 
-**tmux** — terminal multiplexer
+**qutebrowser** — A keyboard-driven, vim-like browser based on Python and Qt.
+
+**tmux** — Terminal multiplexer.
 
 **zsh** — The Z shell.
 
-## Linux/Sway
+## Linux/Hyprland
 
 **foot** — Wayland terminal emulator. Has daemon mode. Also very fast.
 
-**gammastep** — Set color temperature of display according to time of day. Fork of redshift. Blue light filter.
-
-**mako** — Notification daemon for Wayland
-
 **paru** — AUR helper and pacman wrapper.
 
-**swappy** — Grab and edit on the fly snapshots of a Wayland compositor.
+**hyprland** — An i3-compatible Wayland compositor. A window manager.
 
-**sway** — An i3-compatible Wayland compositor. A window manager.
-
-**swaylock** — Screen locker for sway.
-
-**swayidle** — Idle manager for Wayland.
-
-**waybar** — Wayland bar for sway.
-
-**waylogout** — Graphical logout/suspend/reboot/shutdown dialog for wayland.
+**waybar** — Wayland bar for sway & hyprland.
 
 **wofi** — A rofi inspired launcher for wlroots compositors. Application launcher.

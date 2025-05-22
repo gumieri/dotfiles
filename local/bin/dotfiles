@@ -42,14 +42,9 @@ then
   xdg_config_files+=(foot)
 fi
 
-if command -v gammastep > /dev/null
+if command -v hyprland > /dev/null
 then
-  xdg_config_files+=(gammastep)
-fi
-
-if command -v mako > /dev/null
-then
-  xdg_config_files+=(mako)
+  xdg_config_files+=(hypr)
 fi
 
 if command -v nvim > /dev/null
@@ -62,24 +57,14 @@ then
   xdg_config_files+=(paru)
 fi
 
+if command -v qutebrowser > /dev/null
+then
+  xdg_config_files+=(qutebrowser)
+fi
+
 if command -v starship > /dev/null
 then
   xdg_config_files+=(starship)
-fi
-
-if command -v swappy > /dev/null
-then
-  xdg_config_files+=(swappy)
-fi
-
-if command -v sway > /dev/null
-then
-  xdg_config_files+=(sway)
-fi
-
-if command -v swaylock > /dev/null
-then
-  xdg_config_files+=(swaylock)
 fi
 
 if command -v tmux > /dev/null

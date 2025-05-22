@@ -1,6 +1,5 @@
-if sk_path=$(command -v sk)
+if command -v sk > /dev/null
 then
-  sk_root=$(dirname $sk_path)/..
-  source $sk_root/share/skim/key-bindings.zsh
+  source /usr/share/skim/shell/key-bindings.zsh
 fi
 

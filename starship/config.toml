@@ -21,3 +21,11 @@ disabled = false
 
 [aws]
 disabled = true
+
+[kubernetes]
+disabled = false
+format = '[\[ $namespace[@$context](bold blue)\]](blue) '
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:[0-9a-z\\-]+:[0-9]+:cluster/(?P<cluster>[\\w-]+)"
+context_alias = "$cluster  "

@@ -64,7 +64,7 @@ return require('packer').startup(function()
     end
   }
 
-  use { 'jose-elias-alvarez/null-ls.nvim',
+  use { 'nvimtools/none-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('null-ls').setup({
@@ -122,17 +122,6 @@ return require('packer').startup(function()
     end
   }
 
-  use { 'jose-elias-alvarez/typescript.nvim',
-    requires = { 'neovim/nvim-lspconfig' },
-    config = function()
-      require("typescript").setup({
-        disable_commands = false,
-        debug = false,
-        go_to_source_definition = { fallback = true }
-      })
-    end
-  }
-
   use { 'MunifTanjim/prettier.nvim',
     requires = {
       'neovim/nvim-lspconfig',
@@ -155,6 +144,36 @@ return require('packer').startup(function()
             vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
           end,
         },
+      })
+    end
+  }
+
+  -- Required plugins
+  use 'stevearc/dressing.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'MunifTanjim/nui.nvim'
+  use 'MeanderingProgrammer/render-markdown.nvim'
+
+  -- Optional dependencies
+  use 'nvim-tree/nvim-web-devicons' -- or use 'echasnovski/mini.icons'
+  use 'HakonHarnes/img-clip.nvim'
+  use 'zbirenbaum/copilot.lua'
+
+  -- Avante.nvim with build process
+  use {
+    'yetone/avante.nvim',
+    branch = 'main',
+    run = 'make',
+    config = function()
+      require('avante').setup({
+        opts = {
+          provider = "gemini",
+          vendors = {
+            gemini = {
+              model = "gemini-2.0-flash"
+            },
+          },
+        }
       })
     end
   }

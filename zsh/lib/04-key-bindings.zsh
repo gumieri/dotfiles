@@ -80,3 +80,6 @@ function open-project-path {
 }
 zle -N open-project-path
 bindkey '\C-p' open-project-path
+
+bindkey -s '\ek' 'kubectx\n'
+bindkey -s '\en' 'kubens\n'

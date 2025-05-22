@@ -1,10 +1,21 @@
 alias l='eza -lha'
 alias ll='eza -1a'
+alias lt='eza --tree --all --git-ignore'
 alias lc='wc -l'
 alias v='nvim'
 alias jv='nvim -c "set syntax=json"'
+alias yv='nvim -c "set syntax=yaml"'
 alias todo='nvim -c "set nonumber" ~/todo.md'
 alias envfile='env $(cat .env | xargs)'
 alias ssh='TERM=xterm-256color ssh'
 alias gitpatch="git tag | sort -Vr | head -n 1 | awk -F. '{\$3++; print \$0}' | sed 's/ /./g'"
 alias asciicast2gif='docker run --rm -v $PWD:/data asciinema/asciicast2gif'
+alias slack='~/.slack/bin/slack'
+alias cdr='cd $(git rev-parse --show-toplevel)'
+
+# Kubernetes
+alias kubectl='kubectl --cache-dir ~/.cache/kube '
+alias k='kubectl --cache-dir ~/.cache/kube '
+alias kx='kubectx'
+alias kn='kubens'
+alias kl='stern'

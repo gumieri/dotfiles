@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+nmcli -f GENERAL.STATE conn show $NM_VPN_NAME | rg activated > /dev/null
+if [ $? -eq 0 ]
+then
+  echo "{\"tooltip\": \"VPN On\", \"percentage\": 100, \"class\": \"enabled\"}"
+else
+  echo "{\"tooltip\": \"VPN Off\", \"percentage\": 0, \"class\": \"disabled\"}"
+fi

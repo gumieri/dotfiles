@@ -1,0 +1,10 @@
+[Unit]
+Description=hyprsunset
+Documentation=man:hyprsunset(1)
+
+[Service]
+ExecStart=hyprsunset
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+nmcli -f GENERAL.STATE conn show $NM_VPN_NAME | rg activated > /dev/null
+if [ $? -eq 0 ]
+then
+  nmcli con down $NM_VPN_NAME
+  pkill -SIGRTMIN+13 waybar
+else
+  nmcli connection up $NM_VPN_NAME passwd-file /proc/self/fd/5 5<<EOF
+vpn.secrets.password:$(op item get $OP_ID_VPN --fields label=password --reveal)$(op item get $OP_ID_VPN --otp)
+EOF
+  if [ $? -eq 0 ]
+  then
+    notify-send 'VPN Connected'
+  else
+    notify-send 'Error: VPN failed to connect'
+  fi
+  pkill -SIGRTMIN+13 waybar
+fi
