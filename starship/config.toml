@@ -20,6 +20,9 @@ error_symbol = '[⚠](bold red)'
 disabled = false
 
 [aws]
+disabled = false
+
+[nodejs]
 disabled = true
 
 [kubernetes]

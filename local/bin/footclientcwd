@@ -1,0 +1,17 @@
+#!/bin/env bash
+
+#!/usr/bin/env bash
+
+pid=$(hyprctl activewindow -j | jq '.pid')
+pname=$(ps -p ${pid} -o comm= | sed 's/-$//')
+
+if [[ $pname == 'footclient' ]]
+then
+  ppid=$(pgrep --newest --parent ${pid})
+  dir=$(readlink /proc/${ppid}/cwd || echo $HOME)
+
+  footclient --working-directory="$dir"
+else
+  footclient
+fi
+

@@ -21,6 +21,14 @@ settings:
     global: both
   content.fullscreen.window:
     global: true
+  content.media.audio_capture:
+    https://meet.google.com: true
+  content.media.audio_video_capture:
+    https://meet.google.com: true
+  content.media.video_capture:
+    https://meet.google.com: true
+  content.register_protocol_handler:
+    https://mail.google.com?extsrc=mailto&url=%25s: true
   fonts.default_family:
     global: MonaspiceNe Nerd Font
   fonts.default_size:

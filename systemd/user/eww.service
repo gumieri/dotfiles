@@ -1,0 +1,12 @@
+[Unit]
+Description=eww
+Documentation=man:eww(1)
+
+[Service]
+ExecStart=eww --no-daemonize daemon
+ExecReload=eww reload
+ExecStop=eww kill
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

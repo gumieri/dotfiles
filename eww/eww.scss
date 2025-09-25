@@ -1,0 +1,170 @@
+/* Created   by https://github.com/rxyhn 
+   Designed  by https://github.com/rxyhn
+   Maintaned by https://github.com/rxyhn
+*/
+
+// Global
+*{
+  all: unset;
+}
+
+// Variable Color's
+$background: #1d2021;
+$foreground: #e6e6e6;
+
+$black: #282828;
+$gray: #a89984;
+$red: #cc241d;
+$green: #98971a;
+$yellow: #d79921;
+$blue: #458588;
+$magenta: #b16286;
+$cyan: #689d6a;
+$white: $foreground;
+
+// EWW BAR
+.eww_bar{
+  background-color: $background;
+  padding: .3rem;
+}
+
+// Launcher
+.launcher_icon{
+    color: $cyan;
+    font-family: "MonaspiceNe Nerd Font";
+    font-size: 1em;
+    padding: 1rem 0 1rem 0;
+}
+
+// Workspaces
+.works {
+font-family: "Font Awesome 6 Pro";
+padding: .2rem .7rem .2rem .7rem;
+background-color: $black;
+border-radius: 5px;
+}
+
+// Control Panel
+.control {
+padding: .5rem;
+font-family: Material Icons;
+font-size: 1em;
+background-color: $black;
+border-radius: 5px;
+}
+.bat{
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 1em;
+  padding-right: .5rem;
+  color: $blue;
+}
+.wifi-icon{
+  margin-bottom: .2rem;
+  color: $magenta;
+}
+.brightness-icon{
+  margin: .2rem 0 .2rem 0;
+  color: $yellow;
+}
+.volume-icon{
+  margin: .2rem 0 .2rem 0;
+  color: $green;
+}
+scale trough {
+  all: unset;
+  background-color: $background;
+  border-radius: 5px;
+  min-height: 80px;
+  min-width: 10px;
+  margin: .3rem 0 .3rem 0;
+}
+.bribar trough highlight {
+  background-color: $yellow;
+  border-radius: 5px;
+}
+.volbar trough highlight {
+  background-color: $green;
+  border-radius: 5px;
+}
+
+// Clock
+.time {
+  font-family: Comic Mono;
+  font-weight: bold;
+  font-size: 1.4em;
+  background-color: $black;
+  color: $white;
+  border-radius: 5px;
+  padding: .7rem 0 .5rem 0;
+  margin: .5rem 0 .5rem 0;
+}
+
+// Calendar
+.cal-box {
+  background-color: $black;
+  font-family: Comic Mono;
+  font-size: 1em;
+  font-weight: bold;
+
+  .cal-inner-box {
+      padding: 1rem 1rem .2rem;
+
+      .cal {
+          &.highlight {
+              padding: 10rem;
+          }
+
+          padding: .8rem .25rem 0rem;
+          margin-left: 10px;
+      }
+  }
+}
+
+calendar:selected {
+  color: $blue;
+}
+
+calendar.header {
+color: $blue;
+font-weight: bold;
+}
+
+calendar.button {
+color: $magenta;
+}
+
+calendar.highlight {
+color: $magenta;
+font-weight: bold;
+}
+
+calendar:indeterminate {
+color: $background;
+}
+
+// Powermenu
+.powermenu {
+  font-family: feather;
+  font-size: 1em;
+  font-weight: bold;
+}
+.button-bspres, .button-reb, .button-lock,
+.button-quit, .button-off{
+  padding: .5rem .2rem .3rem .2rem;
+}
+.button-off{
+  margin-bottom: .5rem;
+  color: $red;
+}
+.button-bspres{
+  color: $green;
+}
+.button-reb{
+  color: $yellow
+}
+.button-quit{
+  color: $magenta;
+}
+.button-lock{
+  color: $blue;
+}

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+SSO_URL=$(cat $XDG_CONFIG_HOME/myaws/sso_url)
+DEFAULT_SESSION=$(cat $XDG_CONFIG_HOME/myaws/default_session)
+CACHE_PATH="$HOME/.aws/sso/cache/"
+
+jq --exit-status "select((.startUrl == \"${SSO_URL}\") and (.expiresAt | fromdate > now))" $CACHE_PATH/*.json > /dev/null 2>&1
+[[ $? -ne 0 ]] && aws sso login --sso-session arcotech
+ 
+AWS_PROFILE="${AWS_PROFILE:-$AWS_SSO_PROFILE}" aws "$@"

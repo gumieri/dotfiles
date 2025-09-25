@@ -327,3 +327,9 @@ c.colors.tabs.pinned.selected.odd.fg = c.colors.tabs.selected.odd.fg
 # c.colors.webpage.bg = bg4
 
 config.unbind('d', mode='normal')
+
+c.aliases.update({
+    'recycle':  'quit --save _recycle',
+    'restart':  'quit --save _restart',
+    'shutdown': 'quit --save _shutdown',
+})

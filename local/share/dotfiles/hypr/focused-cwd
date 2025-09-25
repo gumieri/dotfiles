@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-terminal=${1:-xterm}
-pid=$(swaymsg -t get_tree | jq '.. | select(.type?) | select(.type=="con") | select(.focused==true).pid')
+terminal=${1:-footclient}
+pid=$(hyprctl activewindow -j | jq '.pid')
 pname=$(ps -p ${pid} -o comm= | sed 's/-$//')
 
 if [[ $pname == $terminal ]]

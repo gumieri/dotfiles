@@ -11,7 +11,7 @@ color_end='\033[0m'
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 
-xdg_bin_files=(dotfiles)
+xdg_bin_files=(dotfiles footclientcwd myaws)
 xdg_data_files=(fonts themes icons dotfiles)
 xdg_config_files=(systemd environment.d X11)
 
@@ -35,6 +35,11 @@ esac
 if command -v alacritty > /dev/null
 then
   xdg_config_files+=(alacritty)
+fi
+
+if command -v eww > /dev/null
+then
+  xdg_config_files+=(eww)
 fi
 
 if command -v foot > /dev/null
@@ -67,6 +72,11 @@ then
   xdg_config_files+=(starship)
 fi
 
+if command -v swaync > /dev/null
+then
+  xdg_config_files+=(swaync)
+fi
+
 if command -v tmux > /dev/null
 then
   xdg_config_files+=(tmux tmux.conf)
@@ -75,11 +85,6 @@ fi
 if command -v waybar > /dev/null
 then
   xdg_config_files+=(waybar)
-fi
-
-if command -v waylogout > /dev/null
-then
-  xdg_bin_files+=(waylogout)
 fi
 
 if command -v wofi > /dev/null

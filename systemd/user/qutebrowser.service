@@ -1,0 +1,11 @@
+[Unit]
+Description=qutebrowser
+Documentation=man:qutebrowser(1)
+
+[Service]
+ExecStart=qutebrowser --nowindow
+Restart=on-failure
+Type=forking
+
+[Install]
+WantedBy=multi-user.target

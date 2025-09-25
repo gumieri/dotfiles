@@ -81,5 +81,14 @@ function open-project-path {
 zle -N open-project-path
 bindkey '\C-p' open-project-path
 
+function myawsctx {
+  chosen=$(aws configure list-profiles | fzf)
+  echo $chosen > $XDG_CONFIG_HOME/myaws/default_profile
+  export AWS_SSO_PROFILE=$chosen
+  zle reset-prompt
+}
+zle -N myawsctx
+bindkey '\C-a' myawsctx
+
 bindkey -s '\ek' 'kubectx\n'
 bindkey -s '\en' 'kubens\n'

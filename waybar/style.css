@@ -42,7 +42,6 @@
 
 window#waybar {
     background: transparent;
-    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%);
 }
 
 #workspaces button {
