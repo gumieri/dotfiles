@@ -2,10 +2,49 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # A minimal left prompt
-format = """$character"""
+format = """\
+$character\
+"""
 
 # move the rest of the prompt to the right
-right_format = """$all"""
+right_format = """\
+$username\
+$hostname\
+$shlvl\
+$singularity\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$jobs\
+$nix_shell\
+$conda\
+$container\
+$aws\
+$gcloud\
+$openstack\
+$kubernetes\
+$python\
+$rust\
+$go\
+$nodejs\
+$php\
+$java\
+$elm\
+$ruby\
+$crystal\
+$swift\
+$julia\
+$custom\
+$shell\
+$memory_usage\
+$cmd_duration\
+$terraform\
+$line_break\
+"""
 
 # Inserts a blank line between shell prompts
 add_newline = false
@@ -21,14 +60,29 @@ disabled = false
 
 [aws]
 disabled = false
+symbol = ':'
+format = '[($profile)$symbol]($style)'
 
 [nodejs]
 disabled = true
 
 [kubernetes]
 disabled = false
-format = '[\[ $namespace[@$context](bold blue)\]](blue) '
+format = ':[$namespace@[$context󱃾](bold blue)](blue) '
 
 [[kubernetes.contexts]]
 context_pattern = "arn:aws:eks:[0-9a-z\\-]+:[0-9]+:cluster/(?P<cluster>[\\w-]+)"
 context_alias = "$cluster  "
+
+[git_branch]
+ignore_branches = ['master', 'main']
+format = '[$branch(:$remote_branch)$symbol]($style)'
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+conflicted = ''
+ahead = ''
+behind = ''
+diverged = ''
+untracked = ''
+modified = '󰀨'
