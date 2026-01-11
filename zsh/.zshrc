@@ -1,38 +1,32 @@
-# Disable software flow control
 stty -ixon
 
-autoload -U compaudit compinit
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
+[[ ! -d "$(dirname $HISTFILE)" ]] && mkdir -p "$(dirname $HISTFILE)"
 
-autoload bashcompinit
-bashcompinit
-
-# Completion dump file
-compinit -i -d $ZSH_COMPDUMP
-_comp_options+=(globdots)
-
-# My zsh libs
-for config_file in $ZDOTDIR/lib/*.zsh
-do
-  source $config_file
-done
-unset config_file
-
-# Theme
-theme_path_zsh="${ZDOTDIR}/themes/${ZSH_THEME}.zsh"
-[[ -f $theme_path_zsh ]] && source $theme_path_zsh
-unset theme_path_zsh
-
-# Add "local/bin" to the Path
 [[ ! $PATH == *$HOME/.local/bin* ]] && PATH="${PATH}:${HOME}/.local/bin"
 
-autoload -U +X bashcompinit && bashcompinit
+eval "$(sheldon source)"
 
-HISTFILE="${XDG_STATE_HOME}/zsh/history"
-
-if command -v starship > /dev/null
-then
-  export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/config.toml"
-  eval "$(starship init zsh)"
+autoload -U compaudit compinit bashcompinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+  compinit -i -d "${ZDOTDIR:-$HOME}/.zcompdump"
+  bashcompinit
+else
+  compinit -C -d "${ZDOTDIR:-$HOME}/.zcompdump"
+  bashcompinit
 fi
+_comp_options+=(globdots)
 
-source $XDG_DATA_HOME/asdf/asdf.sh
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_VERIFY
+HISTSIZE=10000000
+SAVEHIST=10000000

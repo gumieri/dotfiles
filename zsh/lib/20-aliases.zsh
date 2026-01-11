@@ -1,3 +1,4 @@
+alias cd="z"
 alias l='eza -lha'
 alias ll='eza -1a'
 alias lt='eza --tree --all --git-ignore'
@@ -19,3 +20,6 @@ alias k='kubectl --cache-dir ~/.cache/kube '
 alias kx='kubectx'
 alias kn='kubens'
 alias kl='stern'
+
+# Aider
+alias arda='aider --config ~/.config/aider/config.yml'

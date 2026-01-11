@@ -67,6 +67,11 @@ then
   xdg_config_files+=(qutebrowser)
 fi
 
+if command -v sheldon > /dev/null
+then
+  xdg_config_files+=(sheldon)
+fi
+
 if command -v starship > /dev/null
 then
   xdg_config_files+=(starship)
